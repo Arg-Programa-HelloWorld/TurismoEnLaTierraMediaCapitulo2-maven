@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="Turismo en la Tierra Media">
+	<entities>
+		<data-source id="sqlite_jdbc-17cbf44b875-6e11fb2c829abccd">
+			<entity id="1" name="attractions" fq-name="attractions"/>
+			<entity id="2" name="attractions_type" fq-name="attractions_type"/>
+			<entity id="3" name="promotion_type" fq-name="promotion_type"/>
+			<entity id="4" name="promotions" fq-name="promotions"/>
+			<entity id="5" name="promotions_attractions" fq-name="promotions_attractions"/>
+			<entity id="6" name="users" fq-name="users"/>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="FK_promotions_attractions_attractions" fq-name="promotions_attractions.FK_promotions_attractions_attractions" type="fk" pk-ref="1" fk-ref="5"/>
+		<relation name="FK_attractions_attractions_type" fq-name="attractions.FK_attractions_attractions_type" type="fk" pk-ref="2" fk-ref="1"/>
+		<relation name="FK_users_attractions_type" fq-name="users.FK_users_attractions_type" type="fk" pk-ref="2" fk-ref="6"/>
+		<relation name="FK_promotions_promotion_type" fq-name="promotions.FK_promotions_promotion_type" type="fk" pk-ref="3" fk-ref="4"/>
+		<relation name="FK_promotions_attractions_promotions_2" fq-name="promotions_attractions.FK_promotions_attractions_promotions_2" type="fk" pk-ref="4" fk-ref="5"/>
+	</relations>
+</diagram>

@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-17cbf44b875-6e11fb2c829abccd": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "tourism_in_the_middle_earth.db",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "/home/r1d3r/eclipse-workspace/YO_PROGRAMO/TurismoEnLaTierraMediaCapitulo2-maven/db/tourism_in_the_middle_earth.db",
+				"url": "jdbc:sqlite:/home/r1d3r/eclipse-workspace/YO_PROGRAMO/TurismoEnLaTierraMediaCapitulo2-maven/db/tourism_in_the_middle_earth.db",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
