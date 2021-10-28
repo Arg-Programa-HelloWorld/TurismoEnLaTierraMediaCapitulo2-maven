@@ -74,7 +74,7 @@ public class UserTest {
 							
 	}
 	
-	
+	/*
 	@Test
 	public void findALLUsersTest() throws SQLException {
 		
@@ -87,5 +87,6 @@ public class UserTest {
 		}		
 											
 	}
+	*/
 
 }

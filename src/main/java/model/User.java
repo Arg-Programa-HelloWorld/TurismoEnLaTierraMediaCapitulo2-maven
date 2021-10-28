@@ -111,7 +111,7 @@ public class User {
 				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + "]";
 	}
 	
-	/*
+	
 	public ArrayList<Attraction> getListOfAttractions() {
 		return listOfAttractions;
 	}
@@ -127,7 +127,163 @@ public class User {
 	public void setListOfPromotions(ArrayList<Promotion> listOfPromotions) {
 		this.listOfPromotions = listOfPromotions;
 	}
-	*/
+	
+	protected boolean haveAttraction(Attraction newAttraction) { 
+								
+		return false;
+		
+	}
+	
+	protected boolean havePromotion(Promotion newPromotion) { 
+		
+		return false;
+		
+	}
+	
+	protected boolean haveMoney(double cost) {
+		
+		if (cost <= this.getBudget()) {
+		
+			return true;	// Tengo dinero disponible!!
+			
+		} else {			
+			
+			View.colorearMensaje(View.red,"[---------------------------------------------------------------------]");
+			View.colorearMensaje(View.red,"[ Your budget is insufficient to purchase this product!!!             ]"); // Si Users no posee budget suficiente
+			View.colorearMensaje(View.red,"[---------------------------------------------------------------------]");
+			return false;	// No tengo dinero disponible!!
+			
+			
+		}
+	}
+		
+	protected boolean haveTime(double time) {
+		
+		if (time <= this.getTime()) {
+		
+			return true;	// Tengo tiempo disponible!!
+			
+						
+		} else {
+			
+			View.colorearMensaje(View.red,"[---------------------------------------------------------------------]");
+			View.colorearMensaje(View.red,"[ Your do not have enough time to purchase this product!!!            ]"); // Si Users no posee budget suficiente
+			View.colorearMensaje(View.red,"[---------------------------------------------------------------------]");
+			
+			return false;	// No tengo tiempo disponible!!
+			
+		}
+		
+	}
+	
+	protected void pay(double cost) {		
+		
+		this.setBudget(this.getBudget() - cost);
+		
+	}
+	
+	protected void spendTime(double time) {
+		
+		this.setTime(this.getTime() - time);
+		
+	}
+	
+	protected void buyAttraction(Attraction newAttraction) {
+		
+		/*
+		if ( !this.haveAttraction(newAttraction) && this.haveMoney(newAttraction.getCost()) && this.haveTime(newAttraction.getTime()) ) {
+		
+			// Si no tengo la atraccion        y       Si tengo dinero suficiente        y        Si tengo tiempo suficiente
+			
+			this.pay(newAttraction.getCost());			// Pago
+			this.spendTime(newAttraction.getTime()); 	// Uso tiempo
+			this.setListOfAttractions(newAttraction); 	// Agrego la atracion a la lista
+			
+			//newAttraction.setQuota(newAttraction.getQuota() - 1);
+			
+			// Mejoradolo aun más en un metodo quitar cupo para ser utilizado desde una compra
+			// de Atraccion o por compra de una Promocion.-  
+			removeQuotaOfAnAttraction(newAttraction);
+			
+		}	
+		*/
+	}	
+	
+	protected void buyPromotion(Promotion newPromotion) {
+		
+		/*---------------- NEW CODE ----------------*/
+		
+		int flag = 0 ;
+						
+		if ( !this.havePromotion(newPromotion) && this.haveMoney(newPromotion.getCost()) && this.haveTime(newPromotion.getTime()) ){
+			
+			
+				
+				
+		} else {
+				
+				View.colorearMensaje(View.red,"[---------------------------------------------------------------------]");
+				View.colorearMensaje(View.red,"[ You already own some products of this promotion!!!                  ]");
+				View.colorearMensaje(View.red,"[---------------------------------------------------------------------]");
+						
+		}		
+			
+		
+
+	}
+	
+	protected void removeQuotaOfAnAttraction(Attraction anAttraction) {
+		
+		anAttraction.setQuota(anAttraction.getQuota()-1);
+		
+	}
+	
+	protected void calculateTotalTime() {
+		
+		double amountOfTime = 0;
+				
+		for (Attraction attraction : this.getListOfAttractions()) {
+			
+			amountOfTime += attraction.getTime();
+			
+		}
+		
+		for (Promotion promotion : this.getListOfPromotions()) {
+			
+			amountOfTime += promotion.time;
+						
+		}
+		
+		this.setTotalTime(amountOfTime);
+		
+	}
+	
+	protected void calculateTotalGold() {
+		
+		double amountOfGold = 0;
+		
+		for (Attraction attraction : this.getListOfAttractions()) {
+			
+			amountOfGold += attraction.getCost();
+			
+		}
+		
+		for (Promotion promotion : this.getListOfPromotions()) {
+			
+			amountOfGold += promotion.cost;		
+			
+		}
+		
+		this.setTotalGold(amountOfGold);
+			
+	}
+	
+	protected void calculateTimeAndGoldSpent() {
+		
+		this.calculateTotalTime();
+		this.calculateTotalGold();
+				
+	}
 
 		
 	

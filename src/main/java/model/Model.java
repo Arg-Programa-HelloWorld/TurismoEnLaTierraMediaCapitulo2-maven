@@ -35,7 +35,7 @@ public class Model {
 			
 				View.welcomeMenu();
 				
-				Functions.getUser(idUser);
+				//Functions.getUser(idUser);
 							
 				do{
 										
@@ -53,17 +53,17 @@ public class Model {
 							
 							if (idMenuPromotion == 1) {	// 1 - See all promotions with your timeUser limit.-
 								
-								Functions.getPromotionTimeLimit(user.getTime());
+								//Functions.getPromotionTimeLimit(user.getTime());
 								//View.line();
 								
 							} else if (idMenuPromotion == 2) { // 2 - See all promotions.-
 								
-								Functions.getAllPromotion();
+								//Functions.getAllPromotion();
 								//View.line();
 								
 							} else if (idMenuPromotion == 3) { // 3 - To buy.-
 								
-								Functions.buyPromotion(); 			
+								//Functions.buyPromotion(); 			
 								//View.line(); 
 								
 							}
@@ -80,17 +80,17 @@ public class Model {
 							
 							if (idMenuAttraction == 1) { // 1 - See all the attractions according to your preferences.-
 								
-								Functions.getAttractionsByPreferences(user.getPreferences());
+								//Functions.getAttractionsByPreferences(user.getPreferences());
 								
 								
 							} else if (idMenuAttraction == 2) { // 2 - See all attractions.-
 								
-								Functions.getAllAttractions();
+								//Functions.getAllAttractions();
 								
 								
 							} else if (idMenuAttraction == 3) { // 3 - To buy
 								
-								Functions.buyAttraction();
+								//Functions.buyAttraction();
 																
 							}
 						
@@ -99,16 +99,16 @@ public class Model {
 						
 					} else if (idMenu == 3) {	// Your Shopping.-
 						
-						Functions.myShopping(idUser);
+						//Functions.myShopping(idUser);
 						
 					} else if (idMenu == 4) {	// 4 - Your current situation
 						
-						Functions.getUser(idUser);
+						//Functions.getUser(idUser);
 												
 						
 					} else if (idMenu == 5) {	// Print your purchases
 						
-						Report.toPrint(user);						
+						//Report.toPrint(user);						
 												
 					} else if (idMenu == 6) {	// Print the purchases of each User	
 					

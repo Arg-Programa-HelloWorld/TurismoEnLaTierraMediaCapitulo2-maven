@@ -166,9 +166,7 @@ public class UserDAOImpl implements UserDAO {
 			int total = results.getInt("cantidad_de_usuarios");
 			
 			return total;
-			
-			
-			
+									
 		} catch (Exception e) {
 			
 			throw new MissingDataException(e);
@@ -177,16 +175,8 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 	
-	
-	
-	
-	private User toUser(ResultSet results) throws SQLException {
-		//User(         Integer id,        String name,         Double budget,       Double time,         if_preference_type                       preference_type)
-		return new User(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),AttractionType.valueOf(results.getString(6)));
-	}
-
 	public User getLastUser() {
-			
+		
 		try {
 			
 			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
@@ -212,6 +202,11 @@ public class UserDAOImpl implements UserDAO {
 			
 		}
 		
+	}
+		
+	private User toUser(ResultSet results) throws SQLException {
+		//User(         Integer id,        String name,         Double budget,       Double time,         if_preference_type                       preference_type)
+		return new User(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),AttractionType.valueOf(results.getString(6)));
 	}
 	
 }
