@@ -12,21 +12,27 @@ import model.User;
 
 public class UserTest {
 
+	
 	@Test
 	public void insertUserTest() throws SQLException {
 		
-		User userTest = null;
+		//User userTest = null;
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
 		System.out.println("Incertar el Usuario: 'UsuarioTest'");
-		userTest = new User("UsuarioTest",8,8,1);
+		User userTest = new User("UsuarioTest",8,8,1);
 		userDAO.insert(userTest);
 		
-		assertEquals(1, userDAO.insert(userTest));
+		System.out.println(userDAO.findById(userDAO.getLastUser().getId()));
 		
-		System.out.println(userTest);							
+		userTest = userDAO.getLastUser();
+		
+		assertEquals("UsuarioTest", userTest.getName());
+											
 	}
+	
+	
 	
 	@Test
 	public void updateUserTest() throws SQLException {
@@ -35,21 +41,24 @@ public class UserTest {
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
-		System.out.println("Modificar el Usuario ID '13'");
+		System.out.println("Modificar el Usuario ID 'N'");
 		
-		User userTestUpdate = userDAO.findById(180);
+		User userTestUpdate = userDAO.findById(11);
+		System.out.println(userTestUpdate);		
+		userTestUpdate.setName("CambiamosDeNombre");
+		userDAO.update(userTestUpdate);
+		
+		
+		userTestUpdate = userDAO.findById(11);
+		System.out.println(userTestUpdate);		
+		userTestUpdate.setName("Boromir");
+		userDAO.update(userTestUpdate);
 		System.out.println(userTestUpdate);
 		
-		userTestUpdate.setName("CambiamosDeNombre");
-		
-		userDAO.update(userTestUpdate);
-			
-		System.out.println(userDAO.findById(180));
-		
 		//assertEquals(1, userDAO.insert(userTest));
-		
-		System.out.println(userTestUpdate);							
+			
 	}
+	
 	
 	
 	@Test
@@ -63,6 +72,20 @@ public class UserTest {
 		
 		System.out.println(userDAO.findById(1));
 							
+	}
+	
+	
+	@Test
+	public void findALLUsersTest() throws SQLException {
+		
+		UserDAO userDAO = DAOFactory.getUserDAO();
+				
+		for (User user : userDAO.findAll()) { 
+			
+			System.out.println(user);
+		
+		}		
+											
 	}
 
 }

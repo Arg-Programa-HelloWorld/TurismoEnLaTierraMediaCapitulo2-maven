@@ -13,6 +13,34 @@ public class App {
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
+		
+		User userTestUpdate = null;
+		
+		//buscar un User
+		System.out.println(userDAO.findById(10));
+		userTestUpdate = userDAO.findById(10);
+		
+		
+		System.out.println("Modificar el Usuario ID '13'");
+		userTestUpdate = userDAO.findById(13);
+		System.out.println(userTestUpdate);
+		
+		userTestUpdate.setName("CambiamosDeNombre");
+		
+		userDAO.update(userTestUpdate);
+			
+		System.out.println(userDAO.findById(10));
+		
+		//assertEquals(1, userDAO.insert(userTest));
+		
+		System.out.println(userTestUpdate);
+		
+		
+		userTestUpdate = userDAO.findById(13);
+		userTestUpdate.setName("Roberto");
+		userDAO.update(userTestUpdate);
+		System.out.println(userTestUpdate);
+		
 		//Obtener el Usuario 1
 		//System.out.println("Obtener el usuario ID Nº: '1'");
 		//System.out.println(userDAO.findById(1));

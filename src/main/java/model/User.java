@@ -18,26 +18,26 @@ public class User {
 
 	
 	// Para Obtener el Usuario de la BDD
-	public User(int id, String name, double budget, double time, AttractionType preferences) {
-		
+	public User(int id, String name, double budget, double time, int preferencesID, AttractionType preferences) {
+		super();
 		this.id = id;
-		this.name = name;					// nombre
-		this.budget =  budget;				// presupuesto
-		this.time = time;					// tiempo que dispone
-
-		this.preferences = preferences;		// preferencias
-
+		this.name = name;
+		this.budget = budget;
+		this.time = time;
+		this.preferencesID = preferencesID;
+		this.preferences = preferences;
+		
 	}
-	
+
+
 	// Para Creaar un Usuario en la BDD
 	public User(String name, double budget, double time, int preferencesID) {
+		super();
+		this.name = name;
+		this.budget = budget;
+		this.time = time;
+		this.preferencesID = preferencesID;
 		
-		this.name = name;					// nombre
-		this.budget =  budget;				// presupuesto
-		this.time = time;					// tiempo que dispone
-
-		this.preferencesID = preferencesID;		// preferencias
-
 	}
 
 	public int getId() {

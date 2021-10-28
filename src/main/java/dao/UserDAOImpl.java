@@ -13,8 +13,6 @@ import model.AttractionType;
 
 public class UserDAOImpl implements UserDAO {
 
-	
-	
 	public int insert(User user) {
 
 		try {
@@ -99,7 +97,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			
 			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
-			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.name AS preferences\n"
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id\n"
 					+ "WHERE users.id = ?";
@@ -130,7 +128,7 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			
 			//String sqlQuery = "SELECT * FROM users";
-			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.name AS preferences\n"
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preferences\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id";
 			Connection connection = ConnectionProvider.getConnection();
@@ -179,10 +177,42 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 	
+	
+	
+	
 	private User toUser(ResultSet results) throws SQLException {
-		//User(         Integer id,        String name,         Double budget,       Double time,         preference_type)
-		return new User(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),AttractionType.valueOf(results.getString(5)));
-	}	
+		//User(         Integer id,        String name,         Double budget,       Double time,         if_preference_type                       preference_type)
+		return new User(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),AttractionType.valueOf(results.getString(6)));
+	}
+
+	public User getLastUser() {
+			
+		try {
+			
+			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preferences\n"
+					+ "FROM users\n"
+					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id ORDER BY users.id DESC LIMIT 1";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			ResultSet resultados = statement.executeQuery();
+
+			User user = null;
+
+			if (resultados.next()) {
+				user = toUser(resultados);
+			}
+			return user;
+			
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
+	}
 	
 }
 
