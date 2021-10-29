@@ -205,7 +205,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 		
 	private User toUser(ResultSet results) throws SQLException {
-		//User(         Integer id,        String name,         Double budget,       Double time,         if_preference_type                       preference_type)
+		//User(         Integer id,        String name,         Double budget,       Double time,         int if_preference_type                   AttractionType preference_type)
 		return new User(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),AttractionType.valueOf(results.getString(6)));
 	}
 	

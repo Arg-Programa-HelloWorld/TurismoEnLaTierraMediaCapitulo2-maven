@@ -17,7 +17,7 @@ public class User {
 	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
 
 	
-	// Para Obtener el Usuario de la BDD
+	// Para Obtener un Usuario de la BDD
 	public User(int id, String name, double budget, double time, int preferencesID, AttractionType preferences) {
 		super();
 		this.id = id;
@@ -30,7 +30,7 @@ public class User {
 	}
 
 
-	// Para Creaar un Usuario en la BDD
+	// Para Insertar un Usuario en la BDD
 	public User(String name, double budget, double time, int preferencesID) {
 		super();
 		this.name = name;

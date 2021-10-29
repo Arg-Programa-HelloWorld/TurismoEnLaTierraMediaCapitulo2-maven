@@ -20,7 +20,7 @@ public class App {
 		System.out.println(userDAO.findById(10));
 		userTestUpdate = userDAO.findById(10);
 		
-		
+		/*
 		System.out.println("Modificar el Usuario ID '13'");
 		userTestUpdate = userDAO.findById(13);
 		System.out.println(userTestUpdate);
@@ -40,6 +40,7 @@ public class App {
 		userTestUpdate.setName("Roberto");
 		userDAO.update(userTestUpdate);
 		System.out.println(userTestUpdate);
+		*/
 		
 		//Obtener el Usuario 1
 		//System.out.println("Obtener el usuario ID Nº: '1'");
@@ -64,11 +65,11 @@ public class App {
 		*/
 		
 		
-		/*
+		
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		System.out.println("Ver todas las Atracciones");
 		System.out.println(attractionDAO.findAll());
-		*/
+		
 		
 		
 		/*
