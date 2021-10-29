@@ -28,14 +28,14 @@ public class AttractionTest {
 	}
 	*/
 	
-	/*
+	
 	@Test
 	public void updateAnAttractionTest() throws SQLException {
 		
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		
-		System.out.println("Modificar la atraccion ID 'Nº 1'");
-		Attraction attractionTemptUpdate = attractionDAO.findById(11);	// buscamos la atraccion
+		System.out.println("Modificar la atraccion ID 'Nº 11'");
+		Attraction attractionTemptUpdate = attractionDAO.findById(11);	// buscamos la atraccion Nº 1
 		System.out.println(attractionTemptUpdate);						// la mostramos
 		
 		assertEquals("Parth Galen", attractionTemptUpdate.getName());
@@ -57,7 +57,7 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 		
 	}
-	*/
+	
 	
 	/*
 	@Test
@@ -70,18 +70,30 @@ public class AttractionTest {
 		assertEquals("Moria", attractionDAO.findById(1).getName());
 		
 		System.out.println(attractionDAO.findById(1));
+		
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
 	*/
 	
-	/*
+	
 	@Test
 	public void findALLAtraccionTest() throws SQLException {
 		
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		
 		System.out.println("Ver todas las Atracciones");
-		System.out.println(attractionDAO.findAll());
+		
+		for (Attraction attraction : attractionDAO.findAll()) { 
+			
+			System.out.println(attraction);
+		
+		}
+		
+		//System.out.println(attractionDAO.findAll());  // de esta forma las vemos todas en una sola linea
+		
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
+	
 }

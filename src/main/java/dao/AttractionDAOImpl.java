@@ -10,6 +10,7 @@ import java.util.List;
 import jdbc.ConnectionProvider;
 import model.Attraction;
 import model.AttractionType;
+import model.User;
 
 public class AttractionDAOImpl implements AttractionDAO {
 
@@ -174,11 +175,42 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 	}
 	
+	public Attraction getLastAttraction() throws SQLException {
+	
+		try {
+			
+			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
+			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions_type.id, attractions_type.name AS preference\n"
+					+ "FROM attractions\n"
+					+ "INNER JOIN attractions_type ON attractions.fk_id_attraction_type = attractions_type.id\n"
+					+ "ORDER BY attractions.id DESC LIMIT 1";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			ResultSet resultados = statement.executeQuery();
+
+			Attraction attractionTemp = null;
+
+			if (resultados.next()) {
+				attractionTemp = toAttraction(resultados);
+			}
+			
+			return attractionTemp;
+			
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
+	}
+	
 	private Attraction toAttraction(ResultSet results) throws SQLException {
 		//Attraction(         Integer id,        String name,         Double cost,         Double time,         Integer quota     Integer fk_id_preference)                AttractionType attractionType
 		return new Attraction(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),results.getInt(6),AttractionType.valueOf(results.getString(7)));
 	}
-		
+			
 }
 
 
