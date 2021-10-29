@@ -10,6 +10,7 @@ import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.UserDAO;
 import model.Attraction;
+import model.User;
 
 public class AttractionTest {
 
@@ -28,7 +29,7 @@ public class AttractionTest {
 	}
 	*/
 	
-	
+	/*
 	@Test
 	public void updateAnAttractionTest() throws SQLException {
 		
@@ -57,6 +58,8 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 		
 	}
+	*/
+	
 	
 	
 	/*
@@ -77,6 +80,8 @@ public class AttractionTest {
 	*/
 	
 	
+	
+	/*
 	@Test
 	public void findALLAtraccionTest() throws SQLException {
 		
@@ -95,5 +100,35 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
+	*/
 	
+	
+	
+	/*
+	@Test
+	public void deleteAttractionTest() throws SQLException {
+		
+		int cantidadAntes = 0;
+		int cantidadLuego = 0;
+		
+		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		
+		cantidadAntes = attractionDAO.countAll();
+		
+		System.out.println("Insertar una Atraccion");
+		Attraction attractionTemp = new Attraction("AttractionTest",7,5,6,3);
+		attractionDAO.insert(attractionTemp);
+		
+		assertEquals("AttractionTest", attractionDAO.getLastAttraction().getName());
+		
+		attractionDAO.delete(attractionDAO.getLastAttraction());
+		
+		cantidadLuego = attractionDAO.countAll();
+		
+		assertEquals(cantidadAntes, cantidadLuego);
+		
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+							
+	}
+	*/
 }

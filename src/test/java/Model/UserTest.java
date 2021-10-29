@@ -35,6 +35,8 @@ public class UserTest {
 	}
 	*/
 	
+	
+	
 	/*	
 	@Test
 	public void updateAnUserTest() throws SQLException {
@@ -68,6 +70,7 @@ public class UserTest {
 	*/
 	
 	
+	
 	/*
 	@Test
 	public void findByIDUserTest() throws SQLException {
@@ -84,6 +87,7 @@ public class UserTest {
 							
 	}
 	*/
+	
 	
 	
 	/*
@@ -106,6 +110,8 @@ public class UserTest {
 	*/
 	
 	
+	
+	/*
 	@Test
 	public void deleteUserTest() throws SQLException {
 		
@@ -131,5 +137,6 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
+	*/
 
 }
