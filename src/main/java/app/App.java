@@ -20,6 +20,7 @@ public class App {
 		System.out.println(userDAO.findById(10));
 		userTestUpdate = userDAO.findById(10);
 		
+		
 		/*
 		System.out.println("Modificar el Usuario ID '13'");
 		userTestUpdate = userDAO.findById(13);
@@ -48,27 +49,32 @@ public class App {
 		
 		//System.out.println("Ver todas los Usuarios");
 		//System.out.println(userDAO.findAll());
-		//System.out.println("-----------------------------------------------------------------------------");
+		
 		
 		//System.out.println("Incertar el Usuario: Titi");
 		//User alf = new User("Mandraque",80,40,1);
 		//userDAO.insert(alf);
-		//System.out.println("-----------------------------------------------------------------------------");
 		
 		
-		/*
+		
+		
 		User tempUser = userDAO.findById(108);
 		tempUser.setName("Cachirlo");
 		userDAO.update(tempUser);
 		System.out.println(userDAO.findById(108));
-		System.out.println("-----------------------------------------------------------------------------");
-		*/
 		
+		
+		
+		
+		//--------------------------------------------------------------
 		
 		
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		System.out.println("Ver todas las Atracciones");
 		System.out.println(attractionDAO.findAll());
+		
+		// cuenta cantidad de atraciones
+		//System.out.println(attractionDAO.countAll());
 		
 		
 		

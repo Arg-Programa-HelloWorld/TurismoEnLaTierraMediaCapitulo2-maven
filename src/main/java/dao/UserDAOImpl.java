@@ -156,14 +156,14 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			
-			String sqlQuery = "SELECT COUNT(*) AS cantidad_de_usuarios FROM users";
+			String sqlQuery = "SELECT COUNT(*) AS users_quantity FROM users";
 			Connection connection = ConnectionProvider.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			ResultSet results = statement.executeQuery();
 			
 			results.next();
 			
-			int total = results.getInt("cantidad_de_usuarios");
+			int total = results.getInt("users_quantity");
 			
 			return total;
 									

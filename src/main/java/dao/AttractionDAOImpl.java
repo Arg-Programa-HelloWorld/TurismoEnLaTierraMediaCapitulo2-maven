@@ -25,8 +25,8 @@ public class AttractionDAOImpl implements AttractionDAO {
 			statement.setString(1, attraction.getName());
 			statement.setDouble(2, attraction.getCost());
 			statement.setDouble(3, attraction.getTime());
-			statement.setDouble(4, attraction.getQuota());
-			statement.setInt(5, attraction.getId());
+			statement.setInt(4, attraction.getQuota());
+			statement.setInt(5, attraction.getAttractionTypeID());
 			
 			int rowsInsert = statement.executeUpdate();
 				
@@ -41,14 +41,56 @@ public class AttractionDAOImpl implements AttractionDAO {
 	
 	}
 
-	public int update(Attraction t) {
+	public int update(Attraction attraction) {
 
-		return 0;
+		try {
+			
+			String sqlQuery = "UPDATE attractions SET name = ?, cost = ?, time = ?, quota = ?, fk_id_attraction_type = ? WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+		
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			
+			statement.setString(1, attraction.getName());
+			statement.setDouble(2, attraction.getCost());
+			statement.setDouble(3, attraction.getTime());
+			statement.setInt(4, attraction.getQuota());
+			statement.setInt(5, attraction.getAttractionTypeID());
+			statement.setInt(6, attraction.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+			
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
 	}
 
-	public int delete(Attraction t) {
+	public int delete(Attraction attraction) {
 
-		return 0;
+		try {
+			
+			String sqlQuery = "DELETE FROM attractions WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+				
+			statement.setInt(1, attraction.getId());
+			
+			int rowsDelete = statement.executeUpdate();
+			
+			return rowsDelete;			
+			
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
 	}
 
 	public Attraction findById(int attractionID) {
@@ -111,8 +153,26 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 	public int countAll() {
 
-		return 0;
-	}	
+		try {
+			
+			String sqlQuery = "SELECT COUNT(*) AS attractions_quantity FROM attractions";
+			Connection connection = ConnectionProvider.getConnection();
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			ResultSet results = statement.executeQuery();
+			
+			results.next();
+			
+			int total = results.getInt("attractions_quantity");
+			
+			return total;
+									
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+
+	}
 	
 	private Attraction toAttraction(ResultSet results) throws SQLException {
 		//Attraction(         Integer id,        String name,         Double cost,         Double time,         Integer quota     Integer fk_id_preference)                AttractionType attractionType

@@ -14,30 +14,28 @@ public class UserTest {
 
 	
 	@Test
-	public void insertUserTest() throws SQLException {
+	public void insertAnUserTest() throws SQLException {
 		
 		//User userTest = null;
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
 		System.out.println("Incertar el Usuario: 'UsuarioTest'");
-		User userTest = new User("UsuarioTest",8,8,1);
-		userDAO.insert(userTest);
+		User userTemp = new User("UsuarioTest",8,8,1);
+		userDAO.insert(userTemp);
 		
 		System.out.println(userDAO.findById(userDAO.getLastUser().getId()));
 		
-		userTest = userDAO.getLastUser();
+		userTemp = userDAO.getLastUser();
 		
-		assertEquals("UsuarioTest", userTest.getName());
+		assertEquals("UsuarioTest", userTemp.getName());
 											
 	}
 	
 	
-	
-	@Test
-	public void updateUserTest() throws SQLException {
 		
-		//User userTestUpdate = null;
+	@Test
+	public void updateAnUserTest() throws SQLException {
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
