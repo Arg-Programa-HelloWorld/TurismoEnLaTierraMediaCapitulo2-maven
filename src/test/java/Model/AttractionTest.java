@@ -26,7 +26,7 @@ public class AttractionTest {
 						
 	}
 	
-	
+	/*
 	
 	@Test
 	public void updateAnAttractionTest() throws SQLException {
@@ -122,5 +122,6 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
+	*/
 	
 }

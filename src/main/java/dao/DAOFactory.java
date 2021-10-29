@@ -13,5 +13,11 @@ public class DAOFactory {
 		return new AttractionDAOImpl();
 		
 	}
+	
+	public static PromotionDAO getPromotionDAO() {
+		
+		return new PromotionDAOImpl();
+		
+	}
 
 }

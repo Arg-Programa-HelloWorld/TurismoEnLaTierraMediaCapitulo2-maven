@@ -3,8 +3,6 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.User;
-
 public interface GenericDAO<T> {
 	
 	public int insert(T t) throws SQLException;
