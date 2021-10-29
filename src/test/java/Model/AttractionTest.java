@@ -6,15 +6,13 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
-import dao.AttractionDAO;
 import dao.DAOFactory;
-import dao.UserDAO;
+import dao.AttractionDAO;
 import model.Attraction;
-import model.User;
 
 public class AttractionTest {
 
-	/*
+	
 	@Test
 	public void insertAnAtraccionTest() throws SQLException {
 		
@@ -27,9 +25,9 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
 	
-	/*
+	
+	
 	@Test
 	public void updateAnAttractionTest() throws SQLException {
 		
@@ -58,11 +56,9 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 		
 	}
-	*/
+		
 	
 	
-	
-	/*
 	@Test
 	public void findByIDAttractionTest() throws SQLException {
 		
@@ -77,11 +73,9 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
 	
 	
 	
-	/*
 	@Test
 	public void findALLAtraccionTest() throws SQLException {
 		
@@ -100,11 +94,9 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
 	
 	
 	
-	/*
 	@Test
 	public void deleteAttractionTest() throws SQLException {
 		
@@ -130,5 +122,5 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
+	
 }

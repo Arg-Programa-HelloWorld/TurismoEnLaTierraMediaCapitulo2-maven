@@ -12,7 +12,7 @@ import model.User;
 
 public class UserTest {
 
-	/*
+	
 	@Test
 	public void insertAnUserTest() throws SQLException {
 		
@@ -33,11 +33,9 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 											
 	}
-	*/
 	
 	
-	
-	/*	
+			
 	@Test
 	public void updateAnUserTest() throws SQLException {
 		
@@ -67,11 +65,9 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 			
 	}
-	*/
 	
 	
-	
-	/*
+		
 	@Test
 	public void findByIDUserTest() throws SQLException {
 		
@@ -79,18 +75,16 @@ public class UserTest {
 		
 		System.out.println("Encontrar el Usuario ID: '1'");
 		
-		assertEquals("Eowyn", userDAO.findById(1).getName());
+		assertEquals("Eowyn-Normal", userDAO.findById(1).getName());
 		
 		System.out.println(userDAO.findById(1));
 		
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
 	
 	
-	
-	/*
+		
 	@Test
 	public void findALLUsersTest() throws SQLException {
 		
@@ -107,13 +101,11 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 											
 	}
-	*/
 	
 	
 	
-	/*
 	@Test
-	public void deleteUserTest() throws SQLException {
+	public void deleteAnUserTest() throws SQLException {
 		
 		int cantidadAntes = 0;
 		int cantidadLuego = 0;
@@ -137,6 +129,5 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
-
+	
 }
