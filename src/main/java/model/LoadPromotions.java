@@ -60,7 +60,7 @@ public class LoadPromotions {
 					}
 					
 					typeOf = PromotionType.PERCENTAGE;
-					promotion = new PercentagePromotion(id, typeOf, name, attractionListPer, discount);
+					promotion = new PromotionPercentage(id, typeOf, name, attractionListPer, discount);
 					attractionListPer = null;
 
 				} else if (type.equals("PromotionType.ABSOLUTE")) {

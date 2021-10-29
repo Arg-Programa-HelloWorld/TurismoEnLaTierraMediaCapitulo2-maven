@@ -2,19 +2,26 @@ package model;
 
 import java.util.ArrayList;
 
-public class PercentagePromotion extends Promotion {
+public class PromotionPercentage extends Promotion {
 
 	private double percentageDiscount;
 	
-	public PercentagePromotion(int id, PromotionType promotionType, String name, ArrayList<Attraction> attractionList,
-			double percentageDiscount) {
+	public PromotionPercentage(int id, String name, double time, double cost, double discount, int promotionTypeID,
+			PromotionType promotionType) {
 		
-		super(id, promotionType, name, attractionList);
-		this.percentageDiscount = percentageDiscount;
+		super(id, name, time, cost, discount, promotionTypeID, promotionType);
 		
-		this.calculatePrice();
+		calculatePrice();
 		
-	}	
+	}
+	
+	public PromotionPercentage(String name, double time, double cost, double discount, int promotionTypeID) {
+		
+		super(name, time, cost, discount, promotionTypeID);
+		
+		//calculatePrice();
+		
+	}
 	
 	@Override
 	public void calculatePrice() {

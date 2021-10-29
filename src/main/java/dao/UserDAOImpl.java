@@ -131,11 +131,14 @@ public class UserDAOImpl implements UserDAO {
 			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preferences\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id";
+			
 			Connection connection = ConnectionProvider.getConnection();
+			
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			ResultSet results = statement.executeQuery();
 			
 			List<User> users = new LinkedList<User>();
+			
 			while (results.next()) {
 			
 				users.add(toUser(results));
@@ -188,12 +191,12 @@ public class UserDAOImpl implements UserDAO {
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			ResultSet resultados = statement.executeQuery();
 
-			User user = null;
+			User userTemp = null;
 
 			if (resultados.next()) {
-				user = toUser(resultados);
+				userTemp = toUser(resultados);
 			}
-			return user;
+			return userTemp;
 			
 			
 		} catch (Exception e) {

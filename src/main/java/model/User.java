@@ -10,12 +10,14 @@ public class User {
 	private double time;					// tiempo que dispone
 	private int preferencesID;
 	private AttractionType preferences;		// preferencias
+	
 	private double totalTime;
 	private double totalGold;
 	
 	private ArrayList<Attraction> listOfAttractions = new ArrayList<Attraction>();
 	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
 
+	
 	
 	// Para Obtener un Usuario de la BDD
 	public User(int id, String name, double budget, double time, int preferencesID, AttractionType preferences) {
@@ -250,7 +252,7 @@ public class User {
 		
 		for (Promotion promotion : this.getListOfPromotions()) {
 			
-			amountOfTime += promotion.time;
+			//amountOfTime += promotion.time;
 						
 		}
 		
@@ -270,7 +272,7 @@ public class User {
 		
 		for (Promotion promotion : this.getListOfPromotions()) {
 			
-			amountOfGold += promotion.cost;		
+			//amountOfGold += promotion.cost;		
 			
 		}
 		

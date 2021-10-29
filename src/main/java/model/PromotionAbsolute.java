@@ -6,13 +6,20 @@ public class PromotionAbsolute extends Promotion {
 
 	double absoluteDiscount;
 	
-	public PromotionAbsolute(int id, PromotionType promotionType, String name, ArrayList<Attraction> attractionList,
-			double absoluteDiscount) {
+	public PromotionAbsolute(int id, String name, double time, double cost, double discount, int promotionTypeID,
+			PromotionType promotionType) {
 		
-		super(id, promotionType, name, attractionList);
-		this.absoluteDiscount = absoluteDiscount;
+		super(id, name, time, cost, discount, promotionTypeID, promotionType);
 		
 		calculatePrice();
+		
+	}
+	
+	public PromotionAbsolute(String name, double time, double cost, double discount, int promotionTypeID) {
+		
+		super(name, time, cost, discount, promotionTypeID);
+		
+		//calculatePrice();
 		
 	}
 

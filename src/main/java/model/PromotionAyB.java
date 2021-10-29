@@ -4,11 +4,20 @@ import java.util.ArrayList;
 
 public class PromotionAyB extends Promotion {
 
-	public PromotionAyB(int id, PromotionType promotionType, String name, ArrayList<Attraction> attractionList) {
+	public PromotionAyB(int id, String name, double time, double cost, double discount, int promotionTypeID,
+			PromotionType promotionType) {
 		
-		super(id, promotionType, name, attractionList);
-
+		super(id, name, time, cost, discount, promotionTypeID, promotionType);
+		
 		calculatePrice();
+		
+	}
+	
+	public PromotionAyB(String name, double time, double cost, double discount, int promotionTypeID) {
+		
+		super(name, time, cost, discount, promotionTypeID);
+		
+		//calculatePrice();
 		
 	}
 
