@@ -60,7 +60,7 @@ public class UserTest {
 	
 	
 	@Test
-	public void findByIDTest() throws SQLException {
+	public void findByIDUserTest() throws SQLException {
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		

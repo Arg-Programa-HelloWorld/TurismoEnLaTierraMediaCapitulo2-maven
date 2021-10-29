@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import dao.AttractionDAO;
 import dao.DAOFactory;
+import dao.UserDAO;
 import model.Attraction;
 
 public class AttractionTest {
@@ -58,6 +59,20 @@ public class AttractionTest {
 	}
 	*/
 	
+	/*
+	@Test
+	public void findByIDAttractionTest() throws SQLException {
+		
+		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		
+		System.out.println("Encontrar la Atraccion con el ID: '1' y el nombre de 'Moria'");
+		
+		assertEquals("Moria", attractionDAO.findById(1).getName());
+		
+		System.out.println(attractionDAO.findById(1));
+							
+	}
+	*/
 	
 	/*
 	@Test
