@@ -11,7 +11,7 @@ public class PromotionPercentage extends Promotion {
 		
 		super(id, name, time, cost, discount, promotionTypeID, promotionType);
 		
-		calculatePrice();
+		//calculatePrice();
 		
 	}
 	

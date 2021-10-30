@@ -21,7 +21,7 @@ public class App {
 		userTestUpdate = userDAO.findById(10);
 		*/
 		
-		System.out.println(PromotionType.fromId(1));
+		//System.out.println(PromotionType.fromId(1));
 		
 		
 		/*

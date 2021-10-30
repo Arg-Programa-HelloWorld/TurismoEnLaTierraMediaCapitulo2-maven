@@ -1,5 +1,5 @@
 package model;
-/*
+
 public enum PromotionType {
 	
 		PERCENTAGE,	// PORCENTUAL
@@ -7,8 +7,8 @@ public enum PromotionType {
 		A_AND_B		//	A & B => C gratis
 
 }
-*/
 
+/*
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,3 +45,4 @@ public enum PromotionType {
 	}
 
 }
+*/

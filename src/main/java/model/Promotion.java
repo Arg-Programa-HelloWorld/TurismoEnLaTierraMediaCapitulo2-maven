@@ -102,7 +102,7 @@ public abstract class Promotion {
 	public void setPromotionTypeID(int promotionTypeID) {
 		this.promotionTypeID = promotionTypeID;
 	}
-
+	
 	public PromotionType getPromotionType() {
 		return promotionType;
 	}
