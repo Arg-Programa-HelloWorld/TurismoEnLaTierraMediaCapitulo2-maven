@@ -16,7 +16,7 @@ import model.PromotionPercentage;
 
 public class PromotionTest {
 
-	
+	/*
 	@Test
 	public void insertAPromotionPercentageTest() throws SQLException {
 		
@@ -32,11 +32,11 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
+	*/
 	
 	
 	
-	
-	
+	/*
 	@Test
 	public void insertAPromotionAbsoluteTest() throws SQLException {
 		
@@ -50,11 +50,11 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
+	*/
 	
 	
 	
-	
-	
+	/*
 	@Test
 	public void insertAPromotionAyBTest() throws SQLException {
 		
@@ -68,9 +68,11 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
+	*/
 	
 	
-	/*
+	
+	
 	@Test
 	public void findByIDPromotionTest() throws SQLException {
 		
@@ -83,7 +85,7 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
+	
 	
 	
 	

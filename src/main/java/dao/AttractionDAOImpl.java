@@ -10,6 +10,7 @@ import java.util.List;
 import jdbc.ConnectionProvider;
 import model.Attraction;
 import model.AttractionType;
+import model.Promotion;
 import model.User;
 
 public class AttractionDAOImpl implements AttractionDAO {
@@ -123,6 +124,97 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 		
 	}
+	
+	public List<Attraction> findAttractionByUser(User user) {
+	
+		try {
+			
+			String sql = "";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, user.getId());
+			ResultSet resultados = statement.executeQuery();
+
+			List<Attraction> attractions = new LinkedList<Attraction>();
+			while (resultados.next()) {
+			
+				attractions.add(toAttraction(resultados));
+			}
+			
+			return attractions; // Lista de Attractions.-
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
+	}
+	
+	public List<Attraction> searchAttractionsOfAPromotionByPromotion(Promotion promotion) {
+
+		try {
+			
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type\n"
+					+ "FROM promotions\n"
+					+ "INNER JOIN promotions_attractions ON promotions.id = promotions_attractions.fk_id_promotion\n"
+					+ "INNER JOIN attractions ON promotions_attractions.fk_id_attraction = attractions.id\n"
+					+ "WHERE promotions.id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, promotion.getId());
+			ResultSet resultados = statement.executeQuery();
+
+			List<Attraction> attractions = new LinkedList<Attraction>();
+			
+			while (resultados.next()) {
+			
+				attractions.add(toAttraction(resultados));
+			}
+			
+			return attractions; // Lista de Attractions.-
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
+	}
+	
+	public List<Attraction> searchAttractionsOfAPromotionByID(int ID) {
+
+		try {
+			
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type\n"
+					+ "FROM promotions\n"
+					+ "INNER JOIN promotions_attractions ON promotions.id = promotions_attractions.fk_id_promotion\n"
+					+ "INNER JOIN attractions ON promotions_attractions.fk_id_attraction = attractions.id\n"
+					+ "WHERE promotions.id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, ID);
+			ResultSet resultados = statement.executeQuery();
+
+			List<Attraction> attractions = new LinkedList<Attraction>();
+			
+			while (resultados.next()) {
+			
+				attractions.add(toAttraction(resultados));
+			}
+			
+			return attractions; // Lista de Attractions.-
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
+	}
 
 	public List<Attraction> findAll() {
 
@@ -135,13 +227,13 @@ public class AttractionDAOImpl implements AttractionDAO {
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			ResultSet results = statement.executeQuery();
 			
-			List<Attraction> attraction = new LinkedList<Attraction>();
+			List<Attraction> attractions = new LinkedList<Attraction>();
 			while (results.next()) {
 			
-				attraction.add(toAttraction(results));
+				attractions.add(toAttraction(results));
 			}
 			
-			return attraction; // Lista de Usuarios.-
+			return attractions; // Lista de Attractions.-
 						
 			
 		} catch (Exception e) {
@@ -210,7 +302,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 		//Attraction(         Integer id,        String name,         Double cost,         Double time,         Integer quota     Integer fk_id_preference)                AttractionType attractionType
 		return new Attraction(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),results.getInt(6),AttractionType.valueOf(results.getString(7)));
 	}
-			
+		
 }
 
 

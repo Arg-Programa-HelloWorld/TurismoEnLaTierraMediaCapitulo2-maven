@@ -205,8 +205,8 @@ public class PromotionDAOImpl implements PromotionDAO{
 		
 		Promotion promotionTemp = null;
 		
-		//switch(PromotionType.fromId(results.getInt(6))) {
-		switch(PromotionType.valueOf(results.getString(6))) {
+		switch(PromotionType.fromId(results.getInt(6))) {
+		//switch(PromotionType.valueOf(results.getString(6))) {
 		
 			case PERCENTAGE:
 				
