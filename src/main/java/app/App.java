@@ -38,6 +38,8 @@ public class App {
 		//cuenta cantidad de atraciones
 		System.out.println(attractionDAO.countAll());
 		*/
+		
+		
 		List<Attraction> attractions = new LinkedList<Attraction>();
 		
 		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO(); 

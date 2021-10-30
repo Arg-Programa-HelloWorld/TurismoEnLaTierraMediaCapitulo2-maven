@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public abstract class Promotion {
 
@@ -14,12 +16,13 @@ public abstract class Promotion {
 	private int promotionTypeID;
 	private PromotionType promotionType;
 	
-	protected ArrayList<Attraction> attractionList = new ArrayList<Attraction>();
+	//protected ArrayList<Attraction> attractionList = new ArrayList<Attraction>();
+	protected List<Attraction> attractionsList = new LinkedList<Attraction>();
 
 	
 	
 	public Promotion(int id, String name, double time, double cost, double discount, int promotionTypeID,
-			PromotionType promotionType, ArrayList<Attraction> attractionList) {
+			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -28,7 +31,7 @@ public abstract class Promotion {
 		this.discount = discount;
 		this.promotionTypeID = promotionTypeID;
 		this.promotionType = promotionType;
-		this.attractionList = attractionList;
+		this.attractionsList = attractionsList;
 	
 	}
 	
@@ -110,24 +113,24 @@ public abstract class Promotion {
 	public void setPromotionType(PromotionType promotionType) {
 		this.promotionType = promotionType;
 	}
-
-	public ArrayList<Attraction> getAttractionList() {
-		return attractionList;
+	
+	public List<Attraction> getAttractionsList() {
+		return attractionsList;
 	}
 
-	public void setAttractionList(ArrayList<Attraction> attractionList) {
-		this.attractionList = attractionList;
+	public void setAttractionsList(List<Attraction> attractionsList) {
+		this.attractionsList = attractionsList;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Promotion [id=" + id + ", name=" + name + ", time=" + time + ", cost=" + cost + ", discount=" + discount
 				+ ", promotionTypeID=" + promotionTypeID + ", promotionType=" + promotionType + ", attractionList="
-				+ attractionList + "]";
+				+ attractionsList + "]";
 	}
 
 	public void calculatePrice() {
-		// TODO Auto-generated method stub
+
 		
 	}	
 

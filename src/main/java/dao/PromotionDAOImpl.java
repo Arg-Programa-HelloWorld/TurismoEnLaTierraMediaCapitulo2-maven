@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import jdbc.ConnectionProvider;
+import model.Attraction;
 import model.Promotion;
 import model.PromotionAbsolute;
 import model.PromotionAyB;
@@ -207,21 +209,40 @@ public class PromotionDAOImpl implements PromotionDAO{
 		
 		switch(PromotionType.fromId(results.getInt(6))) {
 		//switch(PromotionType.valueOf(results.getString(6))) {
-		
+					
 			case PERCENTAGE:
-				
-				//Promotion(                   Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
-				promotionTemp = new PromotionPercentage(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)));
+			
+				AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+						
+				LinkedList<Attraction> attractionList;	
+			
+				attractionList = (LinkedList<Attraction>) attractionDAO.searchAttractionsOfAPromotionByID(results.getInt(1));
+			
+
+				//Promotion(                            Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
+				promotionTemp = new PromotionPercentage(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)),attractionList);
 			
 			case ABSOLUTE:
 				
-				//Promotion(                 Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
-				promotionTemp = new PromotionAbsolute(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)));
+				AttractionDAO attractionDAO1 = DAOFactory.getAttractionDAO();
+				
+				LinkedList<Attraction> attractionList1;
+				
+				attractionList1 = (LinkedList<Attraction>) attractionDAO1.searchAttractionsOfAPromotionByID(results.getInt(1));
+				
+				//Promotion(                          Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
+				promotionTemp = new PromotionAbsolute(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)),attractionList1);
 						
 			case A_AND_B:
-			
-				//Promotion(            Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
-				promotionTemp = new PromotionAyB(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)));
+				
+				AttractionDAO attractionDAO2 = DAOFactory.getAttractionDAO();
+								
+				LinkedList<Attraction> attractionList2;
+				
+				attractionList2 = (LinkedList<Attraction>) attractionDAO2.searchAttractionsOfAPromotionByID(results.getInt(1));
+				
+				//Promotion(                     Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
+				promotionTemp = new PromotionAyB(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)),attractionList2);
 							
 			default:
 				break;

@@ -133,7 +133,7 @@ public class UserTest {
 	}
 	*/
 	
-	
+	/*
 	@Test
     public void buyAttractionTest() throws SQLException {
         
@@ -147,11 +147,9 @@ public class UserTest {
                 
         int rows = userDAO.buyAttraction(userTemp, attractionTemp);
         assertEquals(1, rows);
-        
-        //int attractionId = userDAO.consultAttractions(userTemp.getId());
-        
-        //assertEquals(attractionTemp.getId(), attractionId);
+                
     }
+    */
 	
 	
 	

@@ -1,15 +1,15 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class PromotionAbsolute extends Promotion {
 
 	double absoluteDiscount;
 	
 	public PromotionAbsolute(int id, String name, double time, double cost, double discount, int promotionTypeID,
-			PromotionType promotionType) {
+			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 		
-		super(id, name, time, cost, discount, promotionTypeID, promotionType);
+		super(id, name, time, cost, discount, promotionTypeID, promotionType, attractionsList);
 		
 		//calculatePrice();
 		
@@ -30,7 +30,7 @@ public class PromotionAbsolute extends Promotion {
 		double cost = 0;
 		double discount = absoluteDiscount;
 		
-		for (Attraction attraction : attractionList) {
+		for (Attraction attraction : attractionsList) {
 			
 			cost += attraction.getCost();
 			time += attraction.getTime();

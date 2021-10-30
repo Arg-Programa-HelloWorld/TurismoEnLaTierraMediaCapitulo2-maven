@@ -1,13 +1,13 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class PromotionAyB extends Promotion {
 
 	public PromotionAyB(int id, String name, double time, double cost, double discount, int promotionTypeID,
-			PromotionType promotionType) {
+			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 		
-		super(id, name, time, cost, discount, promotionTypeID, promotionType);
+		super(id, name, time, cost, discount, promotionTypeID, promotionType, attractionsList);
 		
 		//calculatePrice();
 		
@@ -26,12 +26,12 @@ public class PromotionAyB extends Promotion {
 		
 		double time = 0;
 		double cost = 0;
-		double discount = attractionList.get(attractionList.size() - 1).getCost();
+		double discount = attractionsList.get(attractionsList.size() - 1).getCost();
 		
-		for (int i = 0; i < attractionList.size(); i++) {
+		for (int i = 0; i < attractionsList.size(); i++) {
 			
-			cost += attractionList.get(i).getCost();
-			time += attractionList.get(i).getTime();
+			cost += attractionsList.get(i).getCost();
+			time += attractionsList.get(i).getTime();
 			//System.out.println(attraction.getName());
 			
 		}
