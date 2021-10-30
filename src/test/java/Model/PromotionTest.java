@@ -78,8 +78,6 @@ public class PromotionTest {
 				
 		System.out.println("Encontrar la Promocion con el 'ID: Nº1'");
 		
-		//assertEquals("Eowyn-Normal", userDAO.findById(1).getName());
-		
 		System.out.println(promotionDAO.findById(1));
 		
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");

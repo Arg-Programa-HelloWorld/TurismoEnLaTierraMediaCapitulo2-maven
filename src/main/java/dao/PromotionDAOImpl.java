@@ -120,7 +120,9 @@ public class PromotionDAOImpl implements PromotionDAO{
 				
 			}
 			
-			return promotionTemp;
+			//return promotionTemp;
+			
+			return (Promotion) promotionTemp;
 						
 		} catch (Exception e) {
 			
@@ -203,7 +205,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 		
 		Promotion promotionTemp = null;
 		
-		switch(PromotionType.valueOf(results.getString(7))) {
+		switch(PromotionType.fromId(results.getInt(6))) {
 		
 			case PERCENTAGE:
 				

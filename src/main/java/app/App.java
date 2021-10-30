@@ -5,20 +5,23 @@ import java.sql.SQLException;
 import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.UserDAO;
+import model.PromotionType;
 import model.User;
 
 public class App {
 
 	public static void main(String[] args) throws SQLException {
 		
+		/*
 		UserDAO userDAO = DAOFactory.getUserDAO();
-		
-		
 		User userTestUpdate = null;
 		
 		//buscar un User
 		System.out.println(userDAO.findById(10));
 		userTestUpdate = userDAO.findById(10);
+		*/
+		
+		System.out.println(PromotionType.fromId(1));
 		
 		
 		/*
@@ -56,7 +59,7 @@ public class App {
 		//userDAO.insert(alf);
 		
 		
-		
+		/*
 		
 		User tempUser = userDAO.findById(108);
 		tempUser.setName("Cachirlo");
@@ -72,7 +75,7 @@ public class App {
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		System.out.println("Ver todas las Atracciones");
 		System.out.println(attractionDAO.findAll());
-		
+		*/
 		// cuenta cantidad de atraciones
 		//System.out.println(attractionDAO.countAll());
 		
