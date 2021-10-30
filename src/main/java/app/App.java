@@ -49,8 +49,8 @@ public class App {
 		System.out.println(promotionTemp);
 		
 		
-		//attractions = attractionDAO.findAttractionsByPromotion(promotionTemp);
-		attractions = attractionDAO.searchAttractionsOfAPromotionByID(1);
+		attractions = attractionDAO.searchAttractionsOfAPromotionByPromotion(promotionTemp);
+		//attractions = attractionDAO.searchAttractionsOfAPromotionByID(1);
 		
 		
 		System.out.println("Ver todos las Attracciones de la Promocion 1");

@@ -6,13 +6,15 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
+import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.UserDAO;
+import model.Attraction;
 import model.User;
 
 public class UserTest {
 
-	
+	/*
 	@Test
 	public void insertAnUserTest() throws SQLException {
 		
@@ -33,9 +35,9 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 											
 	}
+	*/
 	
-	
-			
+	/*		
 	@Test
 	public void updateAnUserTest() throws SQLException {
 		
@@ -65,9 +67,9 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 			
 	}
+	*/
 	
-	
-		
+	/*	
 	@Test
 	public void findByIDUserTest() throws SQLException {
 		
@@ -82,9 +84,9 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
+	*/
 	
-	
-		
+	/*	
 	@Test
 	public void findALLUsersTest() throws SQLException {
 		
@@ -101,9 +103,9 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 											
 	}
+	*/
 	
-	
-	
+	/*
 	@Test
 	public void deleteAnUserTest() throws SQLException {
 		
@@ -129,5 +131,33 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
+	*/
+	
+	
+	@Test
+    public void buyAttractionTest() throws SQLException {
+        
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+        
+		User userTemp = userDAO.findById(1);
+		
+        Attraction attractionTemp = attractionDAO.findById(1); 
+                
+        int rows = userDAO.buyAttraction(userTemp, attractionTemp);
+        assertEquals(1, rows);
+        
+        //int attractionId = userDAO.consultAttractions(userTemp.getId());
+        
+        //assertEquals(attractionTemp.getId(), attractionId);
+    }
+	
+	
+	
+	
+	
+	
+	
 	
 }

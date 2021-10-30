@@ -9,6 +9,7 @@ import java.util.List;
 
 import jdbc.ConnectionProvider;
 import model.User;
+import model.Attraction;
 import model.AttractionType;
 
 public class UserDAOImpl implements UserDAO {
@@ -206,6 +207,27 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 	}
+	
+	public int buyAttraction(User user, Attraction attraction) {
+        
+        try {
+            String sqlQuery = "INSERT INTO users_attractions (fk_id_user, fk_id_attractions) VALUES(?,?)";
+            Connection connection = ConnectionProvider.getConnection();
+            
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            
+            statement.setInt(1, user.getId());
+            statement.setDouble(2, attraction.getId());
+                    
+            int rows = statement.executeUpdate();
+                
+            return rows;
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+        
+    }
+	
 		
 	private User toUser(ResultSet results) throws SQLException {
 		//User(         Integer id,        String name,         Double budget,       Double time,         int if_preference_type                   AttractionType preference_type)

@@ -14,4 +14,5 @@ public interface AttractionDAO extends GenericDAO<Attraction> {
 	public abstract List<Attraction> searchAttractionsOfAPromotionByPromotion(Promotion promotion);
 	public abstract List<Attraction> searchAttractionsOfAPromotionByID(int ID);
 	
+	
 }

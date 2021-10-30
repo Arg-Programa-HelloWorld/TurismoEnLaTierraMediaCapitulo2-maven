@@ -156,10 +156,11 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 			
-			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type\n"
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type, attractions_type.name AS type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotions_attractions ON promotions.id = promotions_attractions.fk_id_promotion\n"
 					+ "INNER JOIN attractions ON promotions_attractions.fk_id_attraction = attractions.id\n"
+					+ "INNER JOIN attractions_type ON attractions.fk_id_attraction_type = attractions_type.id\n"
 					+ "WHERE promotions.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
@@ -188,10 +189,11 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 			
-			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type\n"
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type, attractions_type.name AS type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotions_attractions ON promotions.id = promotions_attractions.fk_id_promotion\n"
 					+ "INNER JOIN attractions ON promotions_attractions.fk_id_attraction = attractions.id\n"
+					+ "INNER JOIN attractions_type ON attractions.fk_id_attraction_type = attractions_type.id\n"
 					+ "WHERE promotions.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
@@ -272,7 +274,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 		try {
 			
 			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
-			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions_type.id, attractions_type.name AS preference\n"
+			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions_type.id, attractions_type.name AS type\n"
 					+ "FROM attractions\n"
 					+ "INNER JOIN attractions_type ON attractions.fk_id_attraction_type = attractions_type.id\n"
 					+ "ORDER BY attractions.id DESC LIMIT 1";
