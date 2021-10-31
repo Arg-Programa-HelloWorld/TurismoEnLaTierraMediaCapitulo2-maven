@@ -13,10 +13,11 @@ import model.Promotion;
 import model.PromotionAbsolute;
 import model.PromotionAyB;
 import model.PromotionPercentage;
+import model.User;
 
 public class PromotionTest {
 
-	/*
+	
 	@Test
 	public void insertAPromotionPercentageTest() throws SQLException {
 		
@@ -32,11 +33,8 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
+		
 	
-	
-	
-	/*
 	@Test
 	public void insertAPromotionAbsoluteTest() throws SQLException {
 		
@@ -50,11 +48,8 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
 	
-	
-	
-	/*
+		
 	@Test
 	public void insertAPromotionAyBTest() throws SQLException {
 		
@@ -68,11 +63,8 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
 	
-	
-	
-	
+		
 	@Test
 	public void findByIDPromotionTest() throws SQLException {
 		
@@ -85,14 +77,8 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	
-	
-	
-	
-	/*
-	 * NO ANDA!!!
-	 */
-	/*
+		
+		
 	@Test
 	public void findALLAtraccionTest() throws SQLException {
 		
@@ -111,105 +97,78 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
-	*/
 	
-	
-	/*
 	
 	@Test
-	public void updateAnAttractionTest() throws SQLException {
+	public void updateAnPromotionTest() throws SQLException {
 		
-		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 		
-		System.out.println("Modificar la atraccion ID 'Nº 11'");
-		Attraction attractionTemptUpdate = attractionDAO.findById(11);	// buscamos la atraccion Nº 1
-		System.out.println(attractionTemptUpdate);						// la mostramos
+		System.out.println("Modificar la Promocion ID 'Nº 1'");
+		Promotion promotionTemptUpdate = promotionDAO.findById(1);	// buscamos la atraccion Nº 1
+		System.out.println(promotionTemptUpdate);						// la mostramos
 		
-		assertEquals("Parth Galen", attractionTemptUpdate.getName());
+		assertEquals("Pack Aventura", promotionTemptUpdate.getName());
 		
-		attractionTemptUpdate.setName("CambiamosDeNombreALaAtraccion");	// le seteamos otro nombre
-		attractionDAO.update(attractionTemptUpdate);					// hacemos el update a la BDD
+		promotionTemptUpdate.setName("CambiamosDeNombreALaPromocion");	// le seteamos otro nombre
+		promotionDAO.update(promotionTemptUpdate);					// hacemos el update a la BDD
 		
-		assertEquals("CambiamosDeNombreALaAtraccion", attractionTemptUpdate.getName());
+		assertEquals("CambiamosDeNombreALaPromocion", promotionTemptUpdate.getName());
 		
-		attractionTemptUpdate = attractionDAO.findById(11);				// volvemos a buscar la atraccion
-		System.out.println(attractionTemptUpdate);						// la mostramos
+		promotionTemptUpdate = promotionDAO.findById(1);				// volvemos a buscar la atraccion
+		System.out.println(promotionTemptUpdate);						// la mostramos
 		
-		attractionTemptUpdate.setName("Parth Galen");					// le seteamos el nombre que tenia
-		attractionDAO.update(attractionTemptUpdate);					// hacemos el update a la BDD
-		System.out.println(attractionTemptUpdate);						// la mostramos
+		promotionTemptUpdate.setName("Pack Aventura");					// le seteamos el nombre que tenia
+		promotionDAO.update(promotionTemptUpdate);					// hacemos el update a la BDD
+		System.out.println(promotionTemptUpdate);						// la mostramos
 		
-		assertEquals("Parth Galen", attractionTemptUpdate.getName());
+		assertEquals("Pack Aventura", promotionTemptUpdate.getName());
 		
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 		
 	}
 		
 	
-	
 	@Test
-	public void findByIDAttractionTest() throws SQLException {
-		
-		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
-		
-		System.out.println("Encontrar la Atraccion con el ID: '1' y el nombre de 'Moria'");
-		
-		assertEquals("Moria", attractionDAO.findById(1).getName());
-		
-		System.out.println(attractionDAO.findById(1));
-		
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
-							
-	}
-	
-	
-	
-	@Test
-	public void findALLAtraccionTest() throws SQLException {
-		
-		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
-		
-		System.out.println("Ver todas las Atracciones");
-		
-		for (Attraction attraction : attractionDAO.findAll()) { 
-			
-			System.out.println(attraction);
-		
-		}
-		
-		//System.out.println(attractionDAO.findAll());  // de esta forma las vemos todas en una sola linea
-		
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
-						
-	}
-	
-	
-	
-	@Test
-	public void deleteAttractionTest() throws SQLException {
+	public void deleteAPromotionTest() throws SQLException {
 		
 		int cantidadAntes = 0;
 		int cantidadLuego = 0;
 		
-		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 		
-		cantidadAntes = attractionDAO.countAll();
+		cantidadAntes = promotionDAO.countAll();
 		
-		System.out.println("Insertar una Atraccion");
-		Attraction attractionTemp = new Attraction("AttractionTest",7,5,6,3);
-		attractionDAO.insert(attractionTemp);
+		System.out.println("Insertar una Promocion: 'Promocion Test Para Eliminar'");
+		Promotion promotionTemp = new PromotionPercentage("Promocion Test Para Eliminar",0,0,10,1);
+		promotionDAO.insert(promotionTemp);
+		System.out.println(promotionDAO.getLastPromotion());
 		
-		assertEquals("AttractionTest", attractionDAO.getLastAttraction().getName());
+		assertEquals("Promocion Test Para Eliminar", promotionDAO.getLastPromotion().getName());
 		
-		attractionDAO.delete(attractionDAO.getLastAttraction());
+		System.out.println("Promocion Test eliminada: " + promotionDAO.delete(promotionDAO.getLastPromotion()));
 		
-		cantidadLuego = attractionDAO.countAll();
+		cantidadLuego = promotionDAO.countAll();
 		
 		assertEquals(cantidadAntes, cantidadLuego);
 		
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
+	
+		
+	@Test
+	public void getLastPromotionTest() throws SQLException {
+		
+		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
+		
+		System.out.println("Conocer la ultima Promocion ingresada");
+		
+		System.out.println(promotionDAO.getLastPromotion());
+						
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+							
+	}
+	
 	
 }

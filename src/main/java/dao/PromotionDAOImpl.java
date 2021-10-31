@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,16 +50,17 @@ public class PromotionDAOImpl implements PromotionDAO{
 		
 		try {
 			
-			String sqlQuery = "UPDATE promotions SET name = ?, time = ?, discount = ?, fk_id_promotion_type = ? WHERE id = ?";
+			String sqlQuery = "UPDATE promotions SET name = ?, time = ?, cost = ?, discount = ?, fk_id_promotion_type = ? WHERE id = ?";
 			Connection connection = ConnectionProvider.getConnection();
 		
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			
 			statement.setString(1, promotion.getName());
 			statement.setDouble(2, promotion.getTime());
-			statement.setDouble(3, promotion.getDiscount());
-			statement.setInt(4, promotion.getPromotionTypeID());
-			statement.setInt(5, promotion.getId());
+			statement.setDouble(3, promotion.getCost());
+			statement.setDouble(4, promotion.getDiscount());
+			statement.setInt(5, promotion.getPromotionTypeID());
+			statement.setInt(6, promotion.getId());
 			
 			int rowsUpdate = statement.executeUpdate();
 
@@ -74,7 +74,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 		}
 		
 	}
-
+		
 	public int delete(Promotion promotion) {
 		
 		try {
@@ -149,8 +149,8 @@ public class PromotionDAOImpl implements PromotionDAO{
 
 			List<Promotion> promotionsTemp = new LinkedList<Promotion>();
 
-			if (resultados.next()) {
-				
+			while (resultados.next()) {
+							
 				promotionsTemp.add(toPromotion(resultados));
 				
 			}
@@ -169,7 +169,24 @@ public class PromotionDAOImpl implements PromotionDAO{
 
 	public int countAll() {
 		
-		return 0;
+		try {
+			
+			String sqlQuery = "SELECT COUNT(*) AS promotion_quantity FROM promotions";
+			Connection connection = ConnectionProvider.getConnection();
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			ResultSet results = statement.executeQuery();
+			
+			results.next();
+			
+			int total = results.getInt("promotion_quantity");
+			
+			return total;
+									
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
 	}
 
 	public Promotion getLastPromotion() {
@@ -185,11 +202,11 @@ public class PromotionDAOImpl implements PromotionDAO{
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			ResultSet resultados = statement.executeQuery();
 
-			List<Promotion> promotionsTemp = new LinkedList<Promotion>();
+			Promotion promotionsTemp = null;
 
 			if (resultados.next()) {
 				
-				promotionsTemp.add(toPromotion(resultados));
+				promotionsTemp = toPromotion(resultados);
 				
 			}
 			

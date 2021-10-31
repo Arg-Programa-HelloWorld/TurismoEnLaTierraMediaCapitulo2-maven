@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import org.junit.Test;
 
 import dao.DAOFactory;
+import dao.UserDAO;
 import dao.AttractionDAO;
 import model.Attraction;
 
@@ -26,8 +27,7 @@ public class AttractionTest {
 						
 	}
 	
-	/*
-	
+		
 	@Test
 	public void updateAnAttractionTest() throws SQLException {
 		
@@ -57,8 +57,7 @@ public class AttractionTest {
 		
 	}
 		
-	
-	
+		
 	@Test
 	public void findByIDAttractionTest() throws SQLException {
 		
@@ -122,6 +121,20 @@ public class AttractionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
+	
+	
+	@Test
+	public void getLastUserTest() throws SQLException {
+		
+		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		
+		System.out.println("Conocer la ultima Atraccion ingresada");
+		
+		System.out.println(attractionDAO.getLastAttraction());
+						
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+							
+	}
+	
 	
 }

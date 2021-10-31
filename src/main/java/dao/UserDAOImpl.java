@@ -11,6 +11,7 @@ import jdbc.ConnectionProvider;
 import model.User;
 import model.Attraction;
 import model.AttractionType;
+import model.Promotion;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -97,10 +98,9 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			
-			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
-			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
-					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id\n"
+					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE users.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
@@ -128,10 +128,9 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			
-			//String sqlQuery = "SELECT * FROM users";
-			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preferences\n"
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
-					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id";
+					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id";
 			
 			Connection connection = ConnectionProvider.getConnection();
 			
@@ -183,10 +182,9 @@ public class UserDAOImpl implements UserDAO {
 		
 		try {
 			
-			//String sqlQuery = "SELECT * FROM users WHERE id = ?";
-			String sqlQuery = "SELECT users.id, users.name, budget, time, attractions_type.id, attractions_type.name AS preferences\n"
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attraction_type.id, attraction_type.name AS preferences\n"
 					+ "FROM users\n"
-					+ "INNER JOIN attractions_type ON users.fk_id_preference = attractions_type.id ORDER BY users.id DESC LIMIT 1";
+					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id ORDER BY users.id DESC LIMIT 1";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
@@ -211,7 +209,7 @@ public class UserDAOImpl implements UserDAO {
 	public int buyAttraction(User user, Attraction attraction) {
         
         try {
-            String sqlQuery = "INSERT INTO users_attractions (fk_id_user, fk_id_attractions) VALUES(?,?)";
+            String sqlQuery = "INSERT INTO users_attractions (fk_id_user, fk_id_attraction) VALUES(?,?)";
             Connection connection = ConnectionProvider.getConnection();
             
             PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -222,15 +220,40 @@ public class UserDAOImpl implements UserDAO {
             int rows = statement.executeUpdate();
                 
             return rows;
+            
         } catch (Exception e) {
-            throw new MissingDataException(e);
+            
+        	throw new MissingDataException(e);
+        	
         }
         
     }
 	
-		
+	public int buyPromotion(User user, Promotion promotion) {
+        
+        try {
+            String sqlQuery = "INSERT INTO users_promotions (fk_id_user, fk_id_promotion) VALUES(?,?)";
+            Connection connection = ConnectionProvider.getConnection();
+            
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            
+            statement.setInt(1, user.getId());
+            statement.setDouble(2, promotion.getId());
+                    
+            int rows = statement.executeUpdate();
+                
+            return rows;
+            
+        } catch (Exception e) {
+            
+        	throw new MissingDataException(e);
+        	
+        }
+        
+    }
+			
 	private User toUser(ResultSet results) throws SQLException {
-		//User(         Integer id,        String name,         Double budget,       Double time,         int if_preference_type                   AttractionType preference_type)
+		//User(         Integer id,        String name,         Double budget,       Double time,         int if_preference_type                   AttractionType(preference))
 		return new User(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getInt(5),AttractionType.valueOf(results.getString(6)));
 	}
 	

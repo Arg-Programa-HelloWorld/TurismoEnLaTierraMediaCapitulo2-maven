@@ -1,12 +1,9 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Promotion {
-
-//public class Promotion {
 
 	private int id;			// ID
 	private String name;
@@ -15,11 +12,8 @@ public abstract class Promotion {
 	protected double discount = 0;
 	private int promotionTypeID;
 	private PromotionType promotionType;
-	
-	//protected ArrayList<Attraction> attractionList = new ArrayList<Attraction>();
+		
 	protected List<Attraction> attractionsList = new LinkedList<Attraction>();
-
-	
 	
 	public Promotion(int id, String name, double time, double cost, double discount, int promotionTypeID,
 			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
@@ -130,7 +124,6 @@ public abstract class Promotion {
 	}
 
 	public void calculatePrice() {
-
 		
 	}	
 

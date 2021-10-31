@@ -8,13 +8,15 @@ import org.junit.Test;
 
 import dao.AttractionDAO;
 import dao.DAOFactory;
+import dao.PromotionDAO;
 import dao.UserDAO;
 import model.Attraction;
+import model.Promotion;
 import model.User;
 
 public class UserTest {
 
-	/*
+	
 	@Test
 	public void insertAnUserTest() throws SQLException {
 		
@@ -22,7 +24,7 @@ public class UserTest {
 		
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
-		System.out.println("Incertar el Usuario: 'UsuarioTest'");
+		System.out.println("Insertar el Usuario: 'UsuarioTest'");
 		User userTemp = new User("UsuarioTest",8,8,1);
 		userDAO.insert(userTemp);
 		
@@ -35,9 +37,8 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 											
 	}
-	*/
 	
-	/*		
+				
 	@Test
 	public void updateAnUserTest() throws SQLException {
 		
@@ -67,9 +68,8 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 			
 	}
-	*/
 	
-	/*	
+	
 	@Test
 	public void findByIDUserTest() throws SQLException {
 		
@@ -84,9 +84,8 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
 	
-	/*	
+			
 	@Test
 	public void findALLUsersTest() throws SQLException {
 		
@@ -103,9 +102,8 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 											
 	}
-	*/
 	
-	/*
+		
 	@Test
 	public void deleteAnUserTest() throws SQLException {
 		
@@ -116,13 +114,14 @@ public class UserTest {
 		
 		cantidadAntes = userDAO.countAll();
 		
-		System.out.println("Incertar el Usuario: 'UsuarioTest'");
-		User userTemp = new User("UsuarioTest",8,8,1);
+		System.out.println("Insertar el Usuario: 'Usuario Test Para Eliminar'");
+		User userTemp = new User("Usuario Test Para Eliminar",100,100,1);
 		userDAO.insert(userTemp);
+		System.out.println(userDAO.getLastUser());
 		
-		assertEquals("UsuarioTest", userDAO.getLastUser().getName());
+		assertEquals("Usuario Test Para Eliminar", userDAO.getLastUser().getName());
 		
-		userDAO.delete(userDAO.getLastUser());
+		System.out.println("Usuario eliminado: " + userDAO.delete(userDAO.getLastUser()));
 		
 		cantidadLuego = userDAO.countAll();
 		
@@ -131,9 +130,22 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
-	*/
+		
 	
-	/*
+	@Test
+	public void getLastUserTest() throws SQLException {
+		
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		System.out.println("Conocer el ultimo Usuario ingresado");
+		
+		System.out.println(userDAO.getLastUser());
+						
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+							
+	}
+		
+	
 	@Test
     public void buyAttractionTest() throws SQLException {
         
@@ -147,15 +159,30 @@ public class UserTest {
                 
         int rows = userDAO.buyAttraction(userTemp, attractionTemp);
         assertEquals(1, rows);
+        
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
                 
     }
-    */
 	
-	
-	
-	
-	
-	
-	
-	
+		
+	@Test
+    public void buyPromotionTest() throws SQLException {
+        
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
+		
+		User userTemp = userDAO.findById(2);
+		
+		Promotion promotionTemp = promotionDAO.findById(2); 
+                         
+        int rows = userDAO.buyPromotion(userTemp, promotionTemp);
+        
+        assertEquals(1, rows);
+        
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+                
+    }
+        
+		
 }
