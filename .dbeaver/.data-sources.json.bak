@@ -11,7 +11,8 @@
 				"database": "/home/r1d3r/eclipse-workspace/YO_PROGRAMO/TurismoEnLaTierraMediaCapitulo2-maven/db/tourism_in_the_middle_earth.db",
 				"url": "jdbc:sqlite:/home/r1d3r/eclipse-workspace/YO_PROGRAMO/TurismoEnLaTierraMediaCapitulo2-maven/db/tourism_in_the_middle_earth.db",
 				"type": "dev",
-				"auth-model": "native"
+				"auth-model": "native",
+				"handlers": {}
 			}
 		}
 	},

@@ -41,13 +41,13 @@ public class App {
 		
 		//List<Attraction> attractions = new LinkedList<Attraction>();
 		
-		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO(); 
+		//PromotionDAO promotionDAO = DAOFactory.getPromotionDAO(); 
 		//AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		//UserDAO userDAO = DAOFactory.getUserDAO();
 		
-		Promotion promotionTemp =  promotionDAO.findById(2);
+		//Promotion promotionTemp =  promotionDAO.findById(2);
 		
-		System.out.println("Antes de modificarla: " + promotionTemp);
+		//System.out.println("Antes de modificarla: " + promotionTemp);
 		
 		//attractions = attractionDAO.searchAttractionsOfAPromotionByPromotion(promotionTemp);
 		//attractions = attractionDAO.searchAttractionsOfAPromotionByID(1);
