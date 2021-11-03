@@ -16,67 +16,18 @@ public class App {
 
 	public static void main(String[] args) throws SQLException {
 		
-		/*
-		UserDAO userDAO = DAOFactory.getUserDAO();
-		User userTestUpdate = null;
+		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 		
-		//buscar un User
-		System.out.println(userDAO.findById(10));
-		userTestUpdate = userDAO.findById(10);
-		*/
+		System.out.println("Encontrar la Promocion con el 'ID: Nº1'");
+	
+		Promotion promotionTemp = promotionDAO.findById(1);
 		
-		//--------------------------------------------------------------
+		System.out.println(promotionDAO.findById(1));
 		
+		promotionDAO.update(promotionTemp);
 		
-		/*
-		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+		System.out.println(promotionDAO.findById(1));
 		
-		System.out.println("Ver todas las Atracciones");
-		System.out.println(attractionDAO.findAll());
-		
-		//cuenta cantidad de atraciones
-		System.out.println(attractionDAO.countAll());
-		*/
-		
-		
-		//List<Attraction> attractions = new LinkedList<Attraction>();
-		
-		//PromotionDAO promotionDAO = DAOFactory.getPromotionDAO(); 
-		//AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
-		//UserDAO userDAO = DAOFactory.getUserDAO();
-		
-		//Promotion promotionTemp =  promotionDAO.findById(2);
-		
-		//System.out.println("Antes de modificarla: " + promotionTemp);
-		
-		//attractions = attractionDAO.searchAttractionsOfAPromotionByPromotion(promotionTemp);
-		//attractions = attractionDAO.searchAttractionsOfAPromotionByID(1);
-		
-		/*
-		System.out.println("Ver todos las Attracciones de la Promocion 1");
-				
-		for (Attraction attractionTemp : attractions) { 
-			
-			System.out.println(attractionTemp);
-		
-		}
-		*/
-		//promotionDAO.update(promotionTemp);
-		
-		//System.out.println("Luego de modificarla: " +promotionTemp);
-		
-		//PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
-		
-		//System.out.println("Ver todas las Promociones");
-		/*
-		for (Promotion promotionTemp : promotionDAO.findAll()) { 
-			
-			System.out.println(promotionTemp);
-		
-		}*/
-		
-		//System.out.println(promotionDAO.findAll());  // de esta forma las vemos todas en una sola linea
-			
 	}
 		
 }
