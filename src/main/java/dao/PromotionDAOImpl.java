@@ -119,7 +119,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 			if (resultados.next()) {
 				
 				promotionTemp = toPromotion(resultados);
-				
+								
 			}
 			
 			//return promotionTemp;
@@ -238,6 +238,10 @@ public class PromotionDAOImpl implements PromotionDAO{
 
 				//Promotion(                            Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
 				promotionTemp = new PromotionPercentage(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)),attractionList);
+				
+				promotionTemp.calculatePrice();
+				
+				update(promotionTemp);
 			
 			case ABSOLUTE:
 				
@@ -249,6 +253,10 @@ public class PromotionDAOImpl implements PromotionDAO{
 				
 				//Promotion(                          Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
 				promotionTemp = new PromotionAbsolute(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)),attractionList1);
+				
+				promotionTemp.calculatePrice();
+				
+				update(promotionTemp);
 						
 			case A_AND_B:
 				
@@ -260,6 +268,10 @@ public class PromotionDAOImpl implements PromotionDAO{
 				
 				//Promotion(                     Integer id,        String name,         Double time,         Double cost,         Double discount		int fk_id_promotion_type                PromotionType promotion_type.name)
 				promotionTemp = new PromotionAyB(results.getInt(1), results.getString(2),results.getDouble(3),results.getDouble(4),results.getDouble(5),results.getInt(6),PromotionType.valueOf(results.getString(7)),attractionList2);
+				
+				promotionTemp.calculatePrice();
+				
+				update(promotionTemp);
 							
 			default:
 				break;

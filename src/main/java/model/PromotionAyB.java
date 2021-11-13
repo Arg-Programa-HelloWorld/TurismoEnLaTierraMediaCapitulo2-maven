@@ -36,9 +36,9 @@ public class PromotionAyB extends Promotion {
 			
 		}
 		
-		super.time = time;
-		super.cost = cost - discount;
-		super.discount = discount;
+		this.time = time;
+		this.cost = cost - discount;
+		this.discount = discount;
 				
 	}
 	

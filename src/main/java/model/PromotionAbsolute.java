@@ -11,16 +11,14 @@ public class PromotionAbsolute extends Promotion {
 		
 		super(id, name, time, cost, discount, promotionTypeID, promotionType, attractionsList);
 		
-		//calculatePrice();
+		absoluteDiscount = discount;
 		
 	}
 	
 	public PromotionAbsolute(String name, double time, double cost, double discount, int promotionTypeID) {
 		
 		super(name, time, cost, discount, promotionTypeID);
-		
-		//calculatePrice();
-		
+				
 	}
 
 	@Override
@@ -38,9 +36,9 @@ public class PromotionAbsolute extends Promotion {
 			
 		}
 		
-		super.time = time;
-		super.cost = cost - discount;
-		super.discount = discount;
+		this.time = time;
+		this.cost = cost - discount;
+		this.discount = discount;
 				
 	}
 	

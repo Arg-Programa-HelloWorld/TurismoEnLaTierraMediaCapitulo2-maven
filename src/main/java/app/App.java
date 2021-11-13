@@ -10,6 +10,7 @@ import dao.PromotionDAO;
 import dao.UserDAO;
 import model.Attraction;
 import model.Promotion;
+import model.PromotionPercentage;
 
 
 public class App {
@@ -21,12 +22,19 @@ public class App {
 		System.out.println("Encontrar la Promocion con el 'ID: Nº1'");
 	
 		Promotion promotionTemp = promotionDAO.findById(1);
-		
+				
 		System.out.println(promotionDAO.findById(1));
 		
-		promotionDAO.update(promotionTemp);
 		
-		System.out.println(promotionDAO.findById(1));
+		Promotion promotionTemp1 = promotionDAO.findById(2);
+		
+		System.out.println(promotionDAO.findById(2));
+		
+		
+		Promotion promotionTemp2 = promotionDAO.findById(3);
+		
+		System.out.println(promotionDAO.findById(3));
+		
 		
 	}
 		
