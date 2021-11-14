@@ -258,6 +258,65 @@ public class UserDAOImpl implements UserDAO {
         }
         
     }
+	
+	public double haveMoney(User user) {
+        
+        try {
+            String sqlQuery = "SELECT budget FROM users WHERE id = ?";
+            Connection connection = ConnectionProvider.getConnection();
+            
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            
+            statement.setInt(1, user.getId());
+            
+            ResultSet resultados = statement.executeQuery();
+
+			double moneyTemp = 0.0;
+
+			if (resultados.next()) {
+				moneyTemp = toMoney(resultados);
+			}
+			return moneyTemp;       
+                                    
+        } catch (Exception e) {
+            
+        	throw new MissingDataException(e);
+        	
+        }
+        
+    }
+	
+	public double haveMoneyByID(int id) {
+        
+		try {
+            String sqlQuery = "SELECT budget FROM users WHERE id = ?";
+            Connection connection = ConnectionProvider.getConnection();
+            
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            
+            statement.setInt(1, id);
+            
+            ResultSet resultados = statement.executeQuery();
+
+			double moneyTemp = 0.0;
+
+			if (resultados.next()) {
+				moneyTemp = toMoney(resultados);
+			}
+			return moneyTemp;       
+                                    
+        } catch (Exception e) {
+            
+        	throw new MissingDataException(e);
+        	
+        }
+        
+    }
+	
+	private double toMoney(ResultSet resultados) throws SQLException {
+		
+		return resultados.getDouble(1);
+	}
 			
 	private User toUser(ResultSet results) throws SQLException {
 		//User(         Integer id,        String name,         Double budget,       Double time,         int if_preference_type                   AttractionType(preference))
