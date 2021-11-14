@@ -122,8 +122,6 @@ public class PromotionDAOImpl implements PromotionDAO{
 								
 			}
 			
-			//return promotionTemp;
-			
 			return (Promotion) promotionTemp;
 						
 		} catch (Exception e) {
@@ -225,8 +223,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 		Promotion promotionTemp = null;
 		
 		switch(PromotionType.fromId(results.getInt(6))) {
-		//switch(PromotionType.valueOf(results.getString(6))) {
-					
+							
 			case PERCENTAGE:
 			
 				AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
@@ -241,7 +238,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 				
 				promotionTemp.calculatePrice();
 				
-				update(promotionTemp);
+				//update(promotionTemp);
 			
 			case ABSOLUTE:
 				
@@ -256,7 +253,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 				
 				promotionTemp.calculatePrice();
 				
-				update(promotionTemp);
+				//update(promotionTemp);
 						
 			case A_AND_B:
 				
@@ -271,7 +268,7 @@ public class PromotionDAOImpl implements PromotionDAO{
 				
 				promotionTemp.calculatePrice();
 				
-				update(promotionTemp);
+				//update(promotionTemp);
 							
 			default:
 				break;

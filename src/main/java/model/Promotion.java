@@ -12,6 +12,7 @@ public abstract class Promotion {
 	protected double discount = 0;
 	private int promotionTypeID;
 	private PromotionType promotionType;
+	protected double saving_money;
 		
 	protected List<Attraction> attractionsList = new LinkedList<Attraction>();
 	
@@ -116,6 +117,14 @@ public abstract class Promotion {
 		this.attractionsList = attractionsList;
 	}
 	
+	public double getSaving_money() {
+		return saving_money;
+	}
+
+	public void setSaving_money(double saving_money) {
+		this.saving_money = saving_money;
+	}	
+	
 	@Override
 	public String toString() {
 		return "Promotion [id=" + id + ", name=" + name + ", time=" + time + ", cost=" + cost + ", discount=" + discount
@@ -125,6 +134,6 @@ public abstract class Promotion {
 
 	public void calculatePrice() {
 		
-	}	
+	}
 
 }

@@ -8,8 +8,10 @@ public class User {
 	private String name;					// nombre
 	private double budget;					// presupuesto
 	private double time;					// tiempo que dispone
+	private String date; 
 	private int preferencesID;
 	private AttractionType preferences;		// preferencias
+	private String password;
 	
 	private double totalTime;
 	private double totalGold;
@@ -33,14 +35,16 @@ public class User {
 
 
 	// Para Insertar un Usuario en la BDD
-	public User(String name, double budget, double time, int preferencesID) {
+	public User(String name, double budget, double time, int preferencesID, String password) {
 		super();
 		this.name = name;
 		this.budget = budget;
 		this.time = time;
 		this.preferencesID = preferencesID;
+		this.password = password;
 		
 	}
+	
 
 	public int getId() {
 		return id;
@@ -73,7 +77,15 @@ public class User {
 	public void setTime(double time) {
 		this.time = time;
 	}
+	
+	public String getDate() {
+		return date;
+	}
 
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 		
 	public int getPreferencesID() {
 		return preferencesID;
@@ -89,6 +101,15 @@ public class User {
 
 	public void setPreferences(AttractionType preferences) {
 		this.preferences = preferences;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public double getTotalTime() {
@@ -286,7 +307,5 @@ public class User {
 		this.calculateTotalGold();
 				
 	}
-
-		
 	
 }

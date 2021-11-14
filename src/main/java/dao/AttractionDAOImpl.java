@@ -158,8 +158,8 @@ public class AttractionDAOImpl implements AttractionDAO {
 			
 			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type, attraction_type.name AS type\n"
 					+ "FROM promotions\n"
-					+ "INNER JOIN promotions_attractions ON promotions.id = promotions_attractions.fk_id_promotion\n"
-					+ "INNER JOIN attractions ON promotions_attractions.fk_id_attraction = attractions.id\n"
+					+ "INNER JOIN promotion_attractions ON promotions.id = promotion_attractions.fk_id_promotion\n"
+					+ "INNER JOIN attractions ON promotion_attractions.fk_id_attraction = attractions.id\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\n"
 					+ "WHERE promotions.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
@@ -191,8 +191,8 @@ public class AttractionDAOImpl implements AttractionDAO {
 			
 			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.fk_id_attraction_type, attraction_type.name AS type\n"
 					+ "FROM promotions\n"
-					+ "INNER JOIN promotions_attractions ON promotions.id = promotions_attractions.fk_id_promotion\n"
-					+ "INNER JOIN attractions ON promotions_attractions.fk_id_attraction = attractions.id\n"
+					+ "INNER JOIN promotion_attractions ON promotions.id = promotion_attractions.fk_id_promotion\n"
+					+ "INNER JOIN attractions ON promotion_attractions.fk_id_attraction = attractions.id\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\n"
 					+ "WHERE promotions.id = ?";
 			Connection conn = ConnectionProvider.getConnection();

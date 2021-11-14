@@ -19,23 +19,19 @@ public class App {
 		
 		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 		
-		System.out.println("Encontrar la Promocion con el 'ID: Nº1'");
-	
-		Promotion promotionTemp = promotionDAO.findById(1);
+		System.out.println("Operaciones realizadas dentro de la clase Promocion");
+		System.out.println();
+		
+		Promotion promotionTemp = promotionDAO.findById(3);
 				
-		System.out.println(promotionDAO.findById(1));
+		System.out.println("------------------------------");
+		System.out.println();
 		
-		
-		Promotion promotionTemp1 = promotionDAO.findById(2);
-		
-		System.out.println(promotionDAO.findById(2));
-		
-		
-		Promotion promotionTemp2 = promotionDAO.findById(3);
-		
-		System.out.println(promotionDAO.findById(3));
-		
-		
+		System.out.println("Tiempo de la promocion hs:" + promotionTemp.getTime());
+		System.out.println("Descuento absoluto de la promocion $:" + promotionTemp.getCost());
+		System.out.println("Costo a pagar luego de aplicar el descuento $:" + promotionTemp.getDiscount());
+		System.out.println("Ahorro de $" + promotionTemp.getSaving_money());
+
 	}
 		
 }

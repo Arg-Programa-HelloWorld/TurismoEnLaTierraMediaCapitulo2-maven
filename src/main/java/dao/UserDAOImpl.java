@@ -19,7 +19,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			
-			String sqlQuery = "INSERT INTO users (name, budget, time, fk_id_preference) VALUES (?,?,?,?)";
+			String sqlQuery = "INSERT INTO users (name, budget, time, fk_id_preference, password) VALUES (?,?,?,?,?)";
 			Connection connection = ConnectionProvider.getConnection();
 			
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -28,6 +28,7 @@ public class UserDAOImpl implements UserDAO {
 			statement.setDouble(2, user.getBudget());
 			statement.setDouble(3, user.getTime());
 			statement.setInt(4, user.getPreferencesID());
+			statement.setString(5, user.getPassword());
 			
 			int rowsInsert = statement.executeUpdate();
 				
@@ -209,13 +210,15 @@ public class UserDAOImpl implements UserDAO {
 	public int buyAttraction(User user, Attraction attraction) {
         
         try {
-            String sqlQuery = "INSERT INTO users_attractions (fk_id_user, fk_id_attraction) VALUES(?,?)";
+            String sqlQuery = "INSERT INTO users_attractions (fk_id_user, fk_id_attraction, cost, time) VALUES(?,?,?,?)";
             Connection connection = ConnectionProvider.getConnection();
             
             PreparedStatement statement = connection.prepareStatement(sqlQuery);
             
             statement.setInt(1, user.getId());
             statement.setDouble(2, attraction.getId());
+            statement.setDouble(3, attraction.getCost());
+            statement.setDouble(4, attraction.getTime());
                     
             int rows = statement.executeUpdate();
                 
@@ -232,13 +235,17 @@ public class UserDAOImpl implements UserDAO {
 	public int buyPromotion(User user, Promotion promotion) {
         
         try {
-            String sqlQuery = "INSERT INTO users_promotions (fk_id_user, fk_id_promotion) VALUES(?,?)";
+            String sqlQuery = "INSERT INTO users_promotions (fk_id_user, fk_id_promotion, time, cost, discount, saving_money) VALUES(?,?,?,?,?,?)";
             Connection connection = ConnectionProvider.getConnection();
             
             PreparedStatement statement = connection.prepareStatement(sqlQuery);
             
             statement.setInt(1, user.getId());
-            statement.setDouble(2, promotion.getId());
+            statement.setInt(2, promotion.getId());
+            statement.setDouble(3, promotion.getTime());
+            statement.setDouble(4, promotion.getCost());
+            statement.setDouble(5, promotion.getDiscount());
+            statement.setDouble(6, promotion.getSaving_money());
                     
             int rows = statement.executeUpdate();
                 
