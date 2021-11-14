@@ -22,10 +22,12 @@ public class App {
 		System.out.println("Operaciones realizadas dentro de la clase Promocion");
 		System.out.println();
 		
-		Promotion promotionTemp = promotionDAO.findById(3);
+		Promotion promotionTemp = promotionDAO.findById(1);
 				
 		System.out.println("------------------------------");
 		System.out.println();
+		
+		System.out.println(promotionTemp.getName());
 		
 		System.out.println("Tiempo de la promocion hs:" + promotionTemp.getTime());
 		System.out.println("Descuento absoluto de la promocion $:" + promotionTemp.getCost());

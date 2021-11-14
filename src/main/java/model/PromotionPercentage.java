@@ -50,6 +50,7 @@ public class PromotionPercentage extends Promotion {
 
 			}
 
+			System.out.println(this.getName());
 			
 			System.out.println("Valor de la promocion hs: " + cost);
 			
