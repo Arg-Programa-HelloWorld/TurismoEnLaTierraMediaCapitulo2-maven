@@ -312,10 +312,69 @@ public class UserDAOImpl implements UserDAO {
         }
         
     }
-	
-	private double toMoney(ResultSet resultados) throws SQLException {
+
+	public double haveTime(User user) throws SQLException {
 		
-		return resultados.getDouble(1);
+		try {
+            String sqlQuery = "SELECT time FROM users WHERE id = ?";
+            Connection connection = ConnectionProvider.getConnection();
+            
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            
+            statement.setInt(1, user.getId());
+            
+            ResultSet resultados = statement.executeQuery();
+
+			double moneyTemp = 0.0;
+
+			if (resultados.next()) {
+				moneyTemp = toTime(resultados);
+			}
+			return moneyTemp;       
+                                    
+        } catch (Exception e) {
+            
+        	throw new MissingDataException(e);
+        	
+        }
+		
+	}
+
+	public double haveTimeByID(int id) throws SQLException {
+
+		try {
+            String sqlQuery = "SELECT time FROM users WHERE id = ?";
+            Connection connection = ConnectionProvider.getConnection();
+            
+            PreparedStatement statement = connection.prepareStatement(sqlQuery);
+            
+            statement.setInt(1, id);
+            
+            ResultSet resultados = statement.executeQuery();
+
+			double moneyTemp = 0.0;
+
+			if (resultados.next()) {
+				moneyTemp = toTime(resultados);
+			}
+			return moneyTemp;       
+                                    
+        } catch (Exception e) {
+            
+        	throw new MissingDataException(e);
+        	
+        }
+
+	}
+	
+	private double toMoney(ResultSet results) throws SQLException {
+		
+		return results.getDouble(1);
+	}
+	
+	private double toTime(ResultSet results) throws SQLException {
+		
+		return results.getDouble(1);
 	}
 			
 	private User toUser(ResultSet results) throws SQLException {

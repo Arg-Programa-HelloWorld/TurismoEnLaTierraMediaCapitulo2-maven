@@ -183,8 +183,7 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-	
-	
+
 	// OK
 	@Test
 	public void haveMoneyTest() throws SQLException {
@@ -193,9 +192,26 @@ public class UserTest {
 
 		User userTemp = userDAO.findById(1);
 
-		System.out.println(userDAO.haveMoneyByID(1));
+		System.out.println(
+				"El usuario " + userTemp.getName() + " cuenta con un saldo de $: " + userDAO.haveMoney(userTemp));
 
-		//assertEquals(1, rows);
+		// assertEquals(1, rows);
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+
+	}
+
+	// OK
+	@Test
+	public void haveTimeTest() throws SQLException {
+
+		UserDAO userDAO = DAOFactory.getUserDAO();
+
+		User userTemp = userDAO.findById(2);
+
+		System.out.println(
+				"El usuario " + userTemp.getName() + " cuenta con un tiempo de Hs: " + userDAO.haveTime(userTemp));
+
+		// assertEquals(1, rows);
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
 	}

@@ -13,5 +13,7 @@ public interface UserDAO extends GenericDAO<User> {
 	public abstract int buyPromotion(User user, Promotion promotion) throws SQLException;
 	public abstract double haveMoney(User user) throws SQLException;
 	public abstract double haveMoneyByID(int id) throws SQLException;
+	public abstract double haveTime(User user) throws SQLException;
+	public abstract double haveTimeByID(int id) throws SQLException;
 	
 }
