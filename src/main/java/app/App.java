@@ -22,7 +22,7 @@ public class App {
 		System.out.println("Operaciones realizadas dentro de la clase Promocion");
 		System.out.println();
 		
-		Promotion promotionTemp = promotionDAO.findById(1);
+		Promotion promotionTemp = promotionDAO.findById(3);
 				
 		System.out.println("------------------------------");
 		System.out.println();
