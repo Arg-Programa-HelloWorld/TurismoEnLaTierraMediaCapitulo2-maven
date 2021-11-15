@@ -49,7 +49,9 @@ public class PromotionTest {
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-/*
+	
+
+	
 	@Test
 	public void insertAPromotionAyBTest() throws SQLException {
 
@@ -58,14 +60,16 @@ public class PromotionTest {
 		System.out.println("Insertar la Promotion 'Pack Promo A & B'");
 		// (String name, double time, double cost, double discount, int promotionTypeID)
 		//(String name, double time, double cost, double discount, int promotionTypeID)
-		Promotion promotionTempAyB = new PromotionAyB("Pack Promo A & B", 0, 0, 0, 3);
+		Promotion promotionTempAyB = new PromotionAyB("Pack Promo A & B", 0, 0, 2, 3);
 		promotionDAO.insert(promotionTempAyB);
 
 		System.out.println(
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-*/
+
+	
+
 	@Test
 	public void findByIDPromotionTest() throws SQLException {
 

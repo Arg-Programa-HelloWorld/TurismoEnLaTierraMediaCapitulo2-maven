@@ -39,37 +39,16 @@ public class PromotionPercentage extends Promotion {
 
 				cost += attraction.getCost();
 				time += attraction.getTime();
-				
-				/*
-				System.out.println("-----------------------");
-				System.out.println(attraction.getName());
-				System.out.println(cost);
-				System.out.println(time);
-				System.out.println("-----------------------");
-				*/
 
 			}
 
-			//System.out.println(this.getName());
-			
-			//System.out.println("Valor de la promocion hs: " + cost);
-			
 			this.time = time;
-			//System.out.println("Tiempo de la promocion hs: " + this.time);
-			
-			//System.out.println("Descuento de la promocion %: " + percentageDiscount);
-			
-			//System.out.println("Cifra multiplicadora del descuento: " + discount);
-			
-			this.cost = cost * discount;
-			
-			//System.out.println("Costo a pagar luego de aplicar el descuento $: " + Math.round(this.cost * 100.0) / 100.0);
-			
-			saving = cost - this.cost;
-			this.setSaving_money(saving);
-			//System.out.println("Ahorro de $ "+ Math.round(saving * 100.0) / 100.0);
 
-						
+			this.cost = cost * discount;
+
+			saving = cost - this.cost;
+
+			this.setSaving_money(saving);
 
 		} catch (Exception e) {
 

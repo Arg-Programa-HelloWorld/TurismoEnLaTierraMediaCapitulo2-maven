@@ -33,7 +33,6 @@ public class PromotionAbsolute extends Promotion {
 
 			cost += attraction.getCost();
 			time += attraction.getTime();
-			// System.out.println(attraction.getName());
 
 		}
 
@@ -41,22 +40,11 @@ public class PromotionAbsolute extends Promotion {
 
 		this.discount = discount;
 
-		// System.out.println("Valor de la promocion hs: " + cost);
-
-		this.time = time;
-		// System.out.println("Tiempo de la promocion hs: " + this.time);
-
-		// System.out.println("Descuento absoluto de la promocion $: " +
-		// absoluteDiscount);
-
 		this.cost = cost - discount;
 
-		// System.out.println("Costo a pagar luego de aplicar el descuento $: " +
-		// Math.round(this.cost * 100.0) / 100.0);
-
 		saving = cost - this.cost;
+
 		this.setSaving_money(saving);
-		// System.out.println("Ahorro de $ "+ Math.round(saving * 100.0) / 100.0);
 
 	}
 

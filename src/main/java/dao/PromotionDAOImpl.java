@@ -283,9 +283,13 @@ public class PromotionDAOImpl implements PromotionDAO {
 					results.getDouble(4), results.getDouble(5), results.getInt(6),
 					PromotionType.valueOf(results.getString(7)), attractionListAyB);
 
-			promotionTempAyB.calculatePrice();
+			if (!attractionListAyB.isEmpty()) {
 
-			update(promotionTempAyB);
+				promotionTempAyB.calculatePrice();
+
+				update(promotionTempAyB);
+
+			}
 
 			promotionTemp = promotionTempAyB;
 
