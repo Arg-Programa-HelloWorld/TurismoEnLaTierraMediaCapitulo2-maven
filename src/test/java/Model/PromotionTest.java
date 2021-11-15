@@ -17,6 +17,7 @@ import model.User;
 
 public class PromotionTest {
 
+
 	@Test
 	public void insertAPromotionPercentageTest() throws SQLException {
 
@@ -33,7 +34,7 @@ public class PromotionTest {
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-
+	
 	@Test
 	public void insertAPromotionAbsoluteTest() throws SQLException {
 
@@ -48,7 +49,7 @@ public class PromotionTest {
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-
+/*
 	@Test
 	public void insertAPromotionAyBTest() throws SQLException {
 
@@ -56,14 +57,15 @@ public class PromotionTest {
 
 		System.out.println("Insertar la Promotion 'Pack Promo A & B'");
 		// (String name, double time, double cost, double discount, int promotionTypeID)
-		Promotion promotionTemp = new PromotionAyB("Pack Promo A & B", 0, 0, 0, 3);
-		promotionDAO.insert(promotionTemp);
+		//(String name, double time, double cost, double discount, int promotionTypeID)
+		Promotion promotionTempAyB = new PromotionAyB("Pack Promo A & B", 0, 0, 0, 3);
+		promotionDAO.insert(promotionTempAyB);
 
 		System.out.println(
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-
+*/
 	@Test
 	public void findByIDPromotionTest() throws SQLException {
 
@@ -78,6 +80,7 @@ public class PromotionTest {
 
 	}
 
+
 	@Test
 	public void findALLPromotionTest() throws SQLException {
 
@@ -91,12 +94,13 @@ public class PromotionTest {
 
 		}
 
-		System.out.println(promotionDAO.findAll()); // de esta forma las vemos todas en una sola linea
+		//System.out.println(promotionDAO.findAll()); // de esta forma las vemos todas en una sola linea
 
 		System.out.println(
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
+
 
 	@Test
 	public void updateAnPromotionTest() throws SQLException {
@@ -128,6 +132,8 @@ public class PromotionTest {
 
 	}
 
+
+
 	@Test
 	public void deleteAPromotionTest() throws SQLException {
 
@@ -156,6 +162,8 @@ public class PromotionTest {
 
 	}
 
+
+
 	@Test
 	public void getLastPromotionTest() throws SQLException {
 
@@ -169,5 +177,6 @@ public class PromotionTest {
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
+
 
 }

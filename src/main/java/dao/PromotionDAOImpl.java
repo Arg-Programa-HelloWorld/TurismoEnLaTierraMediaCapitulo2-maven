@@ -243,6 +243,8 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 			promotionTemp = promotionTempPercentage;
 
+			// System.out.println("Paso por Percentage");
+
 		}
 
 		if (result == 2) {
@@ -264,7 +266,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 			promotionTemp = promotionTempAbsolute;
 
-			System.out.println("Paso por Absulute");
+			// System.out.println("Paso por Absulute");
 
 		}
 
@@ -287,7 +289,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 			promotionTemp = promotionTempAyB;
 
-			System.out.println("Paso por A_and_B");
+			// System.out.println("Paso por A_and_B");
 
 		}
 

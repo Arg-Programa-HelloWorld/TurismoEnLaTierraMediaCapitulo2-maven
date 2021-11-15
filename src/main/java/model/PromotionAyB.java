@@ -17,8 +17,6 @@ public class PromotionAyB extends Promotion {
 
 		super(name, time, cost, discount, promotionTypeID);
 
-		// calculatePrice();
-
 	}
 
 	@Override
