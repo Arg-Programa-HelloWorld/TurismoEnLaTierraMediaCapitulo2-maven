@@ -36,7 +36,7 @@ public class PromotionAyB extends Promotion {
 
 		this.cost = cost - discount;
 
-		//this.discount = discount;
+		this.discount = discount;
 
 		saving = cost - this.cost;
 

@@ -237,9 +237,13 @@ public class PromotionDAOImpl implements PromotionDAO {
 					results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getInt(6),
 					PromotionType.valueOf(results.getString(7)), attractionListPercentage);
 
-			promotionTempPercentage.calculatePrice();
+			if (!attractionListPercentage.isEmpty()) {
 
-			update(promotionTempPercentage);
+				promotionTempPercentage.calculatePrice();
+
+				update(promotionTempPercentage);
+
+			}
 
 			promotionTemp = promotionTempPercentage;
 
@@ -260,9 +264,13 @@ public class PromotionDAOImpl implements PromotionDAO {
 					results.getDouble(4), results.getDouble(5), results.getInt(6),
 					PromotionType.valueOf(results.getString(7)), attractionListAbsolute);
 
-			promotionTempAbsolute.calculatePrice();
+			if (!attractionListAbsolute.isEmpty()) {
 
-			update(promotionTempAbsolute);
+				promotionTempAbsolute.calculatePrice();
+
+				update(promotionTempAbsolute);
+
+			}
 
 			promotionTemp = promotionTempAbsolute;
 
