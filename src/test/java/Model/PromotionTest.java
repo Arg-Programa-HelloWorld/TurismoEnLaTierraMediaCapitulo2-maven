@@ -80,23 +80,26 @@ public class PromotionTest {
 		
 		
 	@Test
-	public void findALLAtraccionTest() throws SQLException {
+	public void findALLPromotionTest() throws SQLException {
 		
 		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 		
 		System.out.println("Ver todas las Promociones");
 		
+		/*
 		for (Promotion promotionTemp : promotionDAO.findAll()) { 
 			
 			System.out.println(promotionTemp);
 		
 		}
+		*/
 		
-		//System.out.println(attractionDAO.findAll());  // de esta forma las vemos todas en una sola linea
+		System.out.println(promotionDAO.findAll());  // de esta forma las vemos todas en una sola linea
 		
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 						
 	}
+	
 	
 	
 	@Test
@@ -156,7 +159,7 @@ public class PromotionTest {
 							
 	}
 	
-		
+	/*	
 	@Test
 	public void getLastPromotionTest() throws SQLException {
 		
@@ -169,6 +172,7 @@ public class PromotionTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 							
 	}
+	*/
 	
 	
 }

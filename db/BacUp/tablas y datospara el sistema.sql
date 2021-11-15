@@ -15,21 +15,22 @@ CREATE TABLE IF NOT EXISTS 'users' (
 	FOREIGN KEY('fk_id_preference') REFERENCES 'attraction_type'('id')
 );
 
-INSERT INTO 'users' (id, name, budget, time, fk_id_preference,password) VALUES (1,'admin',10.0,7.25,1,'admin'),
-(2,'Eowyn-Normal',10.0,7.25,1,''),
-(3,'Eowyn-2-AtracNoBudget',13.0,9.0,1,''),
-(4,'Eowyn-2-AtracNoTime',48.0,8.0,1,''),
-(5,'Eowyn-PromotionNoBudget',9.0,10.0,1,''),
-(6,'Gandalf',100.0,5.0,2,''),
-(7,'Sam',36.0,8.0,3,''),
-(8,'Galadriel',120.0,6.0,2,''),
-(9,'Frodo',15.0,4.0,3,''),
-(10,'Meriadoc',25.0,8.0,3,''),
-(11,'Peregrin',40.0,12.0,1,''),
-(12,'Boromir',10.0,9.0,3,''),
-(13,'Legolas',26.0,4.0,2,''),
-(14,'Gimli',38.0,12.0,2,''),
-(15,'Roberto',100.0,100.0,2,'');
+INSERT INTO 'users' (id, name, password, budget, time, fk_id_preference,) VALUES (1,'admin','admin',10.0,7.25,1);
+
+INSERT INTO 'users' (id, name, budget, time, fk_id_preference) VALUES (2,'Eowyn-Normal',10.0,7.25,1),
+(3,'Eowyn-2-AtracNoBudget',13.0,9.0,1),
+(4,'Eowyn-2-AtracNoTime',48.0,8.0,1),
+(5,'Eowyn-PromotionNoBudget',9.0,10.0,1),
+(6,'Gandalf',100.0,5.0,2),
+(7,'Sam',36.0,8.0,3),
+(8,'Galadriel',120.0,6.0,2),
+(9,'Frodo',15.0,4.0,3),
+(10,'Meriadoc',25.0,8.0,3),
+(11,'Peregrin',40.0,12.0,1),
+(12,'Boromir',10.0,9.0,3),
+(13,'Legolas',26.0,4.0,2),
+(14,'Gimli',38.0,12.0,2),
+(15,'Roberto',100.0,100.0,2);
 
 CREATE TABLE IF NOT EXISTS 'promotion_type' (
 	'id'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

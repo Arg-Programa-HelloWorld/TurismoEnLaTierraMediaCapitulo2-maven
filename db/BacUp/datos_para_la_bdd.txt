@@ -1,0 +1,83 @@
+CREATE TABLE `attraction_type` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL
+);
+
+
+CREATE TABLE `users` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL,
+	`password`	TEXT NOT NULL DEFAULT '',	
+	`budget`	REAL NOT NULL DEFAULT 0,
+	`time`	REAL NOT NULL DEFAULT 0,
+	`image`	TEXT NOT NULL DEFAULT '/public/images/users/default.jpg',
+	`fk_id_preference`	INTEGER NOT NULL,	
+	`date`	TEXT NOT NULL DEFAULT (datetime('now','localtime')),	
+	`state`	INTEGER NOT NULL DEFAULT 1,
+	FOREIGN KEY(`fk_id_preference`) REFERENCES `attraction_type`(`id`)
+);
+
+CREATE TABLE `attractions` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL,
+	`cost`	REAL NOT NULL CHECK("cost" > 0),
+	`time`	REAL NOT NULL CHECK("time" > 0),
+	`quota`	INTEGER NOT NULL,
+	`discount`	REAL NOT NULL,
+	`image`	TEXT NOT NULL DEFAULT '/public/images/attractions/default.jpg',
+	`fk_id_attraction_type`	INTEGER NOT NULL,
+	`date`	TEXT NOT NULL DEFAULT (datetime('now','localtime')),
+	`state`	INTEGER NOT NULL DEFAULT 1,
+	FOREIGN KEY(`fk_id_attraction_type`) REFERENCES `attraction_type`(`id`)
+);
+
+
+CREATE TABLE `promotion_type` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL
+);
+
+
+CREATE TABLE `promotions` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`name`	TEXT NOT NULL,
+	`cost`	REAL NOT NULL DEFAULT 0.0,
+	`time`	REAL NOT NULL DEFAULT 0.0,
+	`quota`	INTEGER NOT NULL DEFAULT 0,
+	`discount`	REAL NOT NULL DEFAULT 0.0,
+	`image`	TEXT NOT NULL DEFAULT '/public/images/promotions/default.jpg',
+	`fk_id_promotion_type`	INTEGER NOT NULL,
+	`date`	TEXT NOT NULL DEFAULT (datetime('now','localtime')),
+	`state`	INTEGER NOT NULL DEFAULT 1,
+	FOREIGN KEY(`fk_id_promotion_type`) REFERENCES `promotion_type`(`id`)
+);
+
+
+CREATE TABLE `promotion_attractions` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`fk_id_promotion`	INTEGER NOT NULL,
+	`fk_id_attraction`	INTEGER NOT NULL,
+	`pay`	INTEGER NOT NULL DEFAULT 1,
+	`date`	TEXT NOT NULL DEFAULT (datetime('now','localtime')),
+	`state`	INTEGER DEFAULT 1,
+	FOREIGN KEY(`fk_id_promotion`) REFERENCES `promotions`(`id`),
+	FOREIGN KEY(`fk_id_attraction`) REFERENCES `attractions`(`id`)
+);
+
+
+CREATE TABLE `itinerary_shopping` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	`fk_id_user`	INTEGER NOT NULL,
+	`ff_id_attraction`	INTEGER,
+	`fk_id_promotion`	INTEGER,
+	`name`	TEXT NOT NULL,
+	`cost`	REAL NOT NULL DEFAULT 0.0,
+	`time`	REAL NOT NULL DEFAULT 0.0,
+	`discount`	REAL NOT NULL DEFAULT 0.0,
+	`saving_money`	REAL NOT NULL DEFAULT 0.0,
+	`date`	TEXT DEFAULT (datetime('now','localtime')),
+	`state`	INTEGER DEFAULT 1,
+	FOREIGN KEY(`fk_id_user`) REFERENCES `users`(`id`),
+	FOREIGN KEY(`ff_id_attraction`) REFERENCES `attractions`(`id`),
+	FOREIGN KEY(`fk_id_promotion`) REFERENCES `promotions`(`id`)
+);

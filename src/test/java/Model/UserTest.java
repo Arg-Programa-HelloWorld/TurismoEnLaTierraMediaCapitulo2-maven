@@ -25,7 +25,7 @@ public class UserTest {
 		UserDAO userDAO = DAOFactory.getUserDAO();
 
 		System.out.println("Insertar el Usuario: 'UsuarioTest'");
-		User userTemp = new User("UsuarioTest", 8, 8, 1, "123");
+		User userTemp = new User("UsuarioTest", "123", 8, 8, 1);
 		userDAO.insert(userTemp);
 
 		System.out.println(userDAO.findById(userDAO.getLastUser().getId()));
@@ -115,7 +115,7 @@ public class UserTest {
 		cantidadAntes = userDAO.countAll();
 
 		System.out.println("Insertar el Usuario: 'Usuario Test Para Eliminar'");
-		User userTemp = new User("Usuario Test Para Eliminar", 100, 100, 1, "");
+		User userTemp = new User("Usuario Test Para Eliminar", "", 100, 100, 1);
 		userDAO.insert(userTemp);
 		System.out.println(userDAO.getLastUser());
 
