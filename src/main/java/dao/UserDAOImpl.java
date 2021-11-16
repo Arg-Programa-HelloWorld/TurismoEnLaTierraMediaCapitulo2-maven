@@ -360,7 +360,70 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 	}
+	
+	public int hasTheAttraction(User user, Attraction attraction) {
+		
+		try {
+			String sqlQuery = "SELECT 1 IS NOT NULL\n"
+					+ "FROM itinerary_shopping\n"
+					+ "WHERE fk_id_user = ?\n"
+					+ "AND fk_id_attraction = ?";
+			Connection connection = ConnectionProvider.getConnection();
 
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, user.getId());
+			statement.setInt(2, attraction.getId());
+
+			ResultSet results = statement.executeQuery();
+
+			int resultsTemp = 0;
+
+			if (results.next()) {
+				resultsTemp = toResults(results);
+			}
+			return resultsTemp;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
+	}
+
+	public int hasThePromotion(User user, Promotion promotion) throws SQLException {
+		
+		try {
+			String sqlQuery = "SELECT 1 IS NOT NULL\n"
+					+ "FROM itinerary_shopping\n"
+					+ "WHERE fk_id_user = ?\n"
+					+ "AND fk_id_promotion = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, user.getId());
+			statement.setInt(2, promotion.getId());
+
+			ResultSet resultados = statement.executeQuery();
+
+			int resultsTemp = 0;
+
+			if (resultados.next()) {
+				resultsTemp = toResults(resultados);
+			}
+			return resultsTemp;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+		
+	}
+	
 	private double toMoney(ResultSet results) throws SQLException {
 
 		return results.getDouble(1);
@@ -369,6 +432,11 @@ public class UserDAOImpl implements UserDAO {
 	private double toTime(ResultSet results) throws SQLException {
 
 		return results.getDouble(1);
+	}
+	
+	private int toResults(ResultSet results) throws SQLException {
+
+		return results.getInt(1);
 	}
 
 	private User toUser(ResultSet results) throws SQLException {

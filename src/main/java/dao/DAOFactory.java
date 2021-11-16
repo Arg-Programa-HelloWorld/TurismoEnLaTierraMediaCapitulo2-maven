@@ -22,7 +22,7 @@ public class DAOFactory {
 	
 	public static ItineraryDAO getItineraryDAO() {
 		
-		return new ItineraryDAOImpl();
+		return (ItineraryDAO) new ItineraryDAOImpl();
 		
 	}
 

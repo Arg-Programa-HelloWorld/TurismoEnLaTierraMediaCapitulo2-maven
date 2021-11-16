@@ -15,7 +15,7 @@ import model.Promotion;
 import model.User;
 
 public class UserTest {
-
+/*
 	// OK
 	@Test
 	public void insertAnUserTest() throws SQLException {
@@ -215,5 +215,48 @@ public class UserTest {
 		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
+*/	
+	// OK
+		@Test
+		public void hasTheAttractionTest() throws SQLException {
+
+			UserDAO userDAO = DAOFactory.getUserDAO();
+
+			AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
+			
+			User userTemp = userDAO.findById(1);
+			
+			Attraction attractionTemp = attractionDAO.findById(1);
+
+			int attractionID = userDAO.hasTheAttraction(userTemp, attractionTemp);
+
+			System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion " + attractionTemp.getName() + " [1/Si], [0/No]: " + attractionID);
+			
+			assertEquals(1, attractionID);
+			
+			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+
+		}
+		
+		@Test
+		public void hasThePromotionTest() throws SQLException {
+
+			UserDAO userDAO = DAOFactory.getUserDAO();
+
+			PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
+			
+			User userTemp = userDAO.findById(1);
+			
+			Promotion promotionTemp = promotionDAO.findById(144);
+
+			int attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);
+
+			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion " + promotionTemp.getName() + " [1/Si], [0/No]: " + attractionID);
+			
+			//assertEquals(0, attractionID);
+			
+			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+
+		}
 
 }
