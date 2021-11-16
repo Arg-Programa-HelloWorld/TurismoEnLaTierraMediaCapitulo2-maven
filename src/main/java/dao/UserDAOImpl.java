@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -227,7 +226,8 @@ public class UserDAOImpl implements UserDAO {
 
 	public int buyPromotion(User user, Promotion promotion) {
 
-		try {				// INSERT INTO itinerary_shopping (fk_id_user, fk_id_attraction, name, cost, time) VALUES(?,?,?,?,?)		
+		try { // INSERT INTO itinerary_shopping (fk_id_user, fk_id_attraction, name, cost,
+				// time) VALUES(?,?,?,?,?)
 			String sqlQuery = "INSERT INTO itinerary_shopping (fk_id_user, fk_id_promotion, name, cost, time, discount, saving_money) VALUES(?,?,?,?,?,?,?)";
 			Connection connection = ConnectionProvider.getConnection();
 
@@ -307,7 +307,7 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public double haveTime(User user) throws SQLException {
+	public double haveTime(User user) {
 
 		try {
 			String sqlQuery = "SELECT time FROM users WHERE id = ?";
@@ -334,7 +334,7 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public double haveTimeByID(int id) throws SQLException {
+	public double haveTimeByID(int id) {
 
 		try {
 			String sqlQuery = "SELECT time FROM users WHERE id = ?";
@@ -360,13 +360,11 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 	}
-	
+
 	public int hasTheAttraction(User user, Attraction attraction) {
-		
+
 		try {
-			String sqlQuery = "SELECT 1 IS NOT NULL\n"
-					+ "FROM itinerary_shopping\n"
-					+ "WHERE fk_id_user = ?\n"
+			String sqlQuery = "SELECT 1 IS NOT NULL\n" + "FROM itinerary_shopping\n" + "WHERE fk_id_user = ?\n"
 					+ "AND fk_id_attraction = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
@@ -389,15 +387,13 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
-		
+
 	}
 
-	public int hasThePromotion(User user, Promotion promotion) throws SQLException {
-		
+	public int hasThePromotion(User user, Promotion promotion) {
+
 		try {
-			String sqlQuery = "SELECT 1 IS NOT NULL\n"
-					+ "FROM itinerary_shopping\n"
-					+ "WHERE fk_id_user = ?\n"
+			String sqlQuery = "SELECT 1 IS NOT NULL\n" + "FROM itinerary_shopping\n" + "WHERE fk_id_user = ?\n"
 					+ "AND fk_id_promotion = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
@@ -421,29 +417,57 @@ public class UserDAOImpl implements UserDAO {
 
 		}
 
-		
-	}
-	
-	private double toMoney(ResultSet results) throws SQLException {
-
-		return results.getDouble(1);
 	}
 
-	private double toTime(ResultSet results) throws SQLException {
+	private double toMoney(ResultSet results) {
 
-		return results.getDouble(1);
+		try {
+			return results.getDouble(1);
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
 	}
-	
-	private int toResults(ResultSet results) throws SQLException {
 
-		return results.getInt(1);
+	private double toTime(ResultSet results) {
+
+		try {
+			return results.getDouble(1);
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
 	}
 
-	private User toUser(ResultSet results) throws SQLException {
-		// User( Integer id, String name, Double budget, Double time, int
-		// if_preference_type AttractionType(preference))
-		return new User(results.getInt(1), results.getString(2), results.getDouble(3), results.getDouble(4),
-				results.getInt(5), AttractionType.valueOf(results.getString(6)));
+	private int toResults(ResultSet results) {
+
+		try {
+			return results.getInt(1);
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+	}
+
+	private User toUser(ResultSet results) {
+
+		try {
+
+			// User( Integer id, String name, Double budget, Double time, int
+			// if_preference_type AttractionType(preference))
+			return new User(results.getInt(1), results.getString(2), results.getDouble(3), results.getDouble(4),
+					results.getInt(5), AttractionType.valueOf(results.getString(6)));
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
 	}
 
 }

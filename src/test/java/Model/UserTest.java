@@ -247,13 +247,13 @@ public class UserTest {
 			
 			User userTemp = userDAO.findById(1);
 			
-			Promotion promotionTemp = promotionDAO.findById(144);
+			Promotion promotionTemp = promotionDAO.findById(1);
 
 			int attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);
 
 			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion " + promotionTemp.getName() + " [1/Si], [0/No]: " + attractionID);
 			
-			//assertEquals(0, attractionID);
+			assertEquals(1, attractionID);
 			
 			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 

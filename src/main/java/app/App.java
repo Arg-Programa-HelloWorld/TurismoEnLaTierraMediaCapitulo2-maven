@@ -1,22 +1,13 @@
 package app;
 
-import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-
-import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.PromotionDAO;
 import dao.UserDAO;
-import model.Attraction;
 import model.Promotion;
-import model.PromotionPercentage;
-import model.User;
-
 
 public class App {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
 		
 		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 		
