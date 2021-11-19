@@ -374,20 +374,12 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-<<<<<<< HEAD
-	public boolean hasTheAttraction(User user, Attraction attraction) {
-=======
 	public Boolean hasTheAttraction(User user, Attraction attraction) {
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		try {
-<<<<<<< HEAD
-			String sqlQuery = "SELECT 1	FROM itinerary_shopping	WHERE fk_id_user = ? AND fk_id_attraction = ?";
-=======
-
+			
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_attraction = ?";
 
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -396,15 +388,10 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(2, attraction.getId());
 
 			ResultSet results = statement.executeQuery();
-<<<<<<< HEAD
-						
-			return results.next();
-=======
 
 			boolean resultsTemp = results.next();
 
 			return resultsTemp;
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		} catch (Exception e) {
 
@@ -414,20 +401,12 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-<<<<<<< HEAD
-	public boolean hasThePromotion(User user, Promotion promotion) {
-=======
 	public Boolean hasThePromotion(User user, Promotion promotion) {
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		try {
-<<<<<<< HEAD
-			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
-=======
-
+			
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
 
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -436,15 +415,10 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(2, promotion.getId());
 
 			ResultSet results = statement.executeQuery();
-<<<<<<< HEAD
-						
-			return results.next();
-=======
 
 			boolean resultsTemp = results.next();
 
 			return resultsTemp;
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		} catch (Exception e) {
 

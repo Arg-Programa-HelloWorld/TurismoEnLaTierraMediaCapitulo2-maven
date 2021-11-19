@@ -230,23 +230,11 @@ public class UserTest {
 			
 			Attraction attractionTemp = attractionDAO.findById(1);
 
-<<<<<<< HEAD
-			boolean hasAttraction = userDAO.hasTheAttraction(userTemp, attractionTemp);
-=======
 			Boolean results = userDAO.hasTheAttraction(userTemp, attractionTemp);
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
-<<<<<<< HEAD
-			System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion " + attractionTemp.getName() + hasAttraction);
-=======
 			System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion '" + attractionTemp.getName() + "' [true/false]: " + results);
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			
-<<<<<<< HEAD
-			assertTrue(hasAttraction);
-=======
 			assertTrue(results);
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			
 			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
@@ -263,21 +251,12 @@ public class UserTest {
 			
 			Promotion promotionTemp = promotionDAO.findById(147);
 
-<<<<<<< HEAD
-=======
 			Boolean results = userDAO.hasThePromotion(userTemp, promotionTemp);
 			//boolean attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);
 
 			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion '" + promotionTemp.getName() + "' [true/false]: " + results);
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			
-<<<<<<< HEAD
-			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion " + promotionTemp.getName() + " [1/Si], [0/No]: ");
-						
-			assertTrue(userDAO.hasThePromotion(userTemp, promotionTemp));
-=======
 			assertFalse(results);
->>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			
 			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
