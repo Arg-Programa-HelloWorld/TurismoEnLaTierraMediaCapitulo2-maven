@@ -201,6 +201,7 @@ public class UserDAOImpl implements UserDAO {
 	public int buyAttraction(User user, Attraction attraction) {
 
 		try {
+
 			String sqlQuery = "INSERT INTO itinerary_shopping (fk_id_user, fk_id_attraction, name, cost, time) VALUES(?,?,?,?,?)";
 			Connection connection = ConnectionProvider.getConnection();
 
@@ -226,8 +227,10 @@ public class UserDAOImpl implements UserDAO {
 
 	public int buyPromotion(User user, Promotion promotion) {
 
-		try { // INSERT INTO itinerary_shopping (fk_id_user, fk_id_attraction, name, cost,
-				// time) VALUES(?,?,?,?,?)
+		try {
+
+			// INSERT INTO itinerary_shopping (fk_id_user, fk_id_attraction, name, cost,
+			// time) VALUES(?,?,?,?,?)
 			String sqlQuery = "INSERT INTO itinerary_shopping (fk_id_user, fk_id_promotion, name, cost, time, discount, saving_money) VALUES(?,?,?,?,?,?,?)";
 			Connection connection = ConnectionProvider.getConnection();
 
@@ -253,9 +256,10 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public double haveMoney(User user) {
+	public double hasMoney(User user) {
 
 		try {
+
 			String sqlQuery = "SELECT budget FROM users WHERE id = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
@@ -263,14 +267,15 @@ public class UserDAOImpl implements UserDAO {
 
 			statement.setInt(1, user.getId());
 
-			ResultSet resultados = statement.executeQuery();
+			double resultsTemp = 0.0;
 
-			double moneyTemp = 0.0;
+			ResultSet results = statement.executeQuery();
 
-			if (resultados.next()) {
-				moneyTemp = toMoney(resultados);
-			}
-			return moneyTemp;
+			results.next();
+
+			resultsTemp = results.getDouble("budget");
+
+			return resultsTemp;
 
 		} catch (Exception e) {
 
@@ -280,10 +285,69 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public double haveMoneyByID(int id) {
+	public double hasMoneyByID(int id) {
 
 		try {
+
 			String sqlQuery = "SELECT budget FROM users WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, id);
+
+			double resultsTemp = 0.0;
+
+			ResultSet results = statement.executeQuery();
+
+			results.next();
+
+			resultsTemp = results.getDouble("budget");
+
+			return resultsTemp;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+	}
+
+	public double hasTime(User user) {
+
+		try {
+
+			String sqlQuery = "SELECT time FROM users WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, user.getId());
+
+			double resultsTemp = 0.0;
+
+			ResultSet results = statement.executeQuery();
+
+			results.next();
+
+			resultsTemp = results.getDouble("time");
+
+			return resultsTemp;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+	}
+
+	public double hasTimeByID(int id) {
+
+		try {
+
+			String sqlQuery = "SELECT time FROM users WHERE id = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -292,39 +356,15 @@ public class UserDAOImpl implements UserDAO {
 
 			ResultSet resultados = statement.executeQuery();
 
-			double moneyTemp = 0.0;
+			double resultsTemp = 0.0;
 
-			if (resultados.next()) {
-				moneyTemp = toMoney(resultados);
-			}
-			return moneyTemp;
+			ResultSet results = statement.executeQuery();
 
-		} catch (Exception e) {
+			results.next();
 
-			throw new MissingDataException(e);
+			resultsTemp = results.getDouble("time");
 
-		}
-
-	}
-
-	public double haveTime(User user) {
-
-		try {
-			String sqlQuery = "SELECT time FROM users WHERE id = ?";
-			Connection connection = ConnectionProvider.getConnection();
-
-			PreparedStatement statement = connection.prepareStatement(sqlQuery);
-
-			statement.setInt(1, user.getId());
-
-			ResultSet resultados = statement.executeQuery();
-
-			double moneyTemp = 0.0;
-
-			if (resultados.next()) {
-				moneyTemp = toTime(resultados);
-			}
-			return moneyTemp;
+			return resultsTemp;
 
 		} catch (Exception e) {
 
@@ -334,37 +374,20 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public double haveTimeByID(int id) {
-
-		try {
-			String sqlQuery = "SELECT time FROM users WHERE id = ?";
-			Connection connection = ConnectionProvider.getConnection();
-
-			PreparedStatement statement = connection.prepareStatement(sqlQuery);
-
-			statement.setInt(1, id);
-
-			ResultSet resultados = statement.executeQuery();
-
-			double moneyTemp = 0.0;
-
-			if (resultados.next()) {
-				moneyTemp = toTime(resultados);
-			}
-			return moneyTemp;
-
-		} catch (Exception e) {
-
-			throw new MissingDataException(e);
-
-		}
-
-	}
-
+<<<<<<< HEAD
 	public boolean hasTheAttraction(User user, Attraction attraction) {
+=======
+	public Boolean hasTheAttraction(User user, Attraction attraction) {
+>>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		try {
+<<<<<<< HEAD
 			String sqlQuery = "SELECT 1	FROM itinerary_shopping	WHERE fk_id_user = ? AND fk_id_attraction = ?";
+=======
+
+			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_attraction = ?";
+
+>>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -373,8 +396,15 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(2, attraction.getId());
 
 			ResultSet results = statement.executeQuery();
+<<<<<<< HEAD
 						
 			return results.next();
+=======
+
+			boolean resultsTemp = results.next();
+
+			return resultsTemp;
+>>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		} catch (Exception e) {
 
@@ -384,10 +414,20 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
+<<<<<<< HEAD
 	public boolean hasThePromotion(User user, Promotion promotion) {
+=======
+	public Boolean hasThePromotion(User user, Promotion promotion) {
+>>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
 		try {
+<<<<<<< HEAD
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
+=======
+
+			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
+
+>>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -396,44 +436,16 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(2, promotion.getId());
 
 			ResultSet results = statement.executeQuery();
+<<<<<<< HEAD
 						
 			return results.next();
+=======
 
-		} catch (Exception e) {
+			boolean resultsTemp = results.next();
 
-			throw new MissingDataException(e);
+			return resultsTemp;
+>>>>>>> branch 'main' of https://github.com/Arg-Programa-HelloWorld/TurismoEnLaTierraMediaCapitulo2-maven.git
 
-		}
-
-	}
-
-	private double toMoney(ResultSet results) {
-
-		try {
-			return results.getDouble(1);
-		} catch (Exception e) {
-
-			throw new MissingDataException(e);
-
-		}
-
-	}
-
-	private double toTime(ResultSet results) {
-
-		try {
-			return results.getDouble(1);
-		} catch (Exception e) {
-
-			throw new MissingDataException(e);
-
-		}
-	}
-
-	private int toResults(ResultSet results) {
-
-		try {
-			return results.getInt(1);
 		} catch (Exception e) {
 
 			throw new MissingDataException(e);
