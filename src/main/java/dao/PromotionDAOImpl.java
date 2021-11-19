@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -207,6 +208,42 @@ public class PromotionDAOImpl implements PromotionDAO {
 			throw new MissingDataException(e);
 
 		}
+	}
+	
+	public double cost(Promotion promotion) {
+		
+		 try {
+			 String sqlQuery = "SELECT cost FROM promotions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, promotion.getId());
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		 
+	}
+	
+	public double time(Promotion promotion) {
+		
+		 try {
+			 String sqlQuery = "SELECT time FROM promotions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, promotion.getId());
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		 
 	}
 
 	private Promotion toPromotion(ResultSet results) {

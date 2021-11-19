@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -292,7 +293,96 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 
 	}
+	
+	public double cost(Attraction attraction) {
+		
+		 try {
+			 String sqlQuery = "SELECT cost FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, attraction.getId());
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		 
+	}
+	
+	public double costById(int id) {
+		
+		 try {
+			 String sqlQuery = "SELECT cost FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, id);
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		 
+	}
+	
+	public double time(Attraction attraction) {
+		
+		 try {
+			 String sqlQuery = "SELECT time FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, attraction.getId());
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		 
+	}
 
+	public double timeById(int id) {
+		
+		try {
+			 String sqlQuery = "SELECT time FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, id);
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	public double quota(Attraction attraction) {
+		
+		 try {
+			 String sqlQuery = "SELECT quota FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, attraction.getId());
+			ResultSet results = statement.executeQuery();
+			
+			return results.getDouble(1);
+			
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		 
+	}
+	
 	private Attraction toAttraction(ResultSet results) {
 
 		try {
@@ -306,5 +396,6 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		}
 	}
+
 
 }

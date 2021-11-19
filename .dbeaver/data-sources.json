@@ -1,17 +1,18 @@
 {
 	"folders": {},
 	"connections": {
-		"sqlite_jdbc-17cbf44b875-6e11fb2c829abccd": {
+		"sqlite_jdbc-17d2af895f3-7e95e51656a4d5f": {
 			"provider": "sqlite",
 			"driver": "sqlite_jdbc",
-			"name": "tourism_in_the_middle_earth.db",
+			"name": "tourism_in_the_middle_earth.db 2",
 			"save-password": true,
 			"read-only": false,
 			"configuration": {
-				"database": "/home/r1d3r/eclipse-workspace/YO_PROGRAMO/TurismoEnLaTierraMediaCapitulo2-maven/db/tourism_in_the_middle_earth.db",
-				"url": "jdbc:sqlite:/home/r1d3r/eclipse-workspace/YO_PROGRAMO/TurismoEnLaTierraMediaCapitulo2-maven/db/tourism_in_the_middle_earth.db",
+				"database": "D:\\Concordia Programa\\TP\\TurismoEnLaTierraMediaCapitulo2-maven\\db\\tourism_in_the_middle_earth.db",
+				"url": "jdbc:sqlite:D:\\Concordia Programa\\TP\\TurismoEnLaTierraMediaCapitulo2-maven\\db\\tourism_in_the_middle_earth.db",
 				"type": "dev",
-				"auth-model": "native"
+				"auth-model": "native",
+				"handlers": {}
 			}
 		}
 	},

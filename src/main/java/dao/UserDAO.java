@@ -13,7 +13,7 @@ public interface UserDAO extends GenericDAO<User> {
 	public abstract double haveMoneyByID(int id);
 	public abstract double haveTime(User user);
 	public abstract double haveTimeByID(int id);
-	public abstract int hasTheAttraction(User user, Attraction attraction);
-	public abstract int hasThePromotion(User user, Promotion promotion);
+	public abstract boolean hasTheAttraction(User user, Attraction attraction);
+	public abstract boolean hasThePromotion(User user, Promotion promotion);
 		
 }

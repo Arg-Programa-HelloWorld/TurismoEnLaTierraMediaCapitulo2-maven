@@ -228,11 +228,11 @@ public class UserTest {
 			
 			Attraction attractionTemp = attractionDAO.findById(1);
 
-			int attractionID = userDAO.hasTheAttraction(userTemp, attractionTemp);
+			boolean hasAttraction = userDAO.hasTheAttraction(userTemp, attractionTemp);
 
-			System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion " + attractionTemp.getName() + " [1/Si], [0/No]: " + attractionID);
+			System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion " + attractionTemp.getName() + hasAttraction);
 			
-			assertEquals(1, attractionID);
+			assertTrue(hasAttraction);
 			
 			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
@@ -249,11 +249,10 @@ public class UserTest {
 			
 			Promotion promotionTemp = promotionDAO.findById(1);
 
-			int attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);
-
-			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion " + promotionTemp.getName() + " [1/Si], [0/No]: " + attractionID);
 			
-			assertEquals(1, attractionID);
+			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion " + promotionTemp.getName() + " [1/Si], [0/No]: ");
+						
+			assertTrue(userDAO.hasThePromotion(userTemp, promotionTemp));
 			
 			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 

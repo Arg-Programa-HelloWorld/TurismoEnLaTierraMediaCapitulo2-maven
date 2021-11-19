@@ -361,11 +361,10 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public int hasTheAttraction(User user, Attraction attraction) {
+	public boolean hasTheAttraction(User user, Attraction attraction) {
 
 		try {
-			String sqlQuery = "SELECT 1 IS NOT NULL\n" + "FROM itinerary_shopping\n" + "WHERE fk_id_user = ?\n"
-					+ "AND fk_id_attraction = ?";
+			String sqlQuery = "SELECT 1	FROM itinerary_shopping	WHERE fk_id_user = ? AND fk_id_attraction = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -374,13 +373,8 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(2, attraction.getId());
 
 			ResultSet results = statement.executeQuery();
-
-			int resultsTemp = 0;
-
-			if (results.next()) {
-				resultsTemp = toResults(results);
-			}
-			return resultsTemp;
+						
+			return results.next();
 
 		} catch (Exception e) {
 
@@ -390,11 +384,10 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public int hasThePromotion(User user, Promotion promotion) {
+	public boolean hasThePromotion(User user, Promotion promotion) {
 
 		try {
-			String sqlQuery = "SELECT 1 IS NOT NULL\n" + "FROM itinerary_shopping\n" + "WHERE fk_id_user = ?\n"
-					+ "AND fk_id_promotion = ?";
+			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
@@ -402,14 +395,9 @@ public class UserDAOImpl implements UserDAO {
 			statement.setInt(1, user.getId());
 			statement.setInt(2, promotion.getId());
 
-			ResultSet resultados = statement.executeQuery();
-
-			int resultsTemp = 0;
-
-			if (resultados.next()) {
-				resultsTemp = toResults(resultados);
-			}
-			return resultsTemp;
+			ResultSet results = statement.executeQuery();
+						
+			return results.next();
 
 		} catch (Exception e) {
 
