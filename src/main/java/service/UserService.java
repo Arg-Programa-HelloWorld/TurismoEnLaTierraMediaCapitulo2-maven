@@ -8,7 +8,7 @@ import model.Attraction;
 import model.Promotion;
 import model.User;
 
-public class userService {
+public class UserService {
 	
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
@@ -28,25 +28,25 @@ public class userService {
 
 	public boolean haveMoneyForAttraction(User user, Attraction attraction) {
 
-		return userDAO.haveMoney(user) > attractionDAO.cost(attraction);
+		return userDAO.hasMoney(user) > attractionDAO.cost(attraction);
 
 	}
 
 	public boolean haveMoneyByID(int idUser, int idAttraction) {
 
-		return userDAO.haveMoneyByID(idUser) > attractionDAO.costById(idAttraction);
+		return userDAO.hasMoneyByID(idUser) > attractionDAO.costById(idAttraction);
 
 	}
 
 	public boolean haveTimeForAttraction(User user, Attraction attraction) {
 
-		return userDAO.haveTime(user) > attractionDAO.time(attraction);
+		return userDAO.hasTime(user) > attractionDAO.time(attraction);
 		
 	}
 
 	public boolean haveTimeByID(int idUser, int idAttraction) {
 
-		return userDAO.haveTimeByID(idUser) > attractionDAO.timeById(idAttraction);
+		return userDAO.hasTimeByID(idUser) > attractionDAO.timeById(idAttraction);
 
 	}
 
@@ -77,13 +77,27 @@ public class userService {
 	
 	public boolean haveMoneyForPromotion(User user, Promotion promotion) {
 
-		return userDAO.haveMoney(user) > promotionDAO.cost(promotion);
+		return userDAO.hasMoney(user) > promotionDAO.cost(promotion);
 
 	}
 	
 	public boolean haveTimeForPromotion(User user, Promotion promotion) {
 
-		return userDAO.haveTime(user) > promotionDAO.time(promotion);
+		return userDAO.hasTime(user) > promotionDAO.time(promotion);
+		
+	}
+	
+	public void consumeTimeForPromotion(User user, Promotion promotion) {
+		
+		user.setTime(user.getTime() - promotion.getTime());
+		userDAO.update(user);
+		
+	}
+	
+	public void payPromotion(User user, Promotion promotion) {
+		
+		user.setBudget(user.getBudget() - promotion.getCost());
+		userDAO.update(user);
 		
 	}
 	

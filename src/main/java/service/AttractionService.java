@@ -5,7 +5,7 @@ import dao.DAOFactory;
 import dao.UserDAO;
 import model.Attraction;
 
-public class attractionService {
+public class AttractionService {
 	
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
