@@ -351,6 +351,6 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 		}
 
-	}
+	}	
 
 }

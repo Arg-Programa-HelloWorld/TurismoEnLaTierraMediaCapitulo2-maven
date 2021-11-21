@@ -442,6 +442,7 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
+		
 	}
 
 }

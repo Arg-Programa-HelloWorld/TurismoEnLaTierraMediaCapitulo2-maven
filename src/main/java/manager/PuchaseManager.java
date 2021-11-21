@@ -9,9 +9,9 @@ import service.UserService;
 
 public class PuchaseManager {
 	
-	UserService userService = new UserService();
-	AttractionService attractionService = new AttractionService();
-	PromotionService promotionService = new PromotionService();
+	public UserService userService = new UserService();
+	public AttractionService attractionService = new AttractionService();
+	public PromotionService promotionService = new PromotionService();
 	
 	
 	public void buyAttraction(User user, Attraction attraction) {
