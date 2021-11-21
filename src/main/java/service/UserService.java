@@ -61,6 +61,25 @@ public class UserService {
 		return userDAO.hasThePromotion(user, promotion);
 	}
 	
+	public boolean hasTheAttractionOfPromotion(User user, Promotion promotion) {
+		
+		boolean result = false;
+		
+		for (Attraction attraction : promotion.getAttractionsList()) {
+			
+			result = this.hasTheAttraction(user, attraction);
+			
+			if (result == true) {
+				
+				break;
+			}
+			
+		}
+		
+		return result;
+		
+	}
+	
 	public void payAttraction(User user, Attraction attraction) {
 				
 		user.setBudget(user.getBudget() - attraction.getCost());

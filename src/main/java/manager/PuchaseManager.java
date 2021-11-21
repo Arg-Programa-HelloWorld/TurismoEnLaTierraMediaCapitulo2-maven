@@ -36,10 +36,14 @@ public class PuchaseManager {
 		if (userService.haveMoneyForPromotion(user, promotion) && // si tiene dinero suficiente
 			userService.haveTimeForPromotion(user, promotion) && // si tiene tiempo suficiente
 			!userService.hasThePromotion(user, promotion) && // si no tiene la promocion
+			!userService.hasTheAttractionOfPromotion(user, promotion) && // si no tiene ningunas de las atracciones de la promocion
 			promotionService.haveQuota(promotion) // si la promocion tiene cupo
 			) {
 			
-			userService.buyPromotion(user, promotion); // agrega compra al itinerario
+			userService.buyPromotion(user, promotion); // agrega promocion al itinerario
+			for (Attraction attraction : promotion.getAttractionsList()) {
+				userService.buyAttraction(user, attraction); // agrega cada atraccion de la promocion al itinerario
+			}
 			promotionService.consumeQuota(promotion); // consume una quota de atraccion
 			userService.consumeTimeForPromotion(user, promotion); // consume tiempo de usuario
 			userService.payPromotion(user, promotion); // consume plata de usuario
