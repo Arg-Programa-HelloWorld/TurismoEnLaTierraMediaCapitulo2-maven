@@ -2,6 +2,8 @@ package dao;
 
 import java.util.List;
 
+import model.User;
+
 public interface GenericDAO<T> {
 	
 	public int insert(T t);
@@ -10,5 +12,7 @@ public interface GenericDAO<T> {
 	public T findById(int t);
 	public List<T> findAll();
 	public int countAll();
+	public int dismiss(T t);
+	public int register(T t);
 		
 }

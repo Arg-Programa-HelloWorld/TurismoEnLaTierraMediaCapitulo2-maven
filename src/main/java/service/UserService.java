@@ -119,5 +119,17 @@ public class UserService {
 		userDAO.update(user);
 		
 	}
+	
+	public void dismiss(User user) {
+		
+		userDAO.dismiss(user);
+		
+	}
+	
+	public void register(User user) {
+		
+		userDAO.register(user);
+		
+	}
 		
 }

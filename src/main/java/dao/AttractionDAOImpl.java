@@ -397,5 +397,15 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 	}
 
+	public int dismiss(Attraction t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int register(Attraction t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }
