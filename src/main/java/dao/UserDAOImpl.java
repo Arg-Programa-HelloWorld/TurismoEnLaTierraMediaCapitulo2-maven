@@ -377,7 +377,7 @@ public class UserDAOImpl implements UserDAO {
 	public Boolean hasTheAttraction(User user, Attraction attraction) {
 
 		try {
-
+			
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_attraction = ?";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -404,7 +404,7 @@ public class UserDAOImpl implements UserDAO {
 	public Boolean hasThePromotion(User user, Promotion promotion) {
 
 		try {
-
+			
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -442,6 +442,53 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
+		
+	}
+
+	public int dismiss(User user) {
+		
+		try {
+
+			String sqlQuery = "UPDATE users SET state = 0 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, user.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
+	}
+	
+	public int register(User user) {
+		
+		try {
+
+			String sqlQuery = "UPDATE users SET state = 1 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, user.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
 	}
 
 }
