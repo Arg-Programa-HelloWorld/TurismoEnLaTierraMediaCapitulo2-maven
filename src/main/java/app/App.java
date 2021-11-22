@@ -32,7 +32,7 @@ public class App {
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		//User userTemp = userDAO.findById(1);
 		//userDAO.haveMoneyByID(10);
-		System.out.println(userDAO.haveMoneyByID(1));
+		System.out.println(userDAO.hasMoneyByID(1));
 
 	}
 		
