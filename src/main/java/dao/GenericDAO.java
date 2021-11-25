@@ -12,7 +12,7 @@ public interface GenericDAO<T> {
 	public T findById(int t);
 	public List<T> findAll();
 	public int countAll();
-	public int dismiss(T t);
-	public int register(T t);
+	public int unsubscribe(T t);
+	public int subscribe(T t);
 		
 }

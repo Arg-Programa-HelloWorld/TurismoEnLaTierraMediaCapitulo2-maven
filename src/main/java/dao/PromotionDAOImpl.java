@@ -353,12 +353,12 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 	}
 
-	public int dismiss(Promotion t) {
+	public int unsubscribe(Promotion t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int register(Promotion t) {
+	public int subscribe(Promotion t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}	

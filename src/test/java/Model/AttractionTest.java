@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import org.junit.Test;
 
 import dao.DAOFactory;
-import dao.UserDAO;
 import dao.AttractionDAO;
 import model.Attraction;
 
@@ -124,7 +123,7 @@ public class AttractionTest {
 	
 	
 	@Test
-	public void getLastUserTest() throws SQLException {
+	public void getLastAttractionTest() throws SQLException {
 		
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		

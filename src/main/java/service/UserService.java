@@ -14,51 +14,18 @@ public class UserService {
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 	PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 
+	//---------- ATTRACTION ----------
+	
 	public void buyAttraction(User user, Attraction attraction) {
 
 		userDAO.buyAttraction(user, attraction);
 
 	}
-
-	public void buyPromotion(User user, Promotion promotion) {
-
-		userDAO.buyPromotion(user, promotion);
-
-	}
-
-	public boolean haveMoneyForAttraction(User user, Attraction attraction) {
-
-		return userDAO.hasMoney(user) > attractionDAO.cost(attraction);
-
-	}
-
-	public boolean haveMoneyByID(int idUser, int idAttraction) {
-
-		return userDAO.hasMoneyByID(idUser) > attractionDAO.costById(idAttraction);
-
-	}
-
-	public boolean haveTimeForAttraction(User user, Attraction attraction) {
-
-		return userDAO.hasTime(user) > attractionDAO.time(attraction);
-		
-	}
-
-	public boolean haveTimeByID(int idUser, int idAttraction) {
-
-		return userDAO.hasTimeByID(idUser) > attractionDAO.timeById(idAttraction);
-
-	}
-
+	
 	public boolean hasTheAttraction(User user, Attraction attraction) {
 
 		return userDAO.hasTheAttraction(user, attraction);
 
-	}
-
-	public boolean hasThePromotion(User user, Promotion promotion) {
-
-		return userDAO.hasThePromotion(user, promotion);
 	}
 	
 	public boolean hasTheAttractionOfPromotion(User user, Promotion promotion) {
@@ -79,34 +46,71 @@ public class UserService {
 		return result;
 		
 	}
+
+	public boolean hasMoneyToPayForTheAttraction(User user, Attraction attraction) {
+
+		return userDAO.hasMoney(user) > attractionDAO.cost(attraction);
+
+	}
+
+	public boolean hasMoneyToPayForTheAttractionByID(int idUser, int idAttraction) {
+
+		return userDAO.hasMoneyByID(idUser) > attractionDAO.costById(idAttraction);
+
+	}
+
+	public boolean hasTimeForTheAttraction(User user, Attraction attraction) {
+
+		return userDAO.hasTime(user) > attractionDAO.time(attraction);
+		
+	}
 	
-	public void payAttraction(User user, Attraction attraction) {
-				
+	public boolean hasTimeForTheAttractionByID(int idUser, int idAttraction) {
+
+		return userDAO.hasTimeByID(idUser) > attractionDAO.timeById(idAttraction);
+
+	}
+
+	public void payTheAttraction(User user, Attraction attraction) {
+		
 		user.setBudget(user.getBudget() - attraction.getCost());
 		userDAO.update(user);
 		
 	}
 	
-	public void consumeTimeForAttraction(User user, Attraction attraction) {
+	public void consumeUserTimeToBuyTheAttraction(User user, Attraction attraction) {
 				
 		user.setTime(user.getTime() - attraction.getTime());
 		userDAO.update(user);
 		
 	}
 	
-	public boolean haveMoneyForPromotion(User user, Promotion promotion) {
+	//---------- PROMOTION ----------
+	
+	public void buyPromotion(User user, Promotion promotion) {
+
+		userDAO.buyPromotion(user, promotion);
+
+	}	
+	
+	public boolean hasThePromotion(User user, Promotion promotion) {
+
+		return userDAO.hasThePromotion(user, promotion);
+	}
+	
+	public boolean hasMoneyToPayForThePromotion(User user, Promotion promotion) {
 
 		return userDAO.hasMoney(user) > promotionDAO.cost(promotion);
 
 	}
 	
-	public boolean haveTimeForPromotion(User user, Promotion promotion) {
+	public boolean hasTimeForThePromotion(User user, Promotion promotion) {
 
 		return userDAO.hasTime(user) > promotionDAO.time(promotion);
 		
 	}
 	
-	public void consumeTimeForPromotion(User user, Promotion promotion) {
+	public void consumeUserTimeToBuyThePromotion(User user, Promotion promotion) {
 		
 		user.setTime(user.getTime() - promotion.getTime());
 		userDAO.update(user);
@@ -118,18 +122,6 @@ public class UserService {
 		user.setBudget(user.getBudget() - promotion.getCost());
 		userDAO.update(user);
 		
-	}
-	
-	public void dismiss(User user) {
-		
-		userDAO.dismiss(user);
-		
-	}
-	
-	public void register(User user) {
-		
-		userDAO.register(user);
-		
-	}
+	}	
 		
 }

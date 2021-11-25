@@ -354,8 +354,6 @@ public class UserDAOImpl implements UserDAO {
 
 			statement.setInt(1, id);
 
-			ResultSet resultados = statement.executeQuery();
-
 			double resultsTemp = 0.0;
 
 			ResultSet results = statement.executeQuery();
@@ -445,7 +443,7 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 
-	public int dismiss(User user) {
+	public int unsubscribe(User user) {
 		
 		try {
 
@@ -468,7 +466,7 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 	
-	public int register(User user) {
+	public int subscribe(User user) {
 		
 		try {
 
