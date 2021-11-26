@@ -2,13 +2,12 @@ package manager;
 
 import java.util.List;
 
-import dao.AttractionDAO;
 import dao.DAOFactory;
+import dao.AttractionDAO;
 import model.Attraction;
 
 public class AttractionManager {
-	
-	/*
+
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 
 	public int insert(Attraction attraction) {
@@ -62,6 +61,5 @@ public class AttractionManager {
 
 		return attractionDAO.subscribe(attraction);
 	}
-	*/
 
 }

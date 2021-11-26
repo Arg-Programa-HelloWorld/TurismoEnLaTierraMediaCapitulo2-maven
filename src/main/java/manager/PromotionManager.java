@@ -8,61 +8,60 @@ import model.Promotion;
 
 public class PromotionManager {
 
-	/*
 	PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 
-	public int insert(Promotion promotion) {	// I
+	public int insert(Promotion promotion) {
 
 		return promotionDAO.insert(promotion);
 
 	}
 
-	public int update(Promotion promotion) {	// I
+	public int update(Promotion promotion) {
 
-		return promotionDAO.unsubscribe(promotion);
+		return promotionDAO.update(promotion);
 
 	}
 
-	public int delete(Promotion promotion) {	// I
+	public int delete(Promotion promotion) {
 
 		return promotionDAO.delete(promotion);
 
 	}
 
-	public Promotion findById(int promotionID) {	// I
+	public Promotion findById(int promotionID) {
 
 		return promotionDAO.findById(promotionID);
 
 	}
 
-	public List<Promotion> findAll() {	// I
+	public List<Promotion> findAll() {
 
 		return promotionDAO.findAll();
 
 	}
 
-	public int countAll() {	// I
+	public int countAll() {
 
 		return promotionDAO.countAll();
 
 	}
 
-	public Promotion getLastPromotion() {	// I
+	public Promotion getLastPromotion() {
 
 		return promotionDAO.getLastPromotion();
 
 	}
 
-	public int unsubscribe(Promotion t) {	// I
+	public int unsubscribe(Promotion promotion) {
 
-		return 0;
+		return promotionDAO.unsubscribe(promotion);
+
+	}
+
+	public int subscribe(Promotion promotion) { // I
+
+		return promotionDAO.subscribe(promotion);
 
 	}
 
-	public int subscribe(Promotion t) {	// I
-
-		return 0;
-
-	}
-	*/
 }

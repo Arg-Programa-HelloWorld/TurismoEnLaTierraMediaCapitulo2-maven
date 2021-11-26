@@ -24,4 +24,6 @@ public interface UserDAO extends GenericDAO<User> {
 
 	public abstract Boolean hasThePromotion(User user, Promotion promotion);
 
+	public abstract int setAdmin(User user);
+
 }

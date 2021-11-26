@@ -355,14 +355,49 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 	}
 
-	public int unsubscribe(Promotion t) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int unsubscribe(Promotion promotion) {
+		
+		try {
+
+			String sqlQuery = "UPDATE promotions SET state = 0 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, promotion.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
 	}
 
-	public int subscribe(Promotion t) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int subscribe(Promotion promotion) {
+		
+		try {
+
+			String sqlQuery = "UPDATE promotions SET state = 1 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, promotion.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+			
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
 	}
 
 	public List<Promotion> userPromotions(User user) {

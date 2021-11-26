@@ -10,7 +10,6 @@ import model.User;
 
 public class UserManager {
 
-	/*
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 	PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
@@ -68,6 +67,11 @@ public class UserManager {
 		userDAO.subscribe(user);
 
 	}
-	*/
+
+	public void setAdmin(User user) {
+
+		userDAO.setAdmin(user);
+
+	}
 
 }
