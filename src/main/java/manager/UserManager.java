@@ -68,4 +68,10 @@ public class UserManager {
 		
 	}
 	
+	public void setAdmin(User user) {
+		
+		userDAO.setAdmin(user);
+		
+	}
+	
 }

@@ -488,5 +488,28 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 	}
+	
+	public int setAdmin(User user) {
+		
+		try {
+
+			String sqlQuery = "UPDATE users SET state = 2 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, user.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
+	}
 
 }

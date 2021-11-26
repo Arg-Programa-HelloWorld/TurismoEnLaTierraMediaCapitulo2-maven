@@ -15,5 +15,6 @@ public interface UserDAO extends GenericDAO<User> {
 	public abstract double hasTimeByID(int id);
 	public abstract Boolean hasTheAttraction(User user, Attraction attraction);
 	public abstract Boolean hasThePromotion(User user, Promotion promotion);
+	public abstract int setAdmin(User user);
 		
 }
