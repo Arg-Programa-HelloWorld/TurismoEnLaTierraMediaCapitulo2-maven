@@ -11,7 +11,7 @@ public class LoadUsers {
 
 	private static ArrayList<User> userList = new ArrayList<User>();
 	
-	public static boolean readUsersFile() {
+	public static boolean readUsersBDD() {
 		
 		try {
 		

@@ -114,7 +114,7 @@ public class Model {
 					
 						for (User user : LoadUsers.getUserList()) {
 							
-							Report.toPrint(user);
+							//Report.toPrint(user);
 							
 						}
 						

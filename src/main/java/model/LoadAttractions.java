@@ -1,24 +1,20 @@
 package model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
+import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.MissingDataException;
-import dao.UserDAO;
 
 public class LoadAttractions {
 
 	private static ArrayList<Attraction> attractionList = new ArrayList<Attraction>();
 	
-	public static boolean readAttractionsFile() {
+	public static boolean readAttractionsBDD() {
 		
 		try {
 			
-			UserDAO userDAO = DAOFactory.getUserDAO();
+			AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 						
 			for (Attraction attraction : attractionDAO.findAll()) { 
 					
