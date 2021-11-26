@@ -14,6 +14,7 @@ import model.PromotionAbsolute;
 import model.PromotionAyB;
 import model.PromotionPercentage;
 import model.PromotionType;
+import model.User;
 
 public class PromotionDAOImpl implements PromotionDAO {
 
@@ -269,8 +270,8 @@ public class PromotionDAOImpl implements PromotionDAO {
 				attractionListPercentage = (LinkedList<Attraction>) attractionDAO
 						.searchAttractionsOfAPromotionByID(results.getInt(1));
 
-				// Promotion( Integer id, String name, Double time, Double cost, Double discount
-				// int fk_id_promotion_type PromotionType promotion_type.name)
+				// Promotion( Integer id, String name, Double time, Double cost, Double discount, int fk_id_promotion_type, PromotionType promotion_type.name )
+				
 				promotionTempPercentage = new PromotionPercentage(results.getInt(1), results.getString(2),
 						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getInt(6),
 						PromotionType.valueOf(results.getString(7)), attractionListPercentage);
@@ -361,6 +362,42 @@ public class PromotionDAOImpl implements PromotionDAO {
 	public int subscribe(Promotion t) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public List<Promotion> userPromotions(User user) {
+		
+		try {
+
+			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotion_type.id, promotion_type.name AS promotion_type\n"
+					+ "FROM itinerary_shopping\n"
+					+ "INNER JOIN promotions ON itinerary_shopping.fk_id_promotion = promotions.id\n"
+					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id\n"
+					+ "WHERE itinerary_shopping.fk_id_user = ?";
+
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			
+			statement.setInt(1, user.getId());
+			
+			ResultSet results = statement.executeQuery();
+
+			List<Promotion> promotionsListTemp = new LinkedList<Promotion>();
+
+			while (results.next()) {
+
+				promotionsListTemp.add(toPromotion(results));
+
+			}
+
+			return promotionsListTemp;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
 	}	
 
 }

@@ -4,6 +4,7 @@ import dao.DAOFactory;
 import dao.PromotionDAO;
 import dao.UserDAO;
 import model.Promotion;
+import model.User;
 
 public class App {
 
@@ -33,6 +34,13 @@ public class App {
 		//User userTemp = userDAO.findById(1);
 		//userDAO.haveMoneyByID(10);
 		System.out.println(userDAO.hasMoneyByID(1));
+		
+		System.out.println("------------------------------");
+		System.out.println();
+		
+		User user = userDAO.findById(1);
+		
+		System.out.println(promotionDAO.userPromotions(user));
 
 	}
 		
