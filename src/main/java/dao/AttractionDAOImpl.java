@@ -397,14 +397,49 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 	}
 
-	public int unsubscribe(Attraction t) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public int unsubscribe(Attraction attraction) {
+		
+		try {
 
-	public int subscribe(Attraction t) {
-		// TODO Auto-generated method stub
-		return 0;
+			String sqlQuery = "UPDATE attractions SET state = 0 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, attraction.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
+	}
+	
+	public int subscribe(Attraction attraction) {
+		
+		try {
+
+			String sqlQuery = "UPDATE attractions SET state = 1 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, attraction.getId());
+			
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
 	}
 
 
