@@ -7,7 +7,7 @@ import org.junit.Test;
 import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.UserDAO;
-import manager.PuchaseManager;
+import manager.PurchaseManager;
 import model.Attraction;
 import model.Promotion;
 import model.User;
@@ -17,7 +17,7 @@ public class ManagerTest {
 	@Test
 	public void buyAttractionTest() {		
 				
-		PuchaseManager puchase = new PuchaseManager();
+		PurchaseManager puchase = new PurchaseManager();
 				
 		User userTest = puchase.userService.userDAO.findById(15);
 		Attraction attractionTest = puchase.attractionService.attractionDAO.findById(2);
@@ -31,7 +31,7 @@ public class ManagerTest {
 	@Test
 	public void buyPromotionTest() {		
 				
-		PuchaseManager puchase = new PuchaseManager();
+		PurchaseManager puchase = new PurchaseManager();
 				
 		User userTest = puchase.userService.userDAO.findById(15);
 		Promotion promotionTest = puchase.promotionService.promotionDAO.findById(3);
@@ -49,7 +49,7 @@ public class ManagerTest {
 	@Test
 	public void buyPromotionWithPuchasedAttractionTest() {		
 				
-		PuchaseManager puchase = new PuchaseManager();
+		PurchaseManager puchase = new PurchaseManager();
 				
 		User userTest = puchase.userService.userDAO.findById(15);
 		Attraction attractionTest = puchase.attractionService.attractionDAO.findById(7);

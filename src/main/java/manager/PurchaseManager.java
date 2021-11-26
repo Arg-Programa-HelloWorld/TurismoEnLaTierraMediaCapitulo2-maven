@@ -7,14 +7,16 @@ import service.AttractionService;
 import service.PromotionService;
 import service.UserService;
 
-public class PuchaseManager {
+public class PurchaseManager {
 
 	public UserService userService = new UserService();
 	public AttractionService attractionService = new AttractionService();
 	public PromotionService promotionService = new PromotionService();
 
-	public void buyAttraction(User user, Attraction attraction) {
+	public boolean buyAttraction(User user, Attraction attraction) {
 
+		boolean state = false;
+		
 		if (userService.hasMoneyToPayForTheAttraction(user, attraction) && // si tiene dinero suficiente
 				userService.hasTimeForTheAttraction(user, attraction) && // si tiene tiempo suficinte
 				!userService.hasTheAttraction(user, attraction) && // si no posee la atraccion dentro de sus atracciones
@@ -26,13 +28,19 @@ public class PuchaseManager {
 			attractionService.consumeQuota(attraction); // consume una quota de atraccion
 			userService.consumeUserTimeToBuyTheAttraction(user, attraction); // consume tiempo de usuario
 			userService.payTheAttraction(user, attraction); // consume plata de usuario
+			
+			state = true;
 
 		}
+		
+		return state;
 
 	}
 
-	public void buyPromotion(User user, Promotion promotion) {
+	public boolean buyPromotion(User user, Promotion promotion) {
 
+		boolean state = false;
+		
 		if (userService.hasMoneyToPayForThePromotion(user, promotion) && // si tiene dinero suficiente
 				userService.hasTimeForThePromotion(user, promotion) && // si tiene tiempo suficiente
 				!userService.hasThePromotion(user, promotion) && // si no tiene la promocion
@@ -42,14 +50,15 @@ public class PuchaseManager {
 		) {
 
 			userService.buyPromotion(user, promotion); // agrega promocion al itinerario
-			for (Attraction attraction : promotion.getAttractionsList()) {
-				userService.buyAttraction(user, attraction); // agrega cada atraccion de la promocion al itinerario
-			}
 			promotionService.consumeQuota(promotion); // consume una quota de atraccion
 			userService.consumeUserTimeToBuyThePromotion(user, promotion); // consume tiempo de usuario
 			userService.payPromotion(user, promotion); // consume plata de usuario
+			
+			state = true;
 
 		}
+		
+		return state;
 
 	}
 	
