@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import model.Attraction;
 import model.Promotion;
 import model.User;
@@ -16,5 +18,6 @@ public interface UserDAO extends GenericDAO<User> {
 	public abstract Boolean hasTheAttraction(User user, Attraction attraction);
 	public abstract Boolean hasThePromotion(User user, Promotion promotion);
 	public abstract int setAdmin(User user);
+	//public abstract List<Promotion> userPromotions(User user);
 		
 }
