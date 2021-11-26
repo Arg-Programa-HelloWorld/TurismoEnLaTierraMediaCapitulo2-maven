@@ -8,6 +8,7 @@ import java.util.List;
 
 import jdbc.ConnectionProvider;
 import model.Attraction;
+import model.AttractionType;
 import model.Promotion;
 import model.PromotionAbsolute;
 import model.PromotionAyB;
@@ -49,6 +50,7 @@ public class ItineraryDAOImpl {
 		}
 
 	}
+	
 
 	private Promotion toPromotion(ResultSet results) {
 
@@ -125,6 +127,47 @@ public class ItineraryDAOImpl {
 
 		}
 		
+	}
+
+	public List<Attraction> findAll() {
+		
+		try {
+			
+			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attraction_type.id, attraction_type.name AS preference\n"
+					+ "FROM attractions\n"
+					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id";
+			Connection connection = ConnectionProvider.getConnection();
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			ResultSet results = statement.executeQuery();
+			
+			List<Attraction> attractions = new LinkedList<Attraction>();
+			while (results.next()) {
+				
+				attractions.add(toAttraction(results));
+			}
+			
+			return attractions; // Lista de Attractions.-
+			
+		} catch (Exception e) {
+			
+			throw new MissingDataException(e);
+			
+		}
+		
+	}
+	
+	private Attraction toAttraction(ResultSet results) {
+
+		try {
+			// Attraction( Integer id, String name, Double cost, Double time, Integer quota
+			// Integer fk_id_preference) AttractionType attractionType
+			return new Attraction(results.getInt(1), results.getString(2), results.getDouble(3), results.getDouble(4),
+					results.getInt(5), results.getInt(6), AttractionType.valueOf(results.getString(7)));
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
 	}
 
 }

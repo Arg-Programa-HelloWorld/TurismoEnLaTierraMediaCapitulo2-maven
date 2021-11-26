@@ -59,8 +59,8 @@ public class ManagerTest {
 		
 		puchase.buyPromotion(userTest, promotionTest);
 		
-		//assertTrue(puchase.userService.hasTheAttraction(userTest, attractionTest));
-		//assertFalse(puchase.userService.hasThePromotion(userTest, promotionTest));
+		assertTrue(puchase.userService.hasTheAttraction(userTest, attractionTest));
+		assertFalse(puchase.userService.hasThePromotion(userTest, promotionTest));
 		
 	}
 
