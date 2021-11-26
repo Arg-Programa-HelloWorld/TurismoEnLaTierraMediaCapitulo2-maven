@@ -5,7 +5,6 @@ import manager.PurchaseManager;
 import manager.UserManager;
 import model.Promotion;
 import model.User;
-import service.UserService;
 
 public class AppComprarPromocion {
 	
@@ -16,7 +15,6 @@ public class AppComprarPromocion {
 	UserManager userManager = new UserManager();
 	PromotionManager promotionManager = new PromotionManager();
 	
-	UserService userService = new UserService();
 	PurchaseManager purchaseManager = new PurchaseManager(); 
 	
 	User userTemp = userManager.findById(1);

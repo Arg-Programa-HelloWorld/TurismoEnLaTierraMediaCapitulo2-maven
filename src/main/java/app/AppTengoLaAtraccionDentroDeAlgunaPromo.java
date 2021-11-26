@@ -6,7 +6,7 @@ import model.Attraction;
 import model.User;
 import service.UserService;
 
-public class App3 {
+public class AppTengoLaAtraccionDentroDeAlgunaPromo {
 	
 	public static void main(String[] args) {
 
