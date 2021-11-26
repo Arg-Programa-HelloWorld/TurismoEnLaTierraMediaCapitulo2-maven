@@ -9,15 +9,16 @@ import dao.UserDAO;
 import model.User;
 
 public class UserManager {
-	
+
+	/*
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 	PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
-	
+
 	public int insert(User user) {
 
 		return userDAO.insert(user);
-		
+
 	}
 
 	public int update(User user) {
@@ -47,25 +48,26 @@ public class UserManager {
 	public int countAll() {
 
 		return userDAO.countAll();
-		
+
 	}
 
 	public User getLastUser() {
 
 		return userDAO.getLastUser();
-		
+
 	}
-	
+
 	public void unsubscribeAnUser(User user) {
-		
+
 		userDAO.unsubscribe(user);
-		
+
 	}
-	
+
 	public void subscribeAnUser(User user) {
-		
+
 		userDAO.subscribe(user);
-		
+
 	}
-	
+	*/
+
 }

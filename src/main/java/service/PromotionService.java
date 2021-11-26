@@ -8,6 +8,8 @@ import model.Attraction;
 import model.Promotion;
 
 public class PromotionService {
+	
+	/*
 
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
@@ -54,5 +56,6 @@ public class PromotionService {
 		}
 	}
 	
+	*/
 	
 }

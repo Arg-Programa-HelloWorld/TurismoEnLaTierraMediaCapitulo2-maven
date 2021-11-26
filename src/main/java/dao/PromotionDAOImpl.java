@@ -210,41 +210,41 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 		}
 	}
-	
+
 	public double cost(Promotion promotion) {
-		
-		 try {
-			 String sqlQuery = "SELECT cost FROM promotions WHERE id = ?";
+
+		try {
+			String sqlQuery = "SELECT cost FROM promotions WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
-			
+
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setInt(1, promotion.getId());
 			ResultSet results = statement.executeQuery();
-			
+
 			return results.getDouble(1);
-			
+
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
-		 
+
 	}
-	
+
 	public double time(Promotion promotion) {
-		
-		 try {
-			 String sqlQuery = "SELECT time FROM promotions WHERE id = ?";
+
+		try {
+			String sqlQuery = "SELECT time FROM promotions WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
-			
+
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setInt(1, promotion.getId());
 			ResultSet results = statement.executeQuery();
-			
+
 			return results.getDouble(1);
-			
+
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
-		 
+
 	}
 
 	private Promotion toPromotion(ResultSet results) {
@@ -270,8 +270,9 @@ public class PromotionDAOImpl implements PromotionDAO {
 				attractionListPercentage = (LinkedList<Attraction>) attractionDAO
 						.searchAttractionsOfAPromotionByID(results.getInt(1));
 
-				// Promotion( Integer id, String name, Double time, Double cost, Double discount, int fk_id_promotion_type, PromotionType promotion_type.name )
-				
+				// Promotion( Integer id, String name, Double time, Double cost, Double
+				// discount, int fk_id_promotion_type, PromotionType promotion_type.name )
+
 				promotionTempPercentage = new PromotionPercentage(results.getInt(1), results.getString(2),
 						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getInt(6),
 						PromotionType.valueOf(results.getString(7)), attractionListPercentage);
@@ -365,7 +366,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 	}
 
 	public List<Promotion> userPromotions(User user) {
-		
+
 		try {
 
 			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotion_type.id, promotion_type.name AS promotion_type\n"
@@ -377,9 +378,9 @@ public class PromotionDAOImpl implements PromotionDAO {
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
-			
+
 			statement.setInt(1, user.getId());
-			
+
 			ResultSet results = statement.executeQuery();
 
 			List<Promotion> promotionsListTemp = new LinkedList<Promotion>();
@@ -397,7 +398,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 			throw new MissingDataException(e);
 
 		}
-		
-	}	
+
+	}
 
 }

@@ -293,96 +293,96 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 
 	}
-	
-	public double cost(Attraction attraction) {
-		
-		 try {
-			 String sqlQuery = "SELECT cost FROM attractions WHERE id = ?";
+
+	public double getCost(Attraction attraction) {
+
+		try {
+			String sqlQuery = "SELECT cost FROM attractions WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
-			
+
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setInt(1, attraction.getId());
 			ResultSet results = statement.executeQuery();
-			
+
 			return results.getDouble(1);
-			
+
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
-		 
-	}
-	
-	public double costById(int id) {
-		
-		 try {
-			 String sqlQuery = "SELECT cost FROM attractions WHERE id = ?";
-			Connection conn = ConnectionProvider.getConnection();
-			
-			PreparedStatement statement = conn.prepareStatement(sqlQuery);
-			statement.setInt(1, id);
-			ResultSet results = statement.executeQuery();
-			
-			return results.getDouble(1);
-			
-		} catch (SQLException e) {
-			throw new MissingDataException(e);
-		}
-		 
-	}
-	
-	public double time(Attraction attraction) {
-		
-		 try {
-			 String sqlQuery = "SELECT time FROM attractions WHERE id = ?";
-			Connection conn = ConnectionProvider.getConnection();
-			
-			PreparedStatement statement = conn.prepareStatement(sqlQuery);
-			statement.setInt(1, attraction.getId());
-			ResultSet results = statement.executeQuery();
-			
-			return results.getDouble(1);
-			
-		} catch (SQLException e) {
-			throw new MissingDataException(e);
-		}
-		 
+
 	}
 
-	public double timeById(int id) {
-		
+	public double getCostById(int id) {
+
 		try {
-			 String sqlQuery = "SELECT time FROM attractions WHERE id = ?";
+			String sqlQuery = "SELECT cost FROM attractions WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
-			
+
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setInt(1, id);
 			ResultSet results = statement.executeQuery();
-			
+
 			return results.getDouble(1);
-			
+
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
+
 	}
-	
-	public double quota(Attraction attraction) {
-		
-		 try {
-			 String sqlQuery = "SELECT quota FROM attractions WHERE id = ?";
+
+	public double getTime(Attraction attraction) {
+
+		try {
+			String sqlQuery = "SELECT time FROM attractions WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
-			
+
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setInt(1, attraction.getId());
 			ResultSet results = statement.executeQuery();
-			
+
 			return results.getDouble(1);
-			
+
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
-		 
+
 	}
-	
+
+	public double getTimeById(int id) {
+
+		try {
+			String sqlQuery = "SELECT time FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, id);
+			ResultSet results = statement.executeQuery();
+
+			return results.getDouble(1);
+
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	public double hasQuota(Attraction attraction) {
+
+		try {
+			String sqlQuery = "SELECT quota FROM attractions WHERE id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, attraction.getId());
+			ResultSet results = statement.executeQuery();
+
+			return results.getDouble(1);
+
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+
+	}
+
 	private Attraction toAttraction(ResultSet results) {
 
 		try {
@@ -397,15 +397,14 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 	}
 
-	public int unsubscribe(Attraction t) {
+	public int unsubscribe(Attraction attraction) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int subscribe(Attraction t) {
+	public int subscribe(Attraction attraction) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 
 }

@@ -375,7 +375,7 @@ public class UserDAOImpl implements UserDAO {
 	public Boolean hasTheAttraction(User user, Attraction attraction) {
 
 		try {
-			
+
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_attraction = ?";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -402,7 +402,7 @@ public class UserDAOImpl implements UserDAO {
 	public Boolean hasThePromotion(User user, Promotion promotion) {
 
 		try {
-			
+
 			String sqlQuery = "SELECT 1 FROM itinerary_shopping WHERE fk_id_user = ? AND fk_id_promotion = ?";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -440,11 +440,11 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
-		
+
 	}
 
 	public int unsubscribe(User user) {
-		
+
 		try {
 
 			String sqlQuery = "UPDATE users SET state = 0 WHERE id = ?";
@@ -453,7 +453,7 @@ public class UserDAOImpl implements UserDAO {
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 
 			statement.setInt(1, user.getId());
-			
+
 			int rowsUpdate = statement.executeUpdate();
 
 			return rowsUpdate;
@@ -463,11 +463,11 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
-		
+
 	}
-	
+
 	public int subscribe(User user) {
-		
+
 		try {
 
 			String sqlQuery = "UPDATE users SET state = 1 WHERE id = ?";
@@ -476,7 +476,7 @@ public class UserDAOImpl implements UserDAO {
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 
 			statement.setInt(1, user.getId());
-			
+
 			int rowsUpdate = statement.executeUpdate();
 
 			return rowsUpdate;
@@ -486,7 +486,7 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
-		
+
 	}
-		
+
 }
