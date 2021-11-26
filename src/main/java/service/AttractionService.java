@@ -11,9 +11,6 @@ import model.User;
 
 public class AttractionService {
 
-	
-	/*
-	
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 
@@ -69,7 +66,5 @@ public class AttractionService {
 		attraction.setQuota(attraction.getQuota() - 1);
 		attractionDAO.update(attraction);
 	}
-	
-	*/
-	
+
 }

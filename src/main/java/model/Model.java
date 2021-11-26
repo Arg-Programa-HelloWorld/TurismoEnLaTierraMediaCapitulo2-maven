@@ -112,11 +112,11 @@ public class Model {
 												
 					} else if (idMenu == 6) {	// Print the purchases of each User	
 					
-						for (User user : LoadUsers.getUserList()) {
+						//for (User user : LoadUsers.getUserList()) {
 							
 							//Report.toPrint(user);
 							
-						}
+						//}
 						
 						
 					}					

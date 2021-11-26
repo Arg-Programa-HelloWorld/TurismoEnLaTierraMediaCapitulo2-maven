@@ -5,14 +5,17 @@ public class View {
 	//	Para que te funcione en eclipse buscar el pluging "ANSI escape in console"
 	//  en el MarketPlace he instalarlo, reinicia eclipse y listo.
 	
+	@SuppressWarnings("unused")
 	private static String black = "\033[30m";
     public static String red = "\033[31m"; 
     public static String green = "\033[32m"; 
     private static String yellow = "\033[33m"; 
     public static String blue = "\033[34m"; 
-    private static String purple = "\033[35m"; 
+    @SuppressWarnings("unused")
+	private static String purple = "\033[35m"; 
     public static String cyan = "\033[36m"; 
-    private static String white = "\033[37m";
+    @SuppressWarnings("unused")
+	private static String white = "\033[37m";
     private static String reset = "\u001B[0m";
     
     @SuppressWarnings("unused")

@@ -1,13 +1,9 @@
 package model;
 
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
 import dao.AttractionDAO;
 import dao.DAOFactory;
-import dao.MissingDataException;
 import dao.PromotionDAO;
 import dao.UserDAO;
 

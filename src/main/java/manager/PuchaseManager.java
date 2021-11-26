@@ -9,8 +9,6 @@ import service.UserService;
 
 public class PuchaseManager {
 
-	
-	/*
 	public UserService userService = new UserService();
 	public AttractionService attractionService = new AttractionService();
 	public PromotionService promotionService = new PromotionService();
@@ -20,6 +18,7 @@ public class PuchaseManager {
 		if (userService.hasMoneyToPayForTheAttraction(user, attraction) && // si tiene dinero suficiente
 				userService.hasTimeForTheAttraction(user, attraction) && // si tiene tiempo suficinte
 				!userService.hasTheAttraction(user, attraction) && // si no posee la atraccion dentro de sus atracciones
+				!userService.hasTheAttractionOfThePromotionList(user, attraction) &&
 				attractionService.hasQuota(attraction) // si la atraccion tiene cupo
 		) {
 
@@ -53,6 +52,5 @@ public class PuchaseManager {
 		}
 
 	}
-	*/
-
+	
 }

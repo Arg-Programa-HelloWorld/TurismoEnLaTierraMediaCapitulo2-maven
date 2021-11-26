@@ -47,8 +47,33 @@ public class UserService {
 
 	}
 
-	public boolean hasTheAttractionOfThePromotionList(User user) {
+	public boolean hasTheAttractionOfThePromotionList(User user, Attraction attraction) {
 
+		boolean result = false;
+
+		for (Promotion promotion : promotionDAO.userPromotions(user)) {
+
+			//result = hasTheAttractionOfThePromotion(user, promotion);
+			
+			for (Attraction attractionTemp : promotion.getAttractionsList()) {
+				
+				if (attraction.getId() == attractionTemp.getId()) {
+
+					result = true;
+					
+					break;
+				}
+				
+			}
+
+		}
+
+		return result;
+
+	}
+	
+	public boolean consistencyOfPurchaseAttractionsPromotions(User user) {
+		
 		boolean result = false;
 
 		for (Promotion promotion : promotionDAO.userPromotions(user)) {
@@ -63,7 +88,7 @@ public class UserService {
 		}
 
 		return result;
-
+		
 	}
 
 	public boolean hasMoneyToPayForTheAttraction(User user, Attraction attraction) {
