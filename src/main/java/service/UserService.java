@@ -9,8 +9,6 @@ import model.Promotion;
 import model.User;
 
 public class UserService {
-	
-	/*
 
 	UserDAO userDAO = DAOFactory.getUserDAO();
 	AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
@@ -144,7 +142,5 @@ public class UserService {
 		userDAO.update(user);
 
 	}
-	
-	*/
 
 }
