@@ -24,6 +24,7 @@
 
 		<header>
 			<jsp:include page="inc/head.jsp"></jsp:include>
+			<jsp:include page="inc/login.jsp"></jsp:include>
 		</header>
 		
 		<div class="container-fluid">

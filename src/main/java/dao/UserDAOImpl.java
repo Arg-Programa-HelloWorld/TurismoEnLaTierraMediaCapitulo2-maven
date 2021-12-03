@@ -512,4 +512,50 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
+	public String getPassword(User user) {
+
+		try {
+			String sqlQuery = "SELECT password FROM users WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			statement.setInt(1, user.getId());
+			ResultSet result = statement.executeQuery();
+
+			return result.getString(1);
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+	}
+
+	@Override
+	public User findByUsername(String username) {
+		try {
+
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attraction_type.id, attraction_type.name AS preference\r\n"
+					+ "FROM users INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\r\n"
+					+ "WHERE users.name = '?'";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setString(1, username);
+			ResultSet resultados = statement.executeQuery();
+
+			User user = null;
+
+			if (resultados.next()) {
+				user = toUser(resultados);
+			}
+			return user;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+	}
+
 }
