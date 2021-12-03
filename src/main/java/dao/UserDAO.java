@@ -26,4 +26,8 @@ public interface UserDAO extends GenericDAO<User> {
 
 	public abstract int setAdmin(User user);
 
+	public abstract String getPassword(User user);
+
+	public abstract User findByUsername(String username);
+
 }

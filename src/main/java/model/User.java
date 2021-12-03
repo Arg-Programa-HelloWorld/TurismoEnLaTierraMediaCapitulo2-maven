@@ -2,6 +2,8 @@ package model;
 
 import java.util.*;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class User {
 
 	private int id; // ID
@@ -151,6 +153,10 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", budget=" + budget + ", time=" + time + ", preferences="
 				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + "]";
+	}
+
+	public boolean checkPassword(String password) {
+		return BCrypt.checkpw(password, this.getPassword());
 	}
 
 }
