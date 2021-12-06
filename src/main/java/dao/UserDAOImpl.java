@@ -535,13 +535,19 @@ public class UserDAOImpl implements UserDAO {
 	public User findByUsername(String username) {
 		try {
 
+<<<<<<< HEAD
 			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preference\r\n"
 					+ "FROM users INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\r\n"
+=======
+			String sqlQuery = "SELECT users.id, users.name, budget, time, attraction_type.id, attraction_type.name AS preference\n"
+					+ "FROM users\n"
+					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
+>>>>>>> a96815572dc308fec22537614e5bea95ae101566
 					+ "WHERE users.name = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
-			statement.setString(1, username);
+			statement.setString(1, username.toLowerCase().trim());
 			ResultSet resultados = statement.executeQuery();
 
 			User user = null;

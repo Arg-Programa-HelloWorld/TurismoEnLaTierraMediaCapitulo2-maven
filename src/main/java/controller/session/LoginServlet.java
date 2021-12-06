@@ -2,6 +2,8 @@ package controller.session;
 
 import java.io.IOException;
 
+import dao.DAOFactory;
+import dao.UserDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,30 +16,26 @@ import service.LoginService;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -7079897534403410325L;
+
 	private LoginService loginService;
 	
 	@Override
-	public void init() throws ServletException {
-		super.init();
-		loginService = new LoginService();
-	}
-	
-	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
 		User user = loginService.login(username, password);
-		
+						
 		if (user != null) {
-			req.getSession().setAttribute("user", user);
-			resp.sendRedirect("index.jsp");
+			//req.getSession().setAttribute("user", user);
+			//resp.sendRedirect("/index.jsp");
+			System.out.println(user);
 		} else {
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("login.jsp");
-			dispatcher.forward(req, resp);
+			System.out.println(user);
+			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("inc/login.jsp");
+			//dispatcher.forward(req, resp);
 		}
 	
 	}
