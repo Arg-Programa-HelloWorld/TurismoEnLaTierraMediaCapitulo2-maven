@@ -33,9 +33,6 @@
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.jkiss.dbeaver.DBeaverNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
-<<<<<<< HEAD
-=======
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
->>>>>>> aca895af115f8a222cc6ea6cec53128ce5f655ff
 	</natures>
 </projectDescription>
