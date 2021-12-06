@@ -535,9 +535,9 @@ public class UserDAOImpl implements UserDAO {
 	public User findByUsername(String username) {
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, budget, time, attraction_type.id, attraction_type.name AS preference\r\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preference\r\n"
 					+ "FROM users INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\r\n"
-					+ "WHERE users.name = '?'";
+					+ "WHERE users.name = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
@@ -547,7 +547,7 @@ public class UserDAOImpl implements UserDAO {
 			User user = null;
 
 			if (resultados.next()) {
-				user = toUser(resultados);
+				user = toUserLogin(resultados);
 			}
 			return user;
 
@@ -556,6 +556,23 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
+	}
+	
+	private User toUserLogin(ResultSet results) {
+
+		try {
+
+			// User( Integer id, String name, String password, Double budget, Double time, int
+			// if_preference_type AttractionType(preference))
+			return new User(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4), results.getDouble(5),
+					results.getInt(6), AttractionType.valueOf(results.getString(7)));
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
 	}
 
 }

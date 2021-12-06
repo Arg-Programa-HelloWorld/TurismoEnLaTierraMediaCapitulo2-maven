@@ -44,6 +44,19 @@ public class User {
 		this.preferencesID = preferencesID;
 
 	}
+	
+    // Para loguear usuario
+	public User(int id, String name, String password, double budget, double time, int preferencesID,
+			AttractionType preferences) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.budget = budget;
+		this.time = time;
+		this.preferencesID = preferencesID;
+		this.preferences = preferences;
+	}
 
 	public int getId() {
 		return id;
@@ -151,8 +164,10 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", budget=" + budget + ", time=" + time + ", preferences="
-				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", budget=" + budget + ", time=" + time
+				+ ", image=" + image + ", date=" + date + ", preferencesID=" + preferencesID + ", preferences="
+				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + ", listOfAttractions="
+				+ listOfAttractions + ", listOfPromotions=" + listOfPromotions + "]";
 	}
 
 	public boolean checkPassword(String password) {

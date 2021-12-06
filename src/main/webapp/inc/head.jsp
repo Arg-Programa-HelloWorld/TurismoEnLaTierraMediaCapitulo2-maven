@@ -23,12 +23,17 @@
 
 			<!-- Button trigger modal -->
 
-			<div class="text-end">
-				<button type="button" class="btn btn-outline-light me-2"
+            <div class="text-end">
+            <a href="login.jsp" class="nav-link px-2 text-white">Login</a>
+				<!-- 
+				 <button type="button" class="btn btn-outline-light me-2"
 					data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
+				 -->
+				 <!-- 
+			<a href="index.jsp" class="nav-link px-2 text-white">Exit</a>
+				  -->
 			</div>
-
-
+           
 		</div>
 	</div>
 </header>

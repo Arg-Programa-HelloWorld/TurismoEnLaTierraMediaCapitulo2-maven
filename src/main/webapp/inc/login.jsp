@@ -10,10 +10,11 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal"
 					aria-label="Close"></button>
 			</div>
+			<form action="/login">
 			<div class="modal-body">
 				<div class="mb-3">
 					<label for="exampleInputEmail1" class="form-label" name="username">Username</label>
-					<input type="email" class="form-control" id="exampleInputEmail1"
+					<input type="text" class="form-control" id="exampleInputEmail1"
 						aria-describedby="emailHelp">
 					<div class="mb-3">
 						<label for="exampleInputPassword1" class="form-label" name="password">Password</label>
@@ -30,6 +31,7 @@
 					data-bs-dismiss="modal">Cancel</button>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>

@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.User;
 import service.LoginService;
 
-@WebServlet("/inc/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("index.jsp");
 		} else {
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("inc/login.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("login.jsp");
 			dispatcher.forward(req, resp);
 		}
 	
