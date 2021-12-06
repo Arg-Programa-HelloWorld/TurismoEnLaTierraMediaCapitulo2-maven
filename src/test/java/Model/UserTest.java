@@ -13,6 +13,7 @@ import dao.UserDAO;
 import model.Attraction;
 import model.Promotion;
 import model.User;
+import service.LoginService;
 
 public class UserTest {
 
@@ -262,5 +263,27 @@ public class UserTest {
 
 		}
 		
+		
+		@Test
+		public void findByUsernameTest() throws SQLException {
+
+			UserDAO userDAO = DAOFactory.getUserDAO();
+
+			LoginService loginService = null;
+			
+			String username = "admin";
+			String password = "admin";
+			
+			User userTemp = userDAO.findByUsername(username);
+			
+			System.out.println("Buscar un usuario por su Nombre");
+			
+			System.out.println(userTemp);
+			
+			//assertEquals(password, userTemp.getPassword());
+			
+			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+
+		}
 
 }
