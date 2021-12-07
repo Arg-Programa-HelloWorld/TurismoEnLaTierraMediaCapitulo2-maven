@@ -18,14 +18,14 @@ import service.LoginService;
 public class UserTest {
 
 	UserDAO userDAO = DAOFactory.getUserDAO();
-	
+
 	// OK
 	@Test
 	public void insertAnUserTest() throws SQLException {
 
 		// User userTest = null;
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		System.out.println("Insertar el Usuario: 'UsuarioTest'");
 		User userTemp = new User("UsuarioTest", "123", 8, 8, 1);
@@ -37,7 +37,8 @@ public class UserTest {
 
 		assertEquals("UsuarioTest", userTemp.getName());
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -45,7 +46,7 @@ public class UserTest {
 	@Test
 	public void updateAnUserTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		System.out.println("Modificar el Usuario ID 'Nº 1'");
 
@@ -68,7 +69,8 @@ public class UserTest {
 
 		assertEquals("admin", userTestUpdate.getName()); // comparamos que quedo como estaba!!
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -76,7 +78,7 @@ public class UserTest {
 	@Test
 	public void findByIDUserTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		System.out.println("Encontrar el Usuario ID: '1'");
 
@@ -84,7 +86,8 @@ public class UserTest {
 
 		System.out.println(userDAO.findById(1));
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -92,7 +95,7 @@ public class UserTest {
 	@Test
 	public void findALLUsersTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		System.out.println("Ver todos los Usuarios");
 
@@ -102,7 +105,8 @@ public class UserTest {
 
 		}
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -113,7 +117,7 @@ public class UserTest {
 		int cantidadAntes = 0;
 		int cantidadLuego = 0;
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		cantidadAntes = userDAO.countAll();
 
@@ -130,7 +134,8 @@ public class UserTest {
 
 		assertEquals(cantidadAntes, cantidadLuego);
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -138,13 +143,14 @@ public class UserTest {
 	@Test
 	public void getLastUserTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		System.out.println("Conocer el ultimo Usuario ingresado");
 
 		System.out.println(userDAO.getLastUser());
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -152,7 +158,7 @@ public class UserTest {
 	@Test
 	public void buyAttractionTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 
@@ -163,7 +169,8 @@ public class UserTest {
 		int rows = userDAO.buyAttraction(userTemp, attractionTemp);
 		assertEquals(1, rows);
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -171,7 +178,7 @@ public class UserTest {
 	@Test
 	public void buyPromotionTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 
@@ -183,7 +190,8 @@ public class UserTest {
 
 		assertEquals(1, rows);
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -191,7 +199,7 @@ public class UserTest {
 	@Test
 	public void hasMoneyTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		User userTemp = userDAO.findById(1);
 
@@ -199,7 +207,8 @@ public class UserTest {
 				"El usuario " + userTemp.getName() + " cuenta con un saldo de $: " + userDAO.hasMoney(userTemp));
 
 		// assertEquals(1, rows);
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
@@ -207,7 +216,7 @@ public class UserTest {
 	@Test
 	public void hasTimeTest() throws SQLException {
 
-		//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
 		User userTemp = userDAO.findById(2);
 
@@ -215,75 +224,80 @@ public class UserTest {
 				"El usuario " + userTemp.getName() + " cuenta con un tiempo de Hs: " + userDAO.hasTime(userTemp));
 
 		// assertEquals(1, rows);
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
-	
+
 	// OK
-		@Test
-		public void hasTheAttractionTest() throws SQLException {
+	@Test
+	public void hasTheAttractionTest() throws SQLException {
 
-			//UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
-			AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
-			
-			User userTemp = userDAO.findById(1);
-			
-			Attraction attractionTemp = attractionDAO.findById(1);
+		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 
-			Boolean results = userDAO.hasTheAttraction(userTemp, attractionTemp);
+		User userTemp = userDAO.findById(1);
 
-			System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion '" + attractionTemp.getName() + "' [true/false]: " + results);
-			
-			assertTrue(results);
-			
-			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		Attraction attractionTemp = attractionDAO.findById(1);
 
-		}
-		
-		@Test
-		public void hasThePromotionTest() throws SQLException {
+		Boolean results = userDAO.hasTheAttraction(userTemp, attractionTemp);
 
-			//UserDAO userDAO = DAOFactory.getUserDAO();
+		System.out.println("El usuario " + userTemp.getName() + " tiene la Atraccion '" + attractionTemp.getName()
+				+ "' [true/false]: " + results);
 
-			PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
-			
-			User userTemp = userDAO.findById(1);
-			
-			Promotion promotionTemp = promotionDAO.findById(147);
+		assertTrue(results);
 
-			Boolean results = userDAO.hasThePromotion(userTemp, promotionTemp);
-			//boolean attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
 
-			System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion '" + promotionTemp.getName() + "' [true/false]: " + results);
-			
-			assertFalse(results);
-			
-			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+	}
 
-		}
-		
-		
-		@Test
-		public void findByUsernameTest() throws SQLException {
+	@Test
+	public void hasThePromotionTest() throws SQLException {
 
-			UserDAO userDAO = DAOFactory.getUserDAO();
+		// UserDAO userDAO = DAOFactory.getUserDAO();
 
-			LoginService loginService = null;
-			
-			String username = "admin";
-			String password = "admin";
-			
-			User userTemp = userDAO.findByUsername(username);
-			
-			System.out.println("Buscar un usuario por su Nombre");
-			
-			System.out.println(userTemp);
-			
-			assertEquals(password, userTemp.getPassword());
-			
-			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+		PromotionDAO promotionDAO = DAOFactory.getPromotionDAO();
 
-		}
+		User userTemp = userDAO.findById(1);
+
+		Promotion promotionTemp = promotionDAO.findById(147);
+
+		Boolean results = userDAO.hasThePromotion(userTemp, promotionTemp);
+		// boolean attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);
+
+		System.out.println("El usuario " + userTemp.getName() + " tiene la Promocion '" + promotionTemp.getName()
+				+ "' [true/false]: " + results);
+
+		assertFalse(results);
+
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
+
+	}
+
+	@Test
+	public void findByUsernameTest() throws SQLException {
+
+		UserDAO userDAO = DAOFactory.getUserDAO();
+
+		LoginService loginService = null;
+
+		String username = "admin";
+		String password = "admin";
+
+		User userTemp = userDAO.findByUsername(username);
+
+		System.out.println("Buscar un usuario por su Nombre");
+
+		System.out.println(userTemp);
+
+		assertEquals(password, userTemp.getPassword());
+
+		System.out.println(
+				"-------------------------------------------------------------------------------------------------------------------------------");
+
+	}
 
 }
