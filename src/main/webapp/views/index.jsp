@@ -32,7 +32,7 @@
 			</div>
 	
 			<div>
-				<img src="../images/mapa_tierra_media.jpg">
+				<img src="../images/mapa_tierra_media.jpg" width="100%;">
 			</div>
 			
 			<br>
