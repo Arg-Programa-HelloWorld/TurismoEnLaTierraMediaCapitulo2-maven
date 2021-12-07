@@ -6,10 +6,13 @@ import model.User;
 
 public class LoginService {
 
-	public User login(String username) {
-		UserDAO userDao = DAOFactory.getUserDAO();
-    	
-		User user = userDao.findByUsername(username.trim());
+	
+	
+	public User login(String username, String password) {
+	
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		User user = userDAO.findByUsername(username);
 		
 		//System.out.println(user);
     	/*
@@ -18,6 +21,30 @@ public class LoginService {
     	}
     	*/
     	
+		System.out.println(user);
+		
     	return user;
+	}
+	
+	public User login(String username) {
+	
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		String name = username.toLowerCase().trim(); 
+		
+		System.out.println(name);
+		
+		User userTemp = userDAO.findByUsername(name);
+		
+		//System.out.println(user);
+    	/*
+    	if (user == null || !user.checkPassword(password)) {
+    		user = null;
+    	}
+    	*/
+    
+		System.out.println(userTemp);
+		
+    	return userTemp;
 	}
 }

@@ -23,10 +23,11 @@ public class User {
 	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
 
 	// Para Obtener un Usuario de la BDD
-	public User(int id, String name, double budget, double time, int preferencesID, AttractionType preferences) {
+	public User(int id, String name, String password,  double budget, double time, int preferencesID, AttractionType preferences) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.password = password;
 		this.budget = budget;
 		this.time = time;
 		this.preferencesID = preferencesID;
@@ -161,7 +162,8 @@ public class User {
 	public void setListOfPromotions(ArrayList<Promotion> listOfPromotions) {
 		this.listOfPromotions = listOfPromotions;
 	}
-
+	
+	/*
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", password=" + password + ", budget=" + budget + ", time=" + time
@@ -169,7 +171,14 @@ public class User {
 				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + ", listOfAttractions="
 				+ listOfAttractions + ", listOfPromotions=" + listOfPromotions + "]";
 	}
-
+	*/
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", password="+ password + ", budget=" + budget + ", time=" + time + ", preferences="
+				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + "]";
+	}
+	
 	public boolean checkPassword(String password) {
 		return BCrypt.checkpw(password, this.getPassword());
 	}

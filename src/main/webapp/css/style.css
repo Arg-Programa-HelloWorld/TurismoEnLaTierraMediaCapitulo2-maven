@@ -21,6 +21,13 @@ img {
     max-height: 600px;
 }
 
-footer {
-	text-align: rigth;
+.seccion-final {
+	display: flex;
+	justify-content: space-around;
+}
+
+.seccion-final__parrafo {
+	display:inline;
+     padding-left:3px;
+     padding-right:3px;
 }
