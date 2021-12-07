@@ -25,13 +25,13 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<c:out value="${user.username}"></c:out>
+							<c:out value="${user.name}"></c:out>
 					</a>
 						<ul class="dropdown-menu dropdown-menu-end"
 							aria-labelledby="navbarDropdown">
 							<li><a class="dropdown-item disabled" style="color: black;">
 									<i title="monedas" style="color: gold;" class="bi bi-coin"></i>
-									<c:out value="${user.coins}"></c:out>
+									<c:out value="${user.budget}"></c:out>
 							</a></li>
 							<li><a class="dropdown-item disabled" style="color: black;">
 									<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i>

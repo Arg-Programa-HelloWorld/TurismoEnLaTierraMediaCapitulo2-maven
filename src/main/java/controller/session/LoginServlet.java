@@ -2,6 +2,7 @@ package controller.session;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -38,17 +39,17 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println(user);
 		
-		/*
+		
 		if (user != null) {
 			req.getSession().setAttribute("user", user);
 			resp.sendRedirect("/TurismoEnLaTierraMediaCapitulo2-maven/views/index.jsp");
 			//System.out.println(user);
 		} else {
 			System.out.println(user);
-			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("inc/login.jsp");
-			//dispatcher.forward(req, resp);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+			dispatcher.forward(req, resp);
 		}
-		*/
+		
 	
 	}
 	
