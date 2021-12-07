@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <meta charset="UTF-8">
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -25,17 +27,17 @@
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<c:out value="${user.name}"></c:out>
+							<c:out value="${user.getName()}"></c:out>
 					</a>
 						<ul class="dropdown-menu dropdown-menu-end"
 							aria-labelledby="navbarDropdown">
 							<li><a class="dropdown-item disabled" style="color: black;">
 									<i title="monedas" style="color: gold;" class="bi bi-coin"></i>
-									<c:out value="${user.budget}"></c:out>
+									<c:out value="${user.getBudget()}"></c:out>
 							</a></li>
 							<li><a class="dropdown-item disabled" style="color: black;">
 									<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i>
-									<c:out value="${user.time}h"></c:out>
+									<c:out value="${user.getTime()}h"></c:out>
 							</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a href="/turismo/logout" class="dropdown-item">Salir</a></li>
