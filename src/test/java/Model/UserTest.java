@@ -280,7 +280,7 @@ public class UserTest {
 			
 			System.out.println(userTemp);
 			
-			//assertEquals(password, userTemp.getPassword());
+			assertEquals(password, userTemp.getPassword());
 			
 			System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
 
