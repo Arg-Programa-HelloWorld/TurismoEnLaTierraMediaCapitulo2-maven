@@ -30,7 +30,7 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 		List<Attraction> attractions = attractionManager.findAll();
 		req.setAttribute("attractions", attractions);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
 		dispatcher.forward(req, resp);
 
 	}

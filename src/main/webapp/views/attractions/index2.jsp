@@ -47,9 +47,9 @@
 				<c:forEach items="${attractions}" var="attraction">
 					<tr>
 						<td>
-							<img src="<c:out value="${attractions.image}"></c:out>" 
-							class="rounded-circle" alt="Cinque Terre" width="80" 
-							height="80">					
+							<img src="../../images/attractions/minas_tirith.jpg"
+								class="rounded-circle" alt="Cinque Terre" width="80"
+								height="80">
 						</td>
 						<td><strong><c:out value="${attraction.name}"></c:out></strong>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
