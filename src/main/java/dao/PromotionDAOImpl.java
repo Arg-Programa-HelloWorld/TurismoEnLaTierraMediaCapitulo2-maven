@@ -100,7 +100,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 		try {
 
-			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotion_type.id, promotion_type.name AS promotion_type\n"
+			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotions.image, promotion_type.id, promotion_type.name AS promotion_type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id\n"
 					+ "WHERE promotions.id = ?";
@@ -132,7 +132,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 		try {
 
-			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotion_type.id, promotion_type.name AS promotion_type\n"
+			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotions.image, promotion_type.id, promotion_type.name AS promotion_type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id";
 
@@ -185,7 +185,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 		try {
 
-			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotion_type.id, promotion_type.name AS promotion_type\n"
+			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotions.image, promotion_type.id, promotion_type.name AS promotion_type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id ORDER BY promotions.id DESC LIMIT 1";
 
@@ -261,7 +261,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 			// System.out.println(PromotionType.fromId(results.getInt(6)));
 
-			result = results.getInt(6);
+			result = results.getInt(7);
 
 			if (result == 1) {
 
@@ -274,8 +274,8 @@ public class PromotionDAOImpl implements PromotionDAO {
 				// discount, int fk_id_promotion_type, PromotionType promotion_type.name )
 
 				promotionTempPercentage = new PromotionPercentage(results.getInt(1), results.getString(2),
-						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getInt(6),
-						PromotionType.valueOf(results.getString(7)), attractionListPercentage);
+						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getString(6), results.getInt(7),
+						PromotionType.valueOf(results.getString(8)), attractionListPercentage);
 
 				if (!attractionListPercentage.isEmpty()) {
 
@@ -301,8 +301,8 @@ public class PromotionDAOImpl implements PromotionDAO {
 				// Promotion( Integer id, String name, Double time, Double cost, Double discount
 				// int fk_id_promotion_type PromotionType promotion_type.name)
 				promotionTempAbsolute = new PromotionAbsolute(results.getInt(1), results.getString(2),
-						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getInt(6),
-						PromotionType.valueOf(results.getString(7)), attractionListAbsolute);
+						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getString(6), results.getInt(7),
+						PromotionType.valueOf(results.getString(8)), attractionListAbsolute);
 
 				if (!attractionListAbsolute.isEmpty()) {
 
@@ -328,8 +328,8 @@ public class PromotionDAOImpl implements PromotionDAO {
 				// Promotion( Integer id, String name, Double time, Double cost, Double discount
 				// int fk_id_promotion_type PromotionType promotion_type.name)
 				promotionTempAyB = new PromotionAyB(results.getInt(1), results.getString(2), results.getDouble(3),
-						results.getDouble(4), results.getDouble(5), results.getInt(6),
-						PromotionType.valueOf(results.getString(7)), attractionListAyB);
+						results.getDouble(4), results.getDouble(5), results.getInt(6), results.getString(7),
+						PromotionType.valueOf(results.getString(8)), attractionListAyB);
 
 				if (!attractionListAyB.isEmpty()) {
 
@@ -404,7 +404,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 		try {
 
-			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotion_type.id, promotion_type.name AS promotion_type\n"
+			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotions.image, promotion_type.id, promotion_type.name AS promotion_type\n"
 					+ "FROM itinerary_shopping\n"
 					+ "INNER JOIN promotions ON itinerary_shopping.fk_id_promotion = promotions.id\n"
 					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id\n"

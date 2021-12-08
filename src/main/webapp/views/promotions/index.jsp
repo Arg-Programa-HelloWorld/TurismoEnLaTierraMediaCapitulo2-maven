@@ -29,7 +29,7 @@
 		</c:if>
 
 		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Estas son las atracciones de la Tierra Media</h1>
+			<h1>Estas son las Promociones de la Tierra Media</h1>
 		</div>
 
 		
@@ -37,7 +37,7 @@
 			<thead>
 				<tr>
 					<th>Imagen</th>
-					<th>Atracci&oacute;n</th>
+					<th>Promocion&oacute;n</th>
 					<th>Costo</th>
 					<th>Duraci&oacute;n</th>
 					<th>Cupo</th>
@@ -45,20 +45,20 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${attractions}" var="attraction">
+				<c:forEach items="${promotions}" var="promotion">
 					<tr>
 						<td>
-							<img src="${attraction.image}" 
+							<img src="${promotion.image}" 
 							class="rounded-circle" alt="Cinque Terre" width="80" 
 							height="80">					
 						</td>
-						<td><strong><c:out value="${attraction.name}"></c:out></strong>
+						<td><strong><c:out value="${promotion.name}"></c:out></strong>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Cras pretium eros urna. Sed quis erat congue, bibendum tortor
 								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
-						<td><c:out value="${attraction.cost}"></c:out></td>
-						<td><c:out value="${attraction.time}"></c:out></td>
-						<td><c:out value="${attraction.quota}"></c:out></td>
+						<td><c:out value="${promotion.cost}"></c:out></td>
+						<td><c:out value="${promotion.time}"></c:out></td>
+						<td><c:out value="${promotion.quota}"></c:out></td>
 					</tr>
 				</c:forEach>
 			</tbody>

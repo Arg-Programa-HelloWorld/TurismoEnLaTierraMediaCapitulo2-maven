@@ -25,7 +25,7 @@ public class PromotionTest {
 
 		System.out.println("Insertar la Promotion 'Pack Promo Porcentaje'");
 		// (String name, double time, double cost, double discount, int promotionTypeID)
-		Promotion promotionTemp = new PromotionPercentage("Pack Promo Porcentaje", 0, 0, 10, 1);
+		Promotion promotionTemp = new PromotionPercentage("Pack Promo Porcentaje", 0, 0, 10, "", 1);
 		promotionDAO.insert(promotionTemp);
 
 		System.out.println();
@@ -42,7 +42,7 @@ public class PromotionTest {
 
 		System.out.println("Insertar la Promotion 'Pack Promo Absoluta'");
 		// (String name, double time, double cost, double discount, int promotionTypeID)
-		Promotion promotionTemp = new PromotionAbsolute("Pack Promo Absoluta", 0, 0, 4, 2);
+		Promotion promotionTemp = new PromotionAbsolute("Pack Promo Absoluta", 0, 0, 4, "", 2);
 		promotionDAO.insert(promotionTemp);
 
 		System.out.println(
@@ -60,7 +60,7 @@ public class PromotionTest {
 		System.out.println("Insertar la Promotion 'Pack Promo A & B'");
 		// (String name, double time, double cost, double discount, int promotionTypeID)
 		//(String name, double time, double cost, double discount, int promotionTypeID)
-		Promotion promotionTempAyB = new PromotionAyB("Pack Promo A & B", 0, 0, 2, 3);
+		Promotion promotionTempAyB = new PromotionAyB("Pack Promo A & B", 0, 0, 2, "", 3);
 		promotionDAO.insert(promotionTempAyB);
 
 		System.out.println(
@@ -149,7 +149,7 @@ public class PromotionTest {
 		cantidadAntes = promotionDAO.countAll();
 
 		System.out.println("Insertar una Promocion: 'Promocion Test Para Eliminar'");
-		Promotion promotionTemp = new PromotionPercentage("Promocion Test Para Eliminar", 0, 0, 10, 1);
+		Promotion promotionTemp = new PromotionPercentage("Promocion Test Para Eliminar", 0, 0, 10, "", 1);
 		promotionDAO.insert(promotionTemp);
 		System.out.println(promotionDAO.getLastPromotion());
 

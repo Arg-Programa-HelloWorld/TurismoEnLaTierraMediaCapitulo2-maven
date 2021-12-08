@@ -20,7 +20,7 @@
 					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.jsp" class="nav-link px-2 text-white">Promotions</a></li>
 					<li><a href="itineraries.jsp" class="nav-link px-2 text-white">Itineraries</a></li>
 					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li>
-					<li><a href="#" class="nav-link px-2 text-white">About</a></li>
+					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li>
 				</ul>
 
 				<ul class="navbar-nav">

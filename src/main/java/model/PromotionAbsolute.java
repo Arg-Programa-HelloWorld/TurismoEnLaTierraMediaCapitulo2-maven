@@ -6,18 +6,20 @@ public class PromotionAbsolute extends Promotion {
 
 	double absoluteDiscount;
 
-	public PromotionAbsolute(int id, String name, double time, double cost, double discount, int promotionTypeID,
-			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
+	// Constructor para obtener la Promocion de la BDD
+	public PromotionAbsolute(int id, String name, double time, double cost, double discount, String image, int promotionTypeID,
+			 PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 
-		super(id, name, time, cost, discount, promotionTypeID, promotionType, attractionsList);
+		super(id, name, time, cost, discount, image, promotionTypeID, promotionType, attractionsList);
 
 		absoluteDiscount = discount;
 
 	}
 
-	public PromotionAbsolute(String name, double time, double cost, double discount, int promotionTypeID) {
+	// Constructor para crear la Promocion
+	public PromotionAbsolute(String name, double time, double cost, double discount, String image, int promotionTypeID) {
 
-		super(name, time, cost, discount, promotionTypeID);
+		super(name, time, cost, discount, image, promotionTypeID);
 
 	}
 

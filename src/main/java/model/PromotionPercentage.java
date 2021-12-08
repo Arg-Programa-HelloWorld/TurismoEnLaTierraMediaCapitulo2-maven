@@ -9,19 +9,19 @@ public class PromotionPercentage extends Promotion {
 	private double percentageDiscount;
 
 	// Constructor para obtener la Promocion de la BDD
-	public PromotionPercentage(int id, String name, double time, double cost, double discount, int promotionTypeID,
-			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
+	public PromotionPercentage(int id, String name, double time, double cost, double discount, String image, int promotionTypeID,
+			 PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 
-		super(id, name, time, cost, discount, promotionTypeID, promotionType, attractionsList);
+		super(id, name, time, cost, discount, image, promotionTypeID, promotionType, attractionsList);
 
 		percentageDiscount = discount;
 
 	}
 
 	// Constructor para crear la Promocion
-	public PromotionPercentage(String name, double time, double cost, double discount, int promotionTypeID) {
+	public PromotionPercentage(String name, double time, double cost, double discount, String image, int promotionTypeID) {
 
-		super(name, time, cost, discount, promotionTypeID);
+		super(name, time, cost, discount, image, promotionTypeID);
 
 	}
 

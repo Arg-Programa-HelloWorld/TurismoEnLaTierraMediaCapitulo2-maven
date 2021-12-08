@@ -18,7 +18,8 @@ public abstract class Promotion {
 
 	protected List<Attraction> attractionsList = new LinkedList<Attraction>();
 
-	public Promotion(int id, String name, double time, double cost, double discount, int promotionTypeID,
+	// Para Obtener una Atraccion de la BDD
+	public Promotion(int id, String name, double time, double cost, double discount, String image, int promotionTypeID,
 			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 		super();
 		this.id = id;
@@ -26,13 +27,15 @@ public abstract class Promotion {
 		this.time = time;
 		this.cost = cost;
 		this.discount = discount;
+		this.image = image;
 		this.promotionTypeID = promotionTypeID;
 		this.promotionType = promotionType;
 		this.attractionsList = attractionsList;
 
 	}
 
-	public Promotion(int id, String name, double time, double cost, double discount, int promotionTypeID,
+	/*
+	public Promotion(int id, String name, double time, double cost, double discount, String image, int promotionTypeID,
 			PromotionType promotionType) {
 		super();
 		this.id = id;
@@ -40,17 +43,20 @@ public abstract class Promotion {
 		this.time = time;
 		this.cost = cost;
 		this.discount = discount;
+		this.image = image;
 		this.promotionTypeID = promotionTypeID;
 		this.promotionType = promotionType;
 
 	}
+	*/
 
-	public Promotion(String name, double time, double cost, double discount, int promotionTypeID) {
+	public Promotion(String name, double time, double cost, double discount, String image, int promotionTypeID) {
 		super();
 		this.name = name;
 		this.time = time;
 		this.cost = cost;
 		this.discount = discount;
+		this.image = image;
 		this.promotionTypeID = promotionTypeID;
 
 	}
@@ -143,10 +149,13 @@ public abstract class Promotion {
 		this.attractionsList = attractionsList;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Promotion [id=" + id + ", name=" + name + ", time=" + time + ", cost=" + cost + ", discount=" + discount
-				+ ", promotionTypeID=" + promotionTypeID + ", promotionType=" + promotionType + ", attractionList="
+		return "Promotion [id=" + id + ", name=" + name + ", time=" + time + ", cost=" + cost + ", quota=" + quota
+				+ ", discount=" + discount + ", image=" + image + ", promotionTypeID=" + promotionTypeID
+				+ ", promotionType=" + promotionType + ", saving_money=" + saving_money + ", attractionsList="
 				+ attractionsList + "]";
 	}
 
