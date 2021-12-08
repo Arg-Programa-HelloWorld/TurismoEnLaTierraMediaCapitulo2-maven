@@ -25,7 +25,7 @@
 					</div>
 				</c:if>
 	
-				<form action="login" method="post">
+				<form action="/TurismoEnLaTierraMediaCapitulo2-maven/login" method="post">
 	
 					<div class="mb-3">
 						<label for="username" class="form-label">Usuario</label> <input

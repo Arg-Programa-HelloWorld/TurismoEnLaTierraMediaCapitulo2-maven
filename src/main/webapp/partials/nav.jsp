@@ -39,6 +39,7 @@
 								<a class="dropdown-item disabled" style="color: black;">
 									<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i>
 									<c:out value="${user.getTime()}h"></c:out>
+
 								</a>
 							</li>
 							<li>

@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
 			//System.out.println(user);
 		} else {
 			System.out.println(user);
+			req.setAttribute("flash", "¡Usuario o contraseña incorrectos!");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
 		}
