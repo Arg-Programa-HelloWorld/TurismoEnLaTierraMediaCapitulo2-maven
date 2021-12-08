@@ -30,7 +30,8 @@ public class LoginService {
 	
 		UserDAO userDAO = DAOFactory.getUserDAO();
 		
-		String name = username.toLowerCase().trim(); 
+		//String name = username.trim().toUpperCase(); 
+		String name = username;
 		
 		System.out.println(name);
 		

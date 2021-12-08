@@ -4,16 +4,18 @@ import java.util.LinkedList;
 
 public class PromotionAyB extends Promotion {
 
+	// Constructor para obtener la Promocion de la BDD
 	public PromotionAyB(int id, String name, double time, double cost, double discount, int promotionTypeID,
-			PromotionType promotionType, LinkedList<Attraction> attractionsList) {
+			 String image, PromotionType promotionType, LinkedList<Attraction> attractionsList) {
 
-		super(id, name, time, cost, discount, promotionTypeID, promotionType, attractionsList);
+		super(id, name, time, cost, discount, image, promotionTypeID, promotionType, attractionsList);
 
 	}
 
-	public PromotionAyB(String name, double time, double cost, double discount, int promotionTypeID) {
+	// Constructor para crear la Promocion
+	public PromotionAyB(String name, double time, double cost, double discount, String image, int promotionTypeID) {
 
-		super(name, time, cost, discount, promotionTypeID);
+		super(name, time, cost, discount, image, promotionTypeID);
 
 	}
 

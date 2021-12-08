@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>	
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -194,7 +196,7 @@
 							<p>Some representative placeholder content for the three
 								columns of text below the carousel. This is the first column.</p>
 							<p>
-								<a class="btn btn-secondary" href="#">View details »</a>
+								<a class="btn btn-secondary" href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do">Ver detalles»</a>
 							</p>
 						</div>
 						<!-- /.col-lg-4 -->

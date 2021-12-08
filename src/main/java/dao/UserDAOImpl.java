@@ -538,7 +538,8 @@ public class UserDAOImpl implements UserDAO {
 			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
-					+ "WHERE users.name = ?";
+					+ "WHERE users.name =  ?";
+			//+ "WHERE upper(trim(users.name)) =  ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);

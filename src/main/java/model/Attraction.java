@@ -12,11 +12,12 @@ public class Attraction {
 	private double cost; 	// costo
 	private double time; 	// tiempo
 	private int quota; 		// cupo
+	private String image;   // ruta de la imagen
 	private int attractionTypeID; // el tipo de attractionName1
 	private AttractionType attractionType; // el tipo de attractionName1
 
 	// Para Obtener una Atraccion de la BDD
-	public Attraction(int id, String name, double cost, double time, int quota, int attractionTypeID,
+	public Attraction(int id, String name, double cost, double time, int quota, String image, int attractionTypeID,
 			AttractionType attractionType) {
 		super();
 		this.id = id;
@@ -24,6 +25,7 @@ public class Attraction {
 		this.cost = cost;
 		this.time = time;
 		this.quota = quota;
+		this.image = image;
 		this.attractionTypeID = attractionTypeID;
 		this.attractionType = attractionType;
 	}
@@ -78,6 +80,14 @@ public class Attraction {
 	public void setQuota(int quota) {
 		this.quota = quota;
 	}
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public int getAttractionTypeID() {
 		return attractionTypeID;
@@ -98,7 +108,7 @@ public class Attraction {
 	@Override
 	public String toString() {
 		return "Attraction [id=" + id + ", name=" + name + ", cost=" + cost + ", time=" + time + ", quota=" + quota
-				+ ", attractionTypeID=" + attractionTypeID + ", attractionType=" + attractionType + "]";
+				+ ", image=" + image + ", attractionTypeID=" + attractionTypeID + ", attractionType=" + attractionType + "]";
 	}
 
 }
