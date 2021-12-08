@@ -40,7 +40,7 @@
 									<c:out value="${user.getTime()}h"></c:out>
 							</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a href="/turismo/logout" class="dropdown-item">Salir</a></li>
+							<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/logout" class="dropdown-item">Salir</a></li>
 						</ul></li>
 				</ul>
 			</div>
