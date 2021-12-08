@@ -328,7 +328,7 @@ public class PromotionDAOImpl implements PromotionDAO {
 				// Promotion( Integer id, String name, Double time, Double cost, Double discount
 				// int fk_id_promotion_type PromotionType promotion_type.name)
 				promotionTempAyB = new PromotionAyB(results.getInt(1), results.getString(2), results.getDouble(3),
-						results.getDouble(4), results.getDouble(5), results.getInt(6), results.getString(7),
+						results.getDouble(4), results.getDouble(5), results.getString(6), results.getInt(7), 
 						PromotionType.valueOf(results.getString(8)), attractionListAyB);
 
 				if (!attractionListAyB.isEmpty()) {
