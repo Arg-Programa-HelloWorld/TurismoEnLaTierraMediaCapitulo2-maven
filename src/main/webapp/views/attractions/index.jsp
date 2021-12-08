@@ -47,7 +47,7 @@
 				<c:forEach items="${attractions}" var="attraction">
 					<tr>
 						<td>
-							<img src="<c:out value="${attractions.image}"></c:out>" 
+							<img src="${attractions.image}" 
 							class="rounded-circle" alt="Cinque Terre" width="80" 
 							height="80">					
 						</td>
@@ -58,8 +58,6 @@
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.time}"></c:out></td>
 						<td><c:out value="${attraction.quota}"></c:out></td>
-
-						
 					</tr>
 				</c:forEach>
 			</tbody>

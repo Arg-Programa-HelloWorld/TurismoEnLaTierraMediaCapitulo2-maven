@@ -58,8 +58,6 @@
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.time}"></c:out></td>
 						<td><c:out value="${attraction.quota}"></c:out></td>
-
-						
 					</tr>
 				</c:forEach>
 			</tbody>

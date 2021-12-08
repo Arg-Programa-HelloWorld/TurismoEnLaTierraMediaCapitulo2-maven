@@ -29,8 +29,10 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Attraction> attractions = attractionManager.findAll();
 		req.setAttribute("attractions", attractions);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
+		
+		System.out.println(attractions);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index.jsp");
 		dispatcher.forward(req, resp);
 
 	}
