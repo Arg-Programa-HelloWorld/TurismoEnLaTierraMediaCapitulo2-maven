@@ -19,29 +19,36 @@
 					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/attractions.jsp" class="nav-link px-2 text-white">Attractions</a></li>
 					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.jsp" class="nav-link px-2 text-white">Promotions</a></li>
 					<li><a href="itineraries.jsp" class="nav-link px-2 text-white">Itineraries</a></li>
-					<li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li>
 					<li><a href="#" class="nav-link px-2 text-white">About</a></li>
 				</ul>
 
 				<ul class="navbar-nav">
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<c:out value="${user.getName()}"></c:out>
-					</a>
-						<ul class="dropdown-menu dropdown-menu-end"
-							aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item disabled" style="color: black;">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<c:out value="${user.name}"></c:out>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+							<li>
+								<a class="dropdown-item disabled" style="color: black;">
 									<i title="monedas" style="color: gold;" class="bi bi-coin"></i>
 									<c:out value="${user.getBudget()}"></c:out>
-							</a></li>
-							<li><a class="dropdown-item disabled" style="color: black;">
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item disabled" style="color: black;">
 									<i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i>
 									<c:out value="${user.getTime()}h"></c:out>
-							</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a href="/turismo/logout" class="dropdown-item">Salir</a></li>
-						</ul></li>
+								</a>
+							</li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li>
+								<a href="/turismo/logout" class="dropdown-item">Salir</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 
