@@ -46,7 +46,7 @@
 								<hr class="dropdown-divider">
 							</li>
 							<li>
-								<a href="/turismo/logout" class="dropdown-item">Salir</a>
+								<a href="/TurismoEnLaTierraMediaCapitulo2-maven/logout" class="dropdown-item">Salir</a>
 							</li>
 						</ul>
 					</li>

@@ -95,7 +95,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n" + "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE users.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
@@ -123,7 +123,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n" + "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -175,7 +175,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preferences\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preferences\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id ORDER BY users.id DESC LIMIT 1";
 			Connection conn = ConnectionProvider.getConnection();
@@ -430,10 +430,10 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			// User( Integer id, String name, String password, Double budget, Double time, int
-			// if_preference_type AttractionType(preference))
+			// User( Integer id, String name, String password, Double budget, Double time, int admin, int
+			// if_preference_type, AttractionType(preference))
 			return new User(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4), results.getDouble(5),
-					results.getInt(6), AttractionType.valueOf(results.getString(7)));
+					results.getBoolean(6), results.getInt(7), AttractionType.valueOf(results.getString(8)));
 
 		} catch (Exception e) {
 
@@ -535,7 +535,7 @@ public class UserDAOImpl implements UserDAO {
 	public User findByUsername(String username) {
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE users.name =  ?";
