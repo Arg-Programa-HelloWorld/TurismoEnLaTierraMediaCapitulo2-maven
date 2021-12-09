@@ -2,51 +2,97 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<jsp:include page="/partials/head.jsp"></jsp:include>
-		
-		<style>
-		.seccion-final {
-			display: flex;
-			justify-content: space-around;
-		}
-		
-		.seccion-final__parrafo {
-			display: inline;
-			padding-left: 3px;
-			padding-right: 3px;
-		}
-		</style>
-	</head>
+<head>
+<jsp:include page="/partials/head.jsp"></jsp:include>
 
-	<body>
-	
-		<div class="container-fluid">
-	
-			<header>
-				<jsp:include page="/partials/nav.jsp"></jsp:include>
-			</header>
-			
-			<div class="container-fluid">
-				<h1>Tourism in Middle Earth</h1>
+<style>
+.seccion-final {
+	display: flex;
+	justify-content: space-around;
+}
+
+.seccion-final__parrafo {
+	display: inline;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+</style>
+</head>
+
+<body background="../images/mapa_tierra_media.jpg">
+
+	<div class="container-main-index">
+
+		<header>
+			<jsp:include page="/partials/nav.jsp"></jsp:include>
+		</header>
+
+	</div>
+
+	<!-- Footer -->
+	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
+		style="background-color: rgba(0, 0, 0, 0.2);">
+
+		<!-- Footer Text -->
+		<div class="container-fluid text-center text-md-left">
+
+			<!-- Grid row -->
+			<div class="row">
+
+				<!-- Grid column -->
+				<div class="col-md-6 mt-md-0 mt-3">
+
+					<!-- Content -->
+					<h5 class="text-uppercase font-weight-bold">Nuestros
+						Profesores</h5>
+					<ul class="profes">
+						<li>Blautzik, Leonardo José</li>
+						<li>Cantore, Roberto</li>
+						<li>Gasior, Federico</li>
+						<li>Videla, Lucas</li>
+					</ul>
+
+
+				</div>
+				<!-- Grid column -->
+
+				<hr class="clearfix w-100 d-md-none pb-3">
+
+				<!-- Grid column -->
+				<div class="col-md-6 mb-md-0 mb-3">
+
+					<!-- Content -->
+					<h5 class="text-uppercase font-weight-bold">Nosotros</h5>
+					<ul class="alumnos">
+						<li>Toledo, Florencia</li>
+						<li>Orellana, Felix Andres</li>
+						<li>Paczkowski, Eduardo Nahuel</li>
+						<li>Graff, Héctor Pablo</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
 			</div>
-	
-			<div>
-				<img src="../images/mapa_tierra_media.jpg" class="img_background">
-			</div>
-			
-			<br>
-	
-			<footer>
-				<ul class="seccion-final">
-					<li class="seccion-final__parrafo">Hecho con ❤️</li>
-					<li class="seccion-final__parrafo">By Hello World!!</li>
-					<li class="seccion-final__parrafo">Para ArgentinaPrograma 2021</li>
-				</ul>
-			</footer>
-	
+			<!-- Grid row -->
+
 		</div>
-	
-	</body>
+		<!-- Footer Text -->
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">
+			<ul class="seccion-final">
+				<li class="seccion-final__parrafo">Hecho con ❤️</li>
+				<li class="seccion-final__parrafo">Por Hello World!!</li>
+				<li class="seccion-final__parrafo">Para ArgentinaPrograma</li>
+				<li class="seccion-final__parrafo">© 2021 Copyright</li>
+			</ul>
+		</div>
+		<!-- Copyright -->
+
+	</footer>
+	<!-- Footer -->
+
+</body>
 
 </html>

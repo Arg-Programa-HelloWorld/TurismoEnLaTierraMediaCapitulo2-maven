@@ -15,9 +15,9 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul
 					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/index.jsp" class="nav-link px-2 text-white">Home</a></li>
-					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/attractions.jsp" class="nav-link px-2 text-white">Attractions</a></li>
-					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.jsp" class="nav-link px-2 text-white">Promotions</a></li>
+					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/index.do" class="nav-link px-2 text-white">Home</a></li>
+					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/attractions.do" class="nav-link px-2 text-white">Attractions</a></li>
+					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.do" class="nav-link px-2 text-white">Promotions</a></li>
 					<li><a href="itineraries.jsp" class="nav-link px-2 text-white">Itineraries</a></li>
 					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li>
 					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li>

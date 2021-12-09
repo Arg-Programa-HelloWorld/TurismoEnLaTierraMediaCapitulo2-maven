@@ -16,8 +16,13 @@ img {
   max-width: 100%;  
 }
 
-.img_background {
-	
+.carousel-inner img {
+    width: 100%;
+    max-height: 600px;
+}
+
+.carousel-inner{
+ height: 400px;
 }
 
 .seccion-final {
@@ -27,6 +32,26 @@ img {
 
 .seccion-final__parrafo {
 	display:inline;
-     padding-left:3px;
-     padding-right:3px;
+    padding-left:3px;
+    padding-right:3px;
 }
+
+.profes, .alumnos {
+	list-style-type: none;
+}
+
+.page-footer { 
+	
+	height: 230px;	
+}
+
+.container-main-index {
+	min-height: calc(100vh - 230px);
+}
+
+
+
+
+
+
+
