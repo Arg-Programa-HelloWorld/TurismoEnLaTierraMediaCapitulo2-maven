@@ -20,6 +20,7 @@ public class UserService {
 	public void buyAttraction(User user, Attraction attraction) {
 
 		userDAO.buyAttraction(user, attraction);
+		this.payTheAttraction(user, attraction);
 
 	}
 
@@ -135,6 +136,7 @@ public class UserService {
 	public void buyPromotion(User user, Promotion promotion) {
 
 		userDAO.buyPromotion(user, promotion);
+		this.payPromotion(user, promotion);
 
 	}
 
