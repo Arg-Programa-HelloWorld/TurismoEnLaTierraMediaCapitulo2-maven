@@ -64,10 +64,10 @@
 					<!-- Content -->
 					<h5 class="text-uppercase font-weight-bold">Nosotros</h5>
 					<ul class="alumnos">
-						<li>Toledo, Florencia</li>
-						<li>Orellana, Felix Andres</li>
-						<li>Paczkowski, Eduardo Nahuel</li>
-						<li>Graff, Héctor Pablo</li>
+						<li>Toledo, Florencia <i title="monedas" style="color: blue;" class="bi bi-linkedin"></i></li>
+						<li>Orellana, Felix Andres <i title="monedas" style="color: blue;" class="bi bi-linkedin"></i></li>
+						<li>Paczkowski, Eduardo Nahuel <i title="monedas" style="color: blue;" class="bi bi-linkedin"></i></li>
+						<li>Graff, Héctor Pablo <a href="https://www.linkedin.com/in/hector-pablo-graff/"><i title="monedas" style="color: blue;" class="bi bi-linkedin"></i></a></li>
 					</ul>
 
 				</div>
