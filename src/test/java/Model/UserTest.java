@@ -299,5 +299,17 @@ public class UserTest {
 				"-------------------------------------------------------------------------------------------------------------------------------");
 
 	}
+	
+	@Test
+	public void isAdminTest() {
+		
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		User user1 = userDAO.findByUsername("admin");
+		User user2 = userDAO.findById(2);
+		
+		assertTrue(user1.isAdmin());
+		assertFalse(user2.isAdmin());
+	}
 
 }

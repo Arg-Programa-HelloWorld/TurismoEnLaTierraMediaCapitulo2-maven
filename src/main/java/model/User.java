@@ -13,6 +13,7 @@ public class User {
 	private double time; // tiempo que dispone
 	private String image;
 	private String date;
+	private Boolean admin;
 	private int preferencesID;
 	private AttractionType preferences; // preferencias
 
@@ -23,13 +24,14 @@ public class User {
 	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
 
 	// Para Obtener un Usuario de la BDD
-	public User(int id, String name, String password,  double budget, double time, int preferencesID, AttractionType preferences) {
+	public User(int id, String name, String password,  double budget, double time, Boolean admin, int preferencesID, AttractionType preferences) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.budget = budget;
 		this.time = time;
+		this.admin = admin;
 		this.preferencesID = preferencesID;
 		this.preferences = preferences;
 
@@ -166,6 +168,14 @@ public class User {
 	
 	public boolean checkPassword(String password) {
 		return BCrypt.checkpw(password, this.getPassword());
+	}
+
+	public Boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
 	}
 
 }
