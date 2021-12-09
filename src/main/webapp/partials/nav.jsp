@@ -29,11 +29,15 @@
 	          </a>
 	          
 	          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-	            <li><a class="dropdown-item" href="#"><c:out value="${user.name}"></c:out></a></li>
-	            <li><a class="dropdown-item" href="#"><i title="monedas" style="color: gold;" class="bi bi-coin"></i> <c:out value="${user.budget}"></c:out></a></li>
-	            <li><a class="dropdown-item" href="#"><i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> <c:out value="${user.time}h"></c:out></a></li>
+	            <li><a class="dropdown-item" href="#" style="color: blak;"><i title="monedas" style="color: blak;" class="bi bi-person-fill"></i><b> <c:out value="${user.name}"></c:out></b></a></li>
 	            <li><hr class="dropdown-divider"></li>
-	            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/logout">Salir</a></li>
+	            <li><a class="dropdown-item" href="#" style="color: gold;"><i title="monedas" style="color: gold;" class="bi bi-coin"></i> <c:out value="${user.budget}"></c:out></a></li>
+	            <li><a class="dropdown-item" href="#" style="color: blue;"><i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> <c:out value="${user.time}hs."></c:out></a></li>
+	            <li><hr class="dropdown-divider"></li>
+	            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/views/weather/index.jsp" style="color: green;"><i title="clima" style="color: green;" class="bi bi-brightness-high-fill"></i> Clima <i title="clima" style="color: green;" class="bi bi-cloud-fill"></i></a>
+	            </li>
+	            <li><hr class="dropdown-divider"></li>
+	            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/logout" style="color: red;"><i title="clima" style="color: red;" class="bi bi-dash-circle-fill"></i> Salir</a></li>
 	          </ul>
 	        </div>
 
