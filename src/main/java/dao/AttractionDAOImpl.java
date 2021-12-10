@@ -96,7 +96,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 
-			String sql = "SELECT attractions.id, attractions.name, attractions.image, attractions.cost, attractions.time, attractions.quota, attraction_type.id, attraction_type.name AS preference\n"
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM attractions\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\n"
 					+ "WHERE attractions.id = ?";

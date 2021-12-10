@@ -538,11 +538,19 @@ public class UserDAOImpl implements UserDAO {
 			
 			String userNameTemp = username.toLowerCase().trim();
 
+			String userNameTemp = username.toLowerCase().trim();
+			
 			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
+<<<<<<< HEAD
 					+ "WHERE lower(trim(users.name)) =  ?";
 					//+ "WHERE users.name =  ?";
+=======
+					+ "WHERE lower(trim(users.name)) = ?";
+					//+ "WHERE users.name =  ?";
+			//+ "WHERE upper(trim(users.name)) =  ?";
+>>>>>>> 6c84b5cad37ddd5847ca1667528cfe97e4ead6d8
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
