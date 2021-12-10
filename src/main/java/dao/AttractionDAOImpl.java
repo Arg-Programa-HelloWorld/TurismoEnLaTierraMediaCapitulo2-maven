@@ -91,6 +91,29 @@ public class AttractionDAOImpl implements AttractionDAO {
 		}
 
 	}
+	
+	public int deleteByID(int id) {
+
+		try {
+
+			String sqlQuery = "DELETE FROM attractions WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, id);
+
+			int rowsDelete = statement.executeUpdate();
+
+			return rowsDelete;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+	}
 
 	public Attraction findById(int attractionID) {
 

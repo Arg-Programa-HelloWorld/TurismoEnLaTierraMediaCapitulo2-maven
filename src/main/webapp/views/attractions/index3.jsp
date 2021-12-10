@@ -71,27 +71,6 @@
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.time}"></c:out></td>
 						<td><c:out value="${attraction.quota}"></c:out></td>
-						
-						<td><c:if test="${user.isAdmin()}">
-								<a href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/edit.do?id=${attraction.id}"
-									class="btn btn-light rounded-0" role="button"><i
-									class="bi bi-pencil-fill"></i></a>
-								<a href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/delete.do?id=${attraction.id}"
-									class="btn btn-danger rounded" role="button"><i
-									class="bi bi-x-circle-fill"></i></a>
-							</c:if> <c:choose>
-
-								<c:when
-									test="${user.canAfford(attraction) && user.canAttend(attraction) && attraction.canHost(1)}">
-									<a href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/buy.do?id=${attraction.id}"
-										class="btn btn-success rounded" role="button">Comprar</a>
-								</c:when>
-								<c:otherwise>
-									<a href="#" class="btn btn-secondary rounded disabled"
-										role="button">No se puede comprar</a>
-								</c:otherwise>
-							</c:choose></td>
-						
 					</tr>
 				</c:forEach>
 			</tbody>
