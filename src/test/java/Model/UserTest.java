@@ -310,8 +310,6 @@ public class UserTest {
 		String username = "Sam";
 		String password = "Sam";
 
-		
-		
 		User userTemp = userDAO.findByUsername(username);
 
 		System.out.println("Buscar un usuario por su Nombre");
