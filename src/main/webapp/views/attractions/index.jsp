@@ -34,6 +34,14 @@
 				</p>
 			</div>
 		</c:if>
+		
+		<c:if test="${user.isAdmin()}">
+			<div class="mb-3">
+				<a href="/turismo/attractions/create.do" class="btn btn-primary"
+					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
+				</a>
+			</div>
+		</c:if>
 
 		<div class="bg-light p-4 mb-3 rounded">
 			<h1>Estas son las atracciones de la Tierra Media</h1>

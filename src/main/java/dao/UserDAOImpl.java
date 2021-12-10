@@ -539,11 +539,12 @@ public class UserDAOImpl implements UserDAO {
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE users.name =  ?";
+					//+ "WHERE users.name =  ?";
 			//+ "WHERE upper(trim(users.name)) =  ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
-			statement.setString(1, username.toLowerCase().trim());
+			statement.setString(1, username);
 			ResultSet resultados = statement.executeQuery();
 
 			User user = null;

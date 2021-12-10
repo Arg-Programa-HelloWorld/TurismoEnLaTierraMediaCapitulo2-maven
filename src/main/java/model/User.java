@@ -160,14 +160,17 @@ public class User {
 	}
 	*/
 	
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password="+ password + ", budget=" + budget + ", time=" + time + ", preferences="
-				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + "]";
-	}
+	
 	
 	public boolean checkPassword(String password) {
 		return BCrypt.checkpw(password, this.getPassword());
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", budget=" + budget + ", time=" + time
+				+ ", image=" + image + ", date=" + date + ", admin=" + admin + ", preferencesID=" + preferencesID
+				+ ", preferences=" + preferences + "]";
 	}
 
 	public Boolean isAdmin() {
