@@ -62,6 +62,9 @@ public class PurchaseManager {
 		if (!userService.hasTimeForTheAttraction(user, attraction)) {
 			errors.put("user", "No tienes tiempo suficiente");
 		}
+		if (userService.hasTheAttraction(user, attraction)) {
+			errors.put("user", "Ya posee esa atracción");
+		}
 
 		if (errors.isEmpty()) {
 			userService.buyAttraction(user, attraction);
@@ -111,7 +114,12 @@ public class PurchaseManager {
 		if (!userService.hasTimeForThePromotion(user, promotion)) {
 			errors.put("user", "No tienes tiempo suficiente");
 		}
-
+		if (userService.hasTheAttractionOfThePromotion(user, promotion)) {
+			errors.put("user", "Ya posee una de las atracciónes de esa promoción");
+		}
+		if (userService.hasThePromotion(user, promotion)) {
+			errors.put("user", "Ya posee esa promoción");
+		}
 		if (errors.isEmpty()) {
 			userService.buyPromotion(user, promotion);
 			promotionService.consumeQuota(promotion);
