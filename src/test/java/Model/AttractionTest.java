@@ -32,13 +32,8 @@ public class AttractionTest {
 		
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		
-<<<<<<< HEAD
-		System.out.println("Modificar la atraccion ID 'Nº 11'");
-		Attraction attractionTemptUpdate = attractionDAO.findById(12);	// buscamos la atraccion Nº 1
-=======
 		System.out.println("Modificar la atraccion ID 'Nº 9'");
 		Attraction attractionTemptUpdate = attractionDAO.findById(9);	// buscamos la atraccion Nº 1
->>>>>>> 6c84b5cad37ddd5847ca1667528cfe97e4ead6d8
 		System.out.println(attractionTemptUpdate);						// la mostramos
 		
 		assertEquals("Paso de Caradhras", attractionTemptUpdate.getName());
@@ -48,11 +43,7 @@ public class AttractionTest {
 		
 		assertEquals("CambiamosDeNombreALaAtraccion", attractionTemptUpdate.getName());
 		
-<<<<<<< HEAD
-		attractionTemptUpdate = attractionDAO.findById(12);				// volvemos a buscar la atraccion
-=======
 		attractionTemptUpdate = attractionDAO.findById(9);				// volvemos a buscar la atraccion
->>>>>>> 6c84b5cad37ddd5847ca1667528cfe97e4ead6d8
 		System.out.println(attractionTemptUpdate);						// la mostramos
 		
 		attractionTemptUpdate.setName("Paso de Caradhras");					// le seteamos el nombre que tenia

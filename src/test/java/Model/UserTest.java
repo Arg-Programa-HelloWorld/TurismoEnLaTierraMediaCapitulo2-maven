@@ -262,11 +262,7 @@ public class UserTest {
 
 		User userTemp = userDAO.findById(1);
 
-<<<<<<< HEAD
-		Promotion promotionTemp = promotionDAO.findById(3);
-=======
 		Promotion promotionTemp = promotionDAO.findById(1);
->>>>>>> 6c84b5cad37ddd5847ca1667528cfe97e4ead6d8
 
 		Boolean results = userDAO.hasThePromotion(userTemp, promotionTemp);
 		// boolean attractionID = userDAO.hasThePromotion(userTemp, promotionTemp);

@@ -95,10 +95,9 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attraction_type.id, attraction_type.name AS preference\\n\"\r\n"
-					+ "+ \"FROM attractions\\n\"\r\n"
-					+ "+ \"INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\\n\"\r\n"
-					+ "+ \"WHERE attractions.id = ?";
+			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+					+ "FROM users\n" + "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
+					+ "WHERE users.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
@@ -535,22 +534,15 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User findByUsername(String username) {
 		try {
-			
-			String userNameTemp = username.toLowerCase().trim();
 
 			String userNameTemp = username.toLowerCase().trim();
 			
 			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
-<<<<<<< HEAD
-					+ "WHERE lower(trim(users.name)) =  ?";
-					//+ "WHERE users.name =  ?";
-=======
 					+ "WHERE lower(trim(users.name)) = ?";
 					//+ "WHERE users.name =  ?";
 			//+ "WHERE upper(trim(users.name)) =  ?";
->>>>>>> 6c84b5cad37ddd5847ca1667528cfe97e4ead6d8
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
