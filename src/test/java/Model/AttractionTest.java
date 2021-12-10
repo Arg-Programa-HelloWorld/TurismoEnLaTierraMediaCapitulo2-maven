@@ -33,7 +33,7 @@ public class AttractionTest {
 		AttractionDAO attractionDAO = DAOFactory.getAttractionDAO();
 		
 		System.out.println("Modificar la atraccion ID 'Nº 11'");
-		Attraction attractionTemptUpdate = attractionDAO.findById(11);	// buscamos la atraccion Nº 1
+		Attraction attractionTemptUpdate = attractionDAO.findById(12);	// buscamos la atraccion Nº 1
 		System.out.println(attractionTemptUpdate);						// la mostramos
 		
 		assertEquals("Parth Galen", attractionTemptUpdate.getName());
@@ -43,7 +43,7 @@ public class AttractionTest {
 		
 		assertEquals("CambiamosDeNombreALaAtraccion", attractionTemptUpdate.getName());
 		
-		attractionTemptUpdate = attractionDAO.findById(11);				// volvemos a buscar la atraccion
+		attractionTemptUpdate = attractionDAO.findById(12);				// volvemos a buscar la atraccion
 		System.out.println(attractionTemptUpdate);						// la mostramos
 		
 		attractionTemptUpdate.setName("Parth Galen");					// le seteamos el nombre que tenia
