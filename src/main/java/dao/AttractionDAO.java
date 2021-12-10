@@ -25,5 +25,6 @@ public interface AttractionDAO extends GenericDAO<Attraction> {
 	public abstract double getTimeById(int id);
 
 	public abstract double hasQuota(Attraction attraction);
-
+	
+	public abstract int deleteByID(int id);
 }

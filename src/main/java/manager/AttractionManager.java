@@ -27,6 +27,12 @@ public class AttractionManager {
 		return attractionDAO.delete(attraction);
 
 	}
+	
+	public int deleteByID(int id) {
+
+		return attractionDAO.deleteByID(id);
+
+	}
 
 	public Attraction findById(int attractionID) {
 
