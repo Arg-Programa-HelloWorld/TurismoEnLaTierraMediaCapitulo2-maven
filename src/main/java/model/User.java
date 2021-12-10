@@ -152,16 +152,6 @@ public class User {
 		this.listOfPromotions = listOfPromotions;
 	}
 	
-	/*
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", budget=" + budget + ", time=" + time + ", preferences="
-				+ preferences + ", totalTime=" + totalTime + ", totalGold=" + totalGold + "]";
-	}
-	*/
-	
-	
-	
 	public boolean checkPassword(String password) {
 		return BCrypt.checkpw(password, this.getPassword());
 	}
@@ -179,6 +169,14 @@ public class User {
 
 	public void setAdmin(Boolean admin) {
 		this.admin = admin;
+	}
+	
+	public boolean canAfford(Attraction attraction) {
+		return attraction.getCost() <= this.budget;
+	}
+	
+	public boolean canAttend(Attraction attraction) {
+		return attraction.getTime() <= this.time;
 	}
 
 }

@@ -110,5 +110,9 @@ public class Attraction {
 		return "Attraction [id=" + id + ", name=" + name + ", cost=" + cost + ", time=" + time + ", quota=" + quota
 				+ ", image=" + image + ", attractionTypeID=" + attractionTypeID + ", attractionType=" + attractionType + "]";
 	}
+	
+	public boolean canHost(int i) {
+		return quota >= i;
+	}
 
 }
