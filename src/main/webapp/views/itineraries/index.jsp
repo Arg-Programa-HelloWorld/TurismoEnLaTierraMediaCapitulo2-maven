@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<div class="container-fluid">
+	<div>
 
 		<header>
 			<jsp:include page="/partials/nav.jsp"></jsp:include>
@@ -134,10 +134,18 @@
 					<!-- Content -->
 					<h5 class="text-uppercase font-weight-bold">Nosotros</h5>
 					<ul class="alumnos">
-						<li>Toledo, Florencia</li>
-						<li>Orellana, Felix Andres</li>
-						<li>Paczkowski, Eduardo Nahuel</li>
-						<li>Graff, Héctor Pablo</li>
+						<li>Toledo, Florencia <a
+							href="https://www.linkedin.com/in/florencia-toledo-77386b211/"><i
+								title="Forencia" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Orellana, Felix Andres <a
+							href="https://www.linkedin.com/in/f%C3%A9lix-andr%C3%A9s-orellana-69a28955/"><i
+								title="Andres" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Paczkowski, Eduardo Nahuel <a
+							href="https://www.linkedin.com/in/eduardo-nahuel-paczkowski/"><i
+								title="Nahuel" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Graff, Héctor Pablo <a
+							href="https://www.linkedin.com/in/hector-pablo-graff/"><i
+								title="Pablo" style="color: blue;" class="bi bi-linkedin"></i></a></li>
 					</ul>
 
 				</div>
