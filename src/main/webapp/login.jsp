@@ -23,6 +23,13 @@
 						</p>
 					</div>
 				</c:if>
+				<c:if test="${byebye != null}">
+					<div class="alert alert-info">
+						<p>
+							<c:out value="${byebye}" />
+						</p>
+					</div>
+				</c:if>
 	
 				<form action="/TurismoEnLaTierraMediaCapitulo2-maven/login" method="post">
 	

@@ -34,6 +34,13 @@
 				</p>
 			</div>
 		</c:if>
+		<c:if test="${success != null}">
+			<div class="alert alert-success">
+				<p>
+					<c:out value="${success}"></c:out>
+				</p>
+			</div>
+		</c:if>
 
 		<div class="bg-light p-4 mb-3 rounded">
 			<h1>Estas son las Promociones de la Tierra Media</h1>
