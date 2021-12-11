@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 	
 	<div class="container">
-<<<<<<< HEAD
+
 		<a class="navbar-brand" href="/TurismoEnLaTierraMediaCapitulo2-maven/views/index.jsp">Turismo en la Tierra Media</a>
 	
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -20,7 +20,7 @@
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.jsp" class="nav-link px-2 text-white">Promotions</a></li>
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li>
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li>
-				<li><a href="" class="nav-link px-2 text-white">Itineraries</a></li>
+				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/itineraries/index.do" class="nav-link px-2 text-white">Itineraries</a></li>
 			</ul>
 		
 			<div class="dropdown text-end">

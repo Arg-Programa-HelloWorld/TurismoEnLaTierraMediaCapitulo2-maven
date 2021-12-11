@@ -1,23 +1,24 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Itinerary {
 	
-	private ArrayList<Attraction> listOfAttractions = new ArrayList<Attraction>();
-	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
+	private List<Attraction> listOfAttractions = new ArrayList<Attraction>();
+	private List<Promotion> listOfPromotions = new ArrayList<Promotion>();
 	
-	public ArrayList<Attraction> getListOfAttractions() {
+	public List<Attraction> getListOfAttractions() {
 		return listOfAttractions;
 	}
-	public void setListOfAttractions(ArrayList<Attraction> listOfAttractions) {
-		this.listOfAttractions = listOfAttractions;
+	public void setListOfAttractions(List<Attraction> list) {
+		this.listOfAttractions = list;
 	}
-	public ArrayList<Promotion> getListOfPromotions() {
+	public List<Promotion> getListOfPromotions() {
 		return listOfPromotions;
 	}
-	public void setListOfPromotions(ArrayList<Promotion> listOfPromotions) {
-		this.listOfPromotions = listOfPromotions;
+	public void setListOfPromotions(List<Promotion> list) {
+		this.listOfPromotions = list;
 	}
 
 }

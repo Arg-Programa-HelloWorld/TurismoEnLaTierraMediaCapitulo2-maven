@@ -20,10 +20,16 @@ public class DAOFactory {
 
 	}
 
+//	public static ItineraryDAO getItineraryDAO() {
+//
+//		return (ItineraryDAO) new ItineraryDAOImpl();
+//
+//	}
+	
 	public static ItineraryDAO getItineraryDAO() {
-
-		return (ItineraryDAO) new ItineraryDAOImpl();
-
+		
+		return new ItineraryDAOImpl();
+		
 	}
 
 }
