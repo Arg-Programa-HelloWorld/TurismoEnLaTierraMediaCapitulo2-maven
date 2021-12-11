@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -62,7 +63,15 @@
 			</tbody>
 
 		</table>
-
+		
+		<div>
+		
+			<img src="${user.image}" alt="mdo" width="100" height="100" class="rounded-circle">
+			
+			Que piensas <b><c:out value="${user.name}"></c:out></b> es buen clima para nuevas aventuras ?
+	  	
+	  	</div>
+	  	
 		<script src="app.js"></script>
 
 	</main>

@@ -1,22 +1,28 @@
 package Model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import dao.AttractionDAO;
 import dao.DAOFactory;
 import dao.PromotionDAO;
 import dao.UserDAO;
+import manager.UserManager;
 import model.Attraction;
 import model.Promotion;
 import model.User;
 import service.LoginService;
+import utils.Crypt;
 
 public class UserTest {
 
+	
 	UserDAO userDAO = DAOFactory.getUserDAO();
 
 	// OK
@@ -308,7 +314,7 @@ public class UserTest {
 		LoginService loginService = null;
 
 		String username = "Sam";
-		String password = "Sam";
+		String password = "123";
 
 		User userTemp = userDAO.findByUsername(username);
 
@@ -333,6 +339,26 @@ public class UserTest {
 		
 		assertTrue(user1.isAdmin());
 		assertFalse(user2.isAdmin());
+	}
+	
+	
+	@Test
+	public void testMatch() {
+		
+		String password;
+
+		UserDAO userDAO = DAOFactory.getUserDAO();
+		
+		User userTest = userDAO.findById(23);
+		
+		password = userTest.getPassword(); 
+		
+		Object passCryptTemp = Crypt.hash(password);
+		
+		System.out.println(passCryptTemp);
+		
+		Assert.assertTrue(Crypt.match(password, Crypt.hash(password)));
+			
 	}
 
 }
