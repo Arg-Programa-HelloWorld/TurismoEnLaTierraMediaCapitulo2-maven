@@ -142,6 +142,8 @@
 
 	</main>
 
+	<br />
+
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
 		style="background-color: rgba(0, 0, 0, 0.2);">
