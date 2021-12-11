@@ -45,16 +45,17 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "UPDATE users SET name = ?, budget = ?, time = ?, fk_id_preference = ? WHERE id = ?";
+			String sqlQuery = "UPDATE users SET name = ?, password = ?, budget = ?, time = ?, fk_id_preference = ? WHERE id = ?";
 			Connection connection = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 
 			statement.setString(1, user.getName());
-			statement.setDouble(2, user.getBudget());
-			statement.setDouble(3, user.getTime());
-			statement.setInt(4, user.getPreferencesID());
-			statement.setInt(5, user.getId());
+			statement.setString(2, user.getPassword());
+			statement.setDouble(3, user.getBudget());
+			statement.setDouble(4, user.getTime());
+			statement.setInt(5, user.getPreferencesID());
+			statement.setInt(6, user.getId());
 
 			int rowsUpdate = statement.executeUpdate();
 
@@ -95,8 +96,9 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
-					+ "FROM users\n" + "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+					+ "FROM users\n"
+					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE users.id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
@@ -123,7 +125,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.admin, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n" + "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -175,7 +177,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preferences\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.admin, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id ORDER BY users.id DESC LIMIT 1";
 			Connection conn = ConnectionProvider.getConnection();
@@ -430,10 +432,10 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			// User( Integer id, String name, String password, Double budget, Double time, int admin, int
+			// User( Integer id, String name, String password, Double budget, Double time, String image, int admin, int
 			// if_preference_type, AttractionType(preference))
 			return new User(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4), results.getDouble(5),
-					results.getBoolean(6), results.getInt(7), AttractionType.valueOf(results.getString(8)));
+					results.getString(6), results.getBoolean(7), results.getInt(8), AttractionType.valueOf(results.getString(9)));
 
 		} catch (Exception e) {
 
@@ -537,7 +539,7 @@ public class UserDAOImpl implements UserDAO {
 
 			String userNameTemp = username.toLowerCase().trim();
 			
-			String sqlQuery = "SELECT users.id, users.name, users.password, budget, time, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE lower(trim(users.name)) = ?";

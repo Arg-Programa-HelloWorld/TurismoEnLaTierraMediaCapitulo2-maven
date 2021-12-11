@@ -18,29 +18,34 @@
 			<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/attractions.jsp" class="nav-link px-2 text-white">Attractions</a></li>
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.jsp" class="nav-link px-2 text-white">Promotions</a></li>
+<<<<<<< HEAD
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li>
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li>
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/itineraries/index.do" class="nav-link px-2 text-white">Itineraries</a></li>
+=======
+				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li> -->
+				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li> -->
+				<li><a href="" class="nav-link px-2 text-white">Itineraries</a></li>
+>>>>>>> 3ceedd4726b3af7aba4909574793383b400c4b11
 			</ul>
 		
 			<div class="dropdown text-end">
-	          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-	            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-	          </a>
+	        	<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+					<img src="${user.image}" alt="mdo" width="32" height="32" class="rounded-circle">
+			  	</a>
 	          
-	          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-	            <li><a class="dropdown-item" href="#" style="color: blak;"><i title="monedas" style="color: blak;" class="bi bi-person-fill"></i><b> <c:out value="${user.name}"></c:out></b></a></li>
-	            <li><hr class="dropdown-divider"></li>
-	            <li><a class="dropdown-item" href="#" style="color: gold;"><i title="monedas" style="color: gold;" class="bi bi-coin"></i> <c:out value="${user.budget}"></c:out></a></li>
-	            <li><a class="dropdown-item" href="#" style="color: blue;"><i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> <c:out value="${user.time}hs."></c:out></a></li>
-	            <li><hr class="dropdown-divider"></li>
-	            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/views/weather/index.jsp" style="color: green;"><i title="clima" style="color: green;" class="bi bi-brightness-high-fill"></i> Clima <i title="clima" style="color: green;" class="bi bi-cloud-fill"></i></a>
-	            </li>
-	            <li><hr class="dropdown-divider"></li>
-	            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/logout" style="color: red;"><i title="clima" style="color: red;" class="bi bi-dash-circle-fill"></i> Salir</a></li>
-	          </ul>
+	          	<ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+		            <li><a class="dropdown-item" href="#" style="color: blak;"><i title="monedas" style="color: blak;" class="bi bi-person-fill"></i><b> <c:out value="${user.name}"></c:out></b></a></li>
+		            <li><hr class="dropdown-divider"></li>
+		            <li><a class="dropdown-item" href="#" style="color: gold;"><i title="monedas" style="color: gold;" class="bi bi-coin"></i> <c:out value="${user.budget}"></c:out></a></li>
+		            <li><a class="dropdown-item" href="#" style="color: blue;"><i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> <c:out value="${user.time}hs."></c:out></a></li>
+		            <li><hr class="dropdown-divider"></li>
+		            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/views/weather/index.jsp" style="color: green;"><i title="clima" style="color: green;" class="bi bi-brightness-high-fill"></i> Clima <i title="clima" style="color: green;" class="bi bi-cloud-fill"></i></a>
+		            </li>
+		            <li><hr class="dropdown-divider"></li>
+		            <li><a class="dropdown-item" href="/TurismoEnLaTierraMediaCapitulo2-maven/logout" style="color: red;"><i title="clima" style="color: red;" class="bi bi-dash-circle-fill"></i> Salir</a></li>
+	          	</ul>
 	        </div>
-
 		</div>
 	</div>
 </nav>

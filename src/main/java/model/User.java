@@ -24,13 +24,14 @@ public class User {
 	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
 
 	// Para Obtener un Usuario de la BDD
-	public User(int id, String name, String password,  double budget, double time, Boolean admin, int preferencesID, AttractionType preferences) {
+	public User(int id, String name, String password,  double budget, double time, String image, Boolean admin, int preferencesID, AttractionType preferences) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.budget = budget;
 		this.time = time;
+		this.image = image;
 		this.admin = admin;
 		this.preferencesID = preferencesID;
 		this.preferences = preferences;

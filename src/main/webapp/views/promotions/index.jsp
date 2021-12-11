@@ -10,7 +10,13 @@
 </head>
 <body>
 
-	<jsp:include page="/partials/nav.jsp"></jsp:include>
+	<div>
+
+		<header>
+			<jsp:include page="/partials/nav.jsp"></jsp:include>
+		</header>
+
+	</div>
 
 	<main class="container">
 
@@ -33,6 +39,54 @@
 			<h1>Estas son las Promociones de la Tierra Media</h1>
 		</div>
 
+		<div class="bd-example">
+
+			<div id="carouselExampleCaptions" class="carousel slide"
+				data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<c:forEach items="${promotions}" var="promotion">
+						<c:if test="${ promotion.id eq 1}">
+							<div class="carousel-item active">
+						</c:if>
+						<c:if test="${promotion.id ne 1}">
+							<div class="carousel-item">
+						</c:if>
+						<img src=<c:out value="${promotion.image}"></c:out>
+							class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+							width="800" height="400" alt="${promotion.name }">
+						<div class="carousel-caption d-none d-md-block">
+							<h2>
+								<b><c:out value="${promotion.name }"></c:out></b>
+							</h2>
+							<p>
+								<h5>$ ${promotion.cost }</h5>
+							</p>
+						</div>
+				</div>
+				</c:forEach>
+				<a class="carousel-control-prev" href="#carouselExampleCaptions"
+					role="button" data-bs-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Anterior</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+					role="button" data-bs-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Siguiente</span>
+				</a>
+				
+			</div>
+			
+		</div>
+
+		<br />
+		
+		<c:if test="${user.isAdmin()}">
+			<div class="mb-3">
+				<a href="/turismo/attractions/create.do" class="btn btn-primary"
+					role="button"> <i class="bi bi-plus-lg"></i> Nueva Promoción
+				</a>
+			</div>
+		</c:if>
 
 		<table class="table table-stripped table-hover">
 			<thead>
@@ -63,6 +117,8 @@
 		</table>
 
 	</main>
+	
+	<br />
 
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
@@ -99,10 +155,10 @@
 					<!-- Content -->
 					<h5 class="text-uppercase font-weight-bold">Nosotros</h5>
 					<ul class="alumnos">
-						<li>Toledo, Florencia</li>
-						<li>Orellana, Felix Andres</li>
-						<li>Paczkowski, Eduardo Nahuel</li>
-						<li>Graff, Héctor Pablo</li>
+						<li>Toledo, Florencia <a href="https://www.linkedin.com/in/florencia-toledo-77386b211/"><i title="Forencia" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Orellana, Felix Andres <a href="https://www.linkedin.com/in/f%C3%A9lix-andr%C3%A9s-orellana-69a28955/"><i title="Andres" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Paczkowski, Eduardo Nahuel <a href="https://www.linkedin.com/in/eduardo-nahuel-paczkowski/"><i title="Nahuel" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Graff, Héctor Pablo <a href="https://www.linkedin.com/in/hector-pablo-graff/"><i title="Pablo" style="color: blue;" class="bi bi-linkedin"></i></a></li>
 					</ul>
 
 				</div>
@@ -113,7 +169,7 @@
 
 		</div>
 		<!-- Footer Text -->
-
+		
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">
 			<ul class="seccion-final">

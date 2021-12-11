@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<div class="container-fluid">
+	<div>
 
 		<header>
 			<jsp:include page="/partials/nav.jsp"></jsp:include>
@@ -35,6 +35,51 @@
 			</div>
 		</c:if>
 		
+		<div class="bg-light p-4 mb-3 rounded">
+			<h1>Estas son las Atracciones de la Tierra Media</h1>
+		</div>
+
+		<div class="bd-example">
+
+			<div id="carouselExampleCaptions" class="carousel slide"
+				data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<c:forEach items="${attractions}" var="atraction">
+						<c:if test="${ atraction.id eq 1}">
+							<div class="carousel-item active">
+						</c:if>
+						<c:if test="${atraction.id ne 1}">
+							<div class="carousel-item">
+						</c:if>
+						<img src=<c:out value="${atraction.image}"></c:out>
+							class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+							width="800" height="400" alt="${atraction.name }">
+						<div class="carousel-caption d-none d-md-block">
+							<h2>
+								<b><c:out value="${atraction.name }"></c:out></b>
+							</h2>
+							<p>
+								<h5>$ ${atraction.cost }</h5>
+							</p>
+						</div>
+				</div>
+				</c:forEach>
+				<a class="carousel-control-prev" href="#carouselExampleCaptions"
+					role="button" data-bs-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Anterior</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+					role="button" data-bs-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Siguiente</span>
+				</a>
+				
+			</div>
+			
+		</div>
+
+		<br />
+
 		<c:if test="${user.isAdmin()}">
 			<div class="mb-3">
 				<a href="/turismo/attractions/create.do" class="btn btn-primary"
@@ -42,11 +87,6 @@
 				</a>
 			</div>
 		</c:if>
-
-		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Estas son las atracciones de la Tierra Media</h1>
-		</div>
-
 
 		<table class="table table-stripped table-hover">
 			<thead>
@@ -71,19 +111,22 @@
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.time}"></c:out></td>
 						<td><c:out value="${attraction.quota}"></c:out></td>
-						
+
 						<td><c:if test="${user.isAdmin()}">
-								<a href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/edit.do?id=${attraction.id}"
+								<a
+									href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/edit.do?id=${attraction.id}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/delete.do?id=${attraction.id}"
+								<a
+									href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
 
 								<c:when
 									test="${user.canAfford(attraction) && user.canAttend(attraction) && attraction.canHost(1)}">
-									<a href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/buy.do?id=${attraction.id}"
+									<a
+										href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/buy.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>
@@ -91,13 +134,15 @@
 										role="button">No se puede comprar</a>
 								</c:otherwise>
 							</c:choose></td>
-						
+
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 
 	</main>
+
+	<br />
 
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
@@ -134,10 +179,18 @@
 					<!-- Content -->
 					<h5 class="text-uppercase font-weight-bold">Nosotros</h5>
 					<ul class="alumnos">
-						<li>Toledo, Florencia</li>
-						<li>Orellana, Felix Andres</li>
-						<li>Paczkowski, Eduardo Nahuel</li>
-						<li>Graff, Héctor Pablo</li>
+						<li>Toledo, Florencia <a
+							href="https://www.linkedin.com/in/florencia-toledo-77386b211/"><i
+								title="Forencia" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Orellana, Felix Andres <a
+							href="https://www.linkedin.com/in/f%C3%A9lix-andr%C3%A9s-orellana-69a28955/"><i
+								title="Andres" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Paczkowski, Eduardo Nahuel <a
+							href="https://www.linkedin.com/in/eduardo-nahuel-paczkowski/"><i
+								title="Nahuel" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Graff, Héctor Pablo <a
+							href="https://www.linkedin.com/in/hector-pablo-graff/"><i
+								title="Pablo" style="color: blue;" class="bi bi-linkedin"></i></a></li>
 					</ul>
 
 				</div>

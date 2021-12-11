@@ -7,7 +7,6 @@ import dao.UserDAO;
 import model.Attraction;
 import model.Promotion;
 import model.User;
-import utils.Crypt;
 
 public class UserService {
 
