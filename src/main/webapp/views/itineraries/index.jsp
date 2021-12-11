@@ -18,13 +18,35 @@
 
 	</div>
 
-	<main class="container">
+	<style>
+		@media print {
+			/* Hide every other element */
+			body * {
+				visibility: hidden;
+			}
+			
+			/* Then dispaying print container elements */
+			.print-container, .print-container * {
+				visibility: visible;
+			}
+			
+			/* Adjusting the position to always start from top left */
+			.print-container {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		}
+	</style>
 	
-		<button class="btn btn-secondary hidden-print" onclick="window.print()">
+	<div class="container">
+		<button class="btn btn-secondary hidden-print btn-sm" onclick="window.print()">
 		<span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir itinerario</button>
-		
-		<br />
-		<br />
+	</div>
+	
+	<br />
+
+	<main class="container print-container">
 		
 		<div class="bg-light p-4 mb-3 rounded">
 			<h1>Itinerario - Turismo en la Tierra Media</h1>
