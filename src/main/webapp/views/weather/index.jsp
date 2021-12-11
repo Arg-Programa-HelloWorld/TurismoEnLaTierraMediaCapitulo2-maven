@@ -16,7 +16,7 @@
 
 <body background="../images/mapa_tierra_media.jpg">
 
-	<div class="container-fluid">
+	<div>
 
 		<header>
 			<jsp:include page="/partials/nav.jsp"></jsp:include>
@@ -68,8 +68,12 @@
 		
 			<img src="${user.image}" alt="mdo" width="100" height="100" class="rounded-circle">
 			
-			Que piensas <b><c:out value="${user.name}"></c:out></b> es buen clima para nuevas aventuras ?
-	  	
+			<br />
+			<br />
+			
+			<p>
+				Que piensas <b><c:out value="${user.name}"></c:out></b>, es buen clima para nuevas aventuras ? Claro que sí, siempre lo es..!!
+	  		</p>
 	  	</div>
 	  	
 		<script src="app.js"></script>
