@@ -18,15 +18,9 @@
 			<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/attractions.jsp" class="nav-link px-2 text-white">Attractions</a></li>
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/promotions.jsp" class="nav-link px-2 text-white">Promotions</a></li>
-<<<<<<< HEAD
-				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li>
-				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li>
-				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/itineraries/index.do" class="nav-link px-2 text-white">Itineraries</a></li>
-=======
 				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li> -->
-				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li> -->
-				<li><a href="" class="nav-link px-2 text-white">Itineraries</a></li>
->>>>>>> 3ceedd4726b3af7aba4909574793383b400c4b11
+				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li> -->				
+				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/itineraries/index.do" class="nav-link px-2 text-white">Itineraries</a></li>
 			</ul>
 		
 			<div class="dropdown text-end">
