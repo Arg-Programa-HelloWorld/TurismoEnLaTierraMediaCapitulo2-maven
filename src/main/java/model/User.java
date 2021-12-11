@@ -1,8 +1,11 @@
 package model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
+
+import manager.ItineraryManager;
 
 public class User {
 
@@ -17,6 +20,8 @@ public class User {
 	private int preferencesID;
 	private AttractionType preferences; // preferencias
 
+	private ItineraryManager itineraryManager;
+	
 	private double totalTime;
 	private double totalGold;
 
@@ -179,5 +184,33 @@ public class User {
 	public boolean canAttend(Attraction attraction) {
 		return attraction.getTime() <= this.time;
 	}
+	
+	public void calcular() {
+	
+		totalGold = 0;
+		totalTime = 0;
+		
+		this.itineraryManager = new ItineraryManager();
+		
+		List<Promotion> promotions = itineraryManager.getListPromotions(this);
+		
+		for (Promotion promotion : promotions) {
+
+			 totalGold += promotion.getCost();
+			 totalTime += promotion.getTime();
+
+		}
+		
+		List<Attraction> attractions = itineraryManager.getLisAttraction(this);
+		
+		for (Attraction attraction : attractions) {
+
+			totalGold += attraction.getCost();
+			totalTime += attraction.getTime();
+
+		}
+		
+	}
+	
 
 }

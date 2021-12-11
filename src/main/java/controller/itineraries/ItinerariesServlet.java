@@ -43,6 +43,8 @@ public class ItinerariesServlet extends HttpServlet implements Servlet {
 		req.setAttribute("promotions", promotions);
 		req.setAttribute("attractions", attractions);
 		
+		user.calcular();
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/itineraries/index.jsp");
 		dispatcher.forward(req, resp);
 	}

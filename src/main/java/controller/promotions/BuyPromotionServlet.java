@@ -1,4 +1,4 @@
-package conttroller.promotions;
+package controller.promotions;
 
 import java.io.IOException;
 import java.util.Map;
@@ -36,7 +36,7 @@ public class BuyPromotionServlet extends HttpServlet {
 		req.getSession().setAttribute("user", user2);
 
 		if (errors.isEmpty()) {
-			req.setAttribute("flash", "¡Gracias por comprar!");
+			req.setAttribute("flash", "Â¡Gracias por comprar!");
 		} else {
 			req.setAttribute("errors", errors);
 			req.setAttribute("flash", "No ha podido realizarse la compra");

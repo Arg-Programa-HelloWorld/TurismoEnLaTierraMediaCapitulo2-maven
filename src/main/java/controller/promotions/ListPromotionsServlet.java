@@ -1,4 +1,4 @@
-package conttroller.promotions;
+package controller.promotions;
 
 import java.io.IOException;
 import java.util.List;

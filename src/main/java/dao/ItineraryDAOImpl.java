@@ -69,7 +69,9 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 
 			// System.out.println(PromotionType.fromId(results.getInt(6)));
 
-			result = results.getInt(6);
+			result = results.getInt(7);
+			
+			System.out.println(result);
 
 			if (result == 1) {
 
@@ -78,8 +80,8 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 				attractionListPercentage = (LinkedList<Attraction>) attractionDAO
 						.searchAttractionsOfAPromotionByID(results.getInt(1));
 
-				// Promotion( Integer id, String name, Double time, Double cost, Double discount
-				// int fk_id_promotion_type PromotionType promotion_type.name)
+				// Promotion( 1 = Integer id, 2= String name, 3= Double time, 4= Double cost, 5= Double discount, 6= String image
+				// 7= int fk_id_promotion_type, 8= PromotionType promotion_type.name, LinkedList<Attraction> attractionsList)
 				promotionTempPercentage = new PromotionPercentage(results.getInt(1), results.getString(2),
 						results.getDouble(3), results.getDouble(4), results.getDouble(5), results.getString(6), results.getInt(7),
 						PromotionType.valueOf(results.getString(8)), attractionListPercentage);

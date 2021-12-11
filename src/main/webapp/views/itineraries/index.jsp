@@ -23,9 +23,21 @@
 		<button class="btn btn-secondary hidden-print" onclick="window.print()">
 		<span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir itinerario</button>
 		
+		<br />
+		<br />
 		
 		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Estas son sus promociones</h1>
+			<h1>Itinerario - Turismo en la Tierra Media</h1>
+		</div>
+		<hr>
+		<p><h3>Usuario: <b><c:out value="${user.name}"></c:out></b></h3></p>
+		<p><h3>Consumos: </h3></p>
+		<p><h3><i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> <b><c:out value="${user.totalTime}"></c:out></p></b></h3>
+		<p><h3><i title="monedas" style="color: gold;" class="bi bi-coin"></i> <b><c:out value="${user.totalGold}"></c:out></p></b></h3>
+		<hr>
+		
+		<div class="bg-light p-4 mb-3 rounded">
+			<h1>Estas son sus Promociones</h1>
 		</div>
 		
 		<table class="table table-stripped table-hover">
@@ -35,7 +47,6 @@
 					<th>Promocion&oacute;n</th>
 					<th>Costo</th>
 					<th>Duraci&oacute;n</th>
-					<th>Cupo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -49,14 +60,13 @@
 								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
 						<td><c:out value="${promotion.cost}"></c:out></td>
 						<td><c:out value="${promotion.time}"></c:out></td>
-						<td><c:out value="${promotion.quota}"></c:out></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		
 		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Estas son sus atracciones</h1>
+			<h1>Estas son sus Atracciones</h1>
 		</div>
 
 
@@ -67,7 +77,6 @@
 					<th>Atracci&oacute;n</th>
 					<th>Costo</th>
 					<th>Duraci&oacute;n</th>
-					<th>Cupo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -81,13 +90,14 @@
 								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.time}"></c:out></td>
-						<td><c:out value="${attraction.quota}"></c:out></td>						
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
   
 	</main>
+
+	<br />
 
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
