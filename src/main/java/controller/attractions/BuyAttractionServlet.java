@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import manager.PurchaseManager;
 import model.User;
 
-@WebServlet("/attractions/buy.do")
+@WebServlet("/views/attractions/buy.do")
 public class BuyAttractionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1823174623597123779L;
@@ -36,10 +36,10 @@ public class BuyAttractionServlet extends HttpServlet {
 		req.getSession().setAttribute("user", user2);
 		
 		if (errors.isEmpty()) {
-			req.setAttribute("success", "�Gracias por comprar!");
+			req.setAttribute("success", "¡Gracias por comprar!");
 		} else {
 			req.setAttribute("errors", errors);
-			req.setAttribute("flash", "No ha podido realizarse la compra");
+			req.setAttribute("flash", "¡No ha podido realizarse la compra!");
 		}
 
 		RequestDispatcher dispatcher = getServletContext()

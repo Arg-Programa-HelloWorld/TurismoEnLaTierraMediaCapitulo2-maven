@@ -94,25 +94,25 @@ public class UserService {
 
 	public boolean hasMoneyToPayForTheAttraction(User user, Attraction attraction) {
 
-		return userDAO.hasMoney(user) > attractionDAO.getCost(attraction);
+		return userDAO.hasMoney(user) >= attractionDAO.getCost(attraction);
 
 	}
 
 	public boolean hasMoneyToPayForTheAttractionByID(int idUser, int idAttraction) {
 
-		return userDAO.hasMoneyByID(idUser) > attractionDAO.getCostById(idAttraction);
+		return userDAO.hasMoneyByID(idUser) >= attractionDAO.getCostById(idAttraction);
 
 	}
 
 	public boolean hasTimeForTheAttraction(User user, Attraction attraction) {
 
-		return userDAO.hasTime(user) > attractionDAO.getTime(attraction);
+		return userDAO.hasTime(user) >= attractionDAO.getTime(attraction);
 
 	}
 
 	public boolean hasTimeForTheAttractionByID(int idUser, int idAttraction) {
 
-		return userDAO.hasTimeByID(idUser) > attractionDAO.getTimeById(idAttraction);
+		return userDAO.hasTimeByID(idUser) >= attractionDAO.getTimeById(idAttraction);
 
 	}
 
@@ -146,13 +146,13 @@ public class UserService {
 
 	public boolean hasMoneyToPayForThePromotion(User user, Promotion promotion) {
 
-		return userDAO.hasMoney(user) > promotionDAO.cost(promotion);
+		return userDAO.hasMoney(user) >= promotionDAO.cost(promotion);
 
 	}
 
 	public boolean hasTimeForThePromotion(User user, Promotion promotion) {
 
-		return userDAO.hasTime(user) > promotionDAO.time(promotion);
+		return userDAO.hasTime(user) >= promotionDAO.time(promotion);
 
 	}
 

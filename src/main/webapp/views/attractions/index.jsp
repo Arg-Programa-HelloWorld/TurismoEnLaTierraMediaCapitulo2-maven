@@ -110,7 +110,7 @@
 				<c:forEach items="${attractions}" var="attraction">
 					<tr>
 						<td><img src="${attraction.image}" class="rounded-circle"
-							alt="Cinque Terre" width="80" height="80"></td>
+							alt="attracction" width="80" height="80"></td>
 						<td><strong><c:out value="${attraction.name}"></c:out></strong>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Cras pretium eros urna. Sed quis erat congue, bibendum tortor
@@ -133,7 +133,7 @@
 								<c:when
 									test="${user.canAfford(attraction) && user.canAttend(attraction) && attraction.canHost(1)}">
 									<a
-										href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/buy.do?id=${attraction.id}"
+										href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/buy.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>
@@ -148,6 +148,8 @@
 		</table>
 
 	</main>
+
+	<img src="/TurismoEnLaTierraMediaCapitulo2-maven/images/attractions/img_default.jpg">
 
 	<br />
 
