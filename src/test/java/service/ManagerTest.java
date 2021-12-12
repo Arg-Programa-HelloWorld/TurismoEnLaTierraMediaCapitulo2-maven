@@ -22,7 +22,7 @@ public class ManagerTest {
 		User userTest = puchase.userService.userDAO.findById(15);
 		Attraction attractionTest = puchase.attractionService.attractionDAO.findById(2);
 		
-		puchase.buyAttraction(userTest, attractionTest);
+		puchase.buyAttraction(userTest.getId(), attractionTest.getId());
 		
 		assertTrue(puchase.userService.hasTheAttraction(userTest, attractionTest));		
 		
@@ -36,7 +36,7 @@ public class ManagerTest {
 		User userTest = puchase.userService.userDAO.findById(15);
 		Promotion promotionTest = puchase.promotionService.promotionDAO.findById(3);
 		
-		puchase.buyPromotion(userTest, promotionTest);
+		puchase.buyPromotion(userTest.getId(), promotionTest.getId());
 		
 		assertTrue(puchase.userService.hasThePromotion(userTest, promotionTest));
 		
@@ -55,9 +55,9 @@ public class ManagerTest {
 		Attraction attractionTest = puchase.attractionService.attractionDAO.findById(7);
 		Promotion promotionTest = puchase.promotionService.promotionDAO.findById(3);
 		
-		puchase.buyAttraction(userTest, attractionTest);
+		puchase.buyAttraction(userTest.getId(), attractionTest.getId());
 		
-		puchase.buyPromotion(userTest, promotionTest);
+		puchase.buyPromotion(userTest.getId(), promotionTest.getId());
 		
 		assertTrue(puchase.userService.hasTheAttraction(userTest, attractionTest));
 		assertFalse(puchase.userService.hasThePromotion(userTest, promotionTest));

@@ -23,9 +23,9 @@ public class AppComprarPromocion {
 	
 	
 	
-	rta = purchaseManager.buyPromotion(userTemp, promotionTemp);
+	//rta = purchaseManager.buyPromotion(userTemp, promotionTemp);
 	
-	System.out.println(rta);
+	//System.out.println(rta);
 	
 	}
 	

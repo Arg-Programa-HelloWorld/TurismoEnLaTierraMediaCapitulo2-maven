@@ -11,8 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.User;
 import service.LoginService;
 
-
-
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
@@ -31,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		String username = req.getParameter("username");
-		String password = req.getParameter("password");
+		//String password = req.getParameter("password");
 		
 		System.out.println(username);
 		
@@ -46,13 +44,11 @@ public class LoginServlet extends HttpServlet {
 			//System.out.println(user);
 		} else {
 			System.out.println(user);
-			req.setAttribute("flash", "¡Usuario o contraseña incorrectos!");
+			req.setAttribute("flash", "Â¡Usuario o contraseÃ±a incorrectos!");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
 		}
-		
 	
 	}
-	
-	
+
 }

@@ -121,11 +121,11 @@
 
 						<td><c:if test="${user.isAdmin()}">
 								<a
-									href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/edit.do?id=${attraction.id}"
+									href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/edit.do?id=${attraction.id}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
 								<a
-									href="/TurismoEnLaTierraMediaCapitulo2-maven/attractions/delete.do?id=${attraction.id}"
+									href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/delete.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
