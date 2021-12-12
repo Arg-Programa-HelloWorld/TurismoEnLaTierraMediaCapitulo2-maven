@@ -149,9 +149,7 @@
 
 	</main>
 
-	<img src="/TurismoEnLaTierraMediaCapitulo2-maven/images/attractions/img_default.jpg">
-
-	<br />
+	<br />../../images/attractions/default.jpg
 
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
