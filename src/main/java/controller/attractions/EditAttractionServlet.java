@@ -48,8 +48,8 @@ public class EditAttractionServlet extends HttpServlet {
 		String name = req.getParameter("name");
 		Integer cost = Integer.parseInt(req.getParameter("cost"));
 		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
-		Double time = Double.parseDouble(req.getParameter("duration"));
-		Integer quota = Integer.parseInt(req.getParameter("capacity"));
+		Double time = Double.parseDouble(req.getParameter("time"));
+		Integer quota = Integer.parseInt(req.getParameter("quota"));
 
 		Attraction attractionTemp = attractionManager.findById(id);
 		attractionTemp.setName(name);

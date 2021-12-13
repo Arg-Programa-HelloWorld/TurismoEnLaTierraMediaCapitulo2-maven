@@ -133,13 +133,13 @@ public class Attraction {
 		errors = new HashMap<String, String>();
 
 		if (cost <= 0) {
-			errors.put("¡Costo", "Debe ser positivo!");
+			errors.put("cost", "Debe ser positivo!");
 		}
 		if (time <= 0) {
-			errors.put("¡Duracion", "Debe ser positivo!");
+			errors.put("time", "Debe ser positivo!");
 		}
 		if (quota <= 0) {
-			errors.put("¡Capacidad", "Debe ser positivo!");
+			errors.put("quota", "Debe ser positivo!");
 		}
 	}
 	

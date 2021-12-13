@@ -39,8 +39,8 @@ public class CreateAttractionServlet extends HttpServlet {
 		
 		String name = req.getParameter("name");
 		Integer cost = Integer.parseInt(req.getParameter("cost"));
-		Double time = Double.parseDouble(req.getParameter("duration"));
-		Integer quota = Integer.parseInt(req.getParameter("capacity"));
+		Double time = Double.parseDouble(req.getParameter("time"));
+		Integer quota = Integer.parseInt(req.getParameter("quota"));
 		Integer attractionTypeID = Integer.parseInt(req.getParameter("attraction-type"));
 
 		Attraction attractionTemp = new Attraction(name, cost, time, quota, attractionTypeID);
