@@ -37,9 +37,13 @@
 				top: 0px;
 			}
 		}
+				
+		.button {
+			padding-top: 70px;
+		}
 	</style>
 	
-	<div class="container">
+	<div class="container button">
 		<button class="btn btn-secondary hidden-print btn-sm" onclick="window.print()">
 		<span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir itinerario</button>
 	</div>

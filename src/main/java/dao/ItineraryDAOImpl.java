@@ -138,7 +138,7 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 		
 		try {
 			
-			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attraction_type.id, attraction_type.name AS preference\r\n"
+			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attraction_type.id, attraction_type.name AS preference\r\n"
 					+ "FROM itinerary_shopping \r\n"
 					+ "INNER JOIN attractions ON itinerary_shopping.fk_id_attraction = attractions.id\r\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\r\n"
@@ -171,7 +171,7 @@ public class ItineraryDAOImpl implements ItineraryDAO{
 			// Attraction( Integer id, String name, Double cost, Double time, Integer quota,
 						//  String image, Integer fk_id_preference) AttractionType attractionType
 			return new Attraction(results.getInt(1), results.getString(2), results.getDouble(3), results.getDouble(4),
-					results.getInt(5),results.getString(6), results.getInt(7), AttractionType.valueOf(results.getString(8)));
+					results.getInt(5),results.getString(6), results.getString(7), results.getInt(8), AttractionType.valueOf(results.getString(9)));
 		} catch (Exception e) {
 
 			throw new MissingDataException(e);
