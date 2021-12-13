@@ -16,13 +16,14 @@ public class Attraction {
 	private double time; 	// tiempo
 	private int quota; 		// cupo
 	private String image;   // ruta de la imagen
+	private String description;
 	private int attractionTypeID; // el tipo de attractionName1
 	private AttractionType attractionType; // el tipo de attractionName1
 
 	private Map<String, String> errors;
 	
 	// Para Obtener una Atraccion de la BDD
-	public Attraction(int id, String name, double cost, double time, int quota, String image, int attractionTypeID,
+	public Attraction(int id, String name, double cost, double time, int quota, String image, String description, int attractionTypeID,
 			AttractionType attractionType) {
 		super();
 		this.id = id;
@@ -31,6 +32,7 @@ public class Attraction {
 		this.time = time;
 		this.quota = quota;
 		this.image = image;
+		this.description = description;
 		this.attractionTypeID = attractionTypeID;
 		this.attractionType = attractionType;
 	}
@@ -98,6 +100,14 @@ public class Attraction {
 		this.image = image;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	public int getAttractionTypeID() {
 		return attractionTypeID;
 	}

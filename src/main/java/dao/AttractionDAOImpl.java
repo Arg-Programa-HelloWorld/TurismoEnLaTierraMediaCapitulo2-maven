@@ -119,7 +119,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 
-			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attraction_type.id, attraction_type.name AS preference\n"
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM attractions\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\n"
 					+ "WHERE attractions.id = ?";
@@ -175,7 +175,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 
-			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.fk_id_attraction_type, attraction_type.name AS type\n"
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attractions.fk_id_attraction_type, attraction_type.name AS type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotion_attractions ON promotions.id = promotion_attractions.fk_id_promotion\n"
 					+ "INNER JOIN attractions ON promotion_attractions.fk_id_attraction = attractions.id\n"
@@ -208,7 +208,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 
-			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.fk_id_attraction_type, attraction_type.name AS type\n"
+			String sql = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attractions.fk_id_attraction_type, attraction_type.name AS type\n"
 					+ "FROM promotions\n"
 					+ "INNER JOIN promotion_attractions ON promotions.id = promotion_attractions.fk_id_promotion\n"
 					+ "INNER JOIN attractions ON promotion_attractions.fk_id_attraction = attractions.id\n"
@@ -241,7 +241,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 		try {
 
-			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM attractions\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id";
 			Connection connection = ConnectionProvider.getConnection();
@@ -292,7 +292,7 @@ public class AttractionDAOImpl implements AttractionDAO {
 		try {
 
 			// String sqlQuery = "SELECT * FROM users WHERE id = ?";
-			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attraction_type.id, attraction_type.name AS type\n"
+			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attraction_type.id, attraction_type.name AS type\n"
 					+ "FROM attractions\n"
 					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\n"
 					+ "ORDER BY attractions.id DESC LIMIT 1";
@@ -409,10 +409,10 @@ public class AttractionDAOImpl implements AttractionDAO {
 	private Attraction toAttraction(ResultSet results) {
 
 		try {
-			// Attraction( Integer id, String name, Double cost, Double time, Integer quota,
-			//  String image, Integer fk_id_preference) AttractionType attractionType
+			// Attraction( 1: Integer id, 2: String name, 3: Double cost, 4: Double time, 5: Integer quota,
+			//  6: String image, 7: String description, 8: Integer fk_id_preference) 9: AttractionType attractionType
 			return new Attraction(results.getInt(1), results.getString(2), results.getDouble(3), results.getDouble(4),
-					results.getInt(5),results.getString(6), results.getInt(7), AttractionType.valueOf(results.getString(8)));
+					results.getInt(5),results.getString(6), results.getString(7), results.getInt(8), AttractionType.valueOf(results.getString(9)));
 		} catch (Exception e) {
 
 			throw new MissingDataException(e);

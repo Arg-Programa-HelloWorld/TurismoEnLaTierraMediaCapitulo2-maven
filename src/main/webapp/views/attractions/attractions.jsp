@@ -54,9 +54,8 @@ body {
 							height="140">
 
 						<h2>Moria</h2>
-						<p>«Pozo Oscuro» El Reino de Moria eran las más grandes minas
-							construidas por los enanos, también conocidas como Khazad-dûm, la
-							Mina del Enano, de la Tierra Media.</p>
+						<p>«Pozo Oscuro» El Reino de Moria eran las más grandes minas construidas 
+							por los enanos, también conocidas como Khazad-dûm, la Mina del Enano, de la Tierra Media.</p>
 						<p>
 							<a class="btn btn-secondary"
 								href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do">Ir a comprar»</a>

@@ -119,9 +119,10 @@ body {
 						<td><img src="${attraction.image}" class="rounded-circle"
 							alt="attracction" width="80" height="80"></td>
 						<td><strong><c:out value="${attraction.name}"></c:out></strong>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Cras pretium eros urna. Sed quis erat congue, bibendum tortor
-								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
+							<p> 
+								<c:out value="${attraction.description}"></c:out>
+							</p>
+						</td>
 						<td><c:out value="${attraction.cost}"></c:out></td>
 						<td><c:out value="${attraction.time}"></c:out></td>
 						<td><c:out value="${attraction.quota}"></c:out></td>
