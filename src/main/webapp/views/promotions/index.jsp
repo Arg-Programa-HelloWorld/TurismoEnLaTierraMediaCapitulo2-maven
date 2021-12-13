@@ -89,7 +89,7 @@
 		
 		<c:if test="${user.isAdmin()}">
 			<div class="mb-3">
-				<a href="/turismo/attractions/create.do" class="btn btn-primary"
+				<a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/create.do" class="btn btn-primary"
 					role="button"> <i class="bi bi-plus-lg"></i> Nueva Promoción
 				</a>
 			</div>
