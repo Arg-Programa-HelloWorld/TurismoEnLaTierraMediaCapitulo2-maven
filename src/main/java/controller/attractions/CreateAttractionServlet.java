@@ -1,6 +1,6 @@
 package controller.attractions;
 
-import java.io.IOException;
+ import java.io.IOException;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -11,31 +11,24 @@ import jakarta.servlet.http.HttpServletResponse;
 import manager.AttractionManager;
 import model.Attraction;
 
+@WebServlet("/views/attractions/create.do")
+public class CreateAttractionServlet extends HttpServlet {
 
-@WebServlet("/views/attractions/edit.do")
-public class EditAttractionServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 7598291131560345626L;
+	private static final long serialVersionUID = 3455721046062278592L;
 	private AttractionManager attractionManager;
-
+	
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.attractionManager = new AttractionManager();
-				
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		// GET envía los datos usando la URL
 		
-		Integer id = Integer.parseInt(req.getParameter("id"));
-
-		Attraction attractionTemp = attractionManager.findById(id);
-		req.setAttribute("attraction", attractionTemp);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/create.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -44,28 +37,26 @@ public class EditAttractionServlet extends HttpServlet {
 		
 		// POST los envía de forma que no podemos verlos (en un segundo plano u "ocultos" al usuario).
 		
-		Integer id = Integer.parseInt(req.getParameter("id"));
 		String name = req.getParameter("name");
 		Integer cost = Integer.parseInt(req.getParameter("cost"));
-		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
 		Double time = Double.parseDouble(req.getParameter("duration"));
 		Integer quota = Integer.parseInt(req.getParameter("capacity"));
+		Integer attractionTypeID = Integer.parseInt(req.getParameter("attraction-type"));
 
-		Attraction attractionTemp = attractionManager.findById(id);
-		attractionTemp.setName(name);
-		attractionTemp.setCost(cost);
-		attractionTemp.setTime(time);
-		attractionTemp.setQuota(quota);
+		Attraction attractionTemp = new Attraction(name, cost, time, quota, attractionTypeID);
 		
-		attractionManager.update(attractionTemp);
-
+		attractionManager.insert(attractionTemp);
+		
 		if (attractionTemp.isValid()) {
 			resp.sendRedirect("/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do");
 		} else {
 			req.setAttribute("attraction", attractionTemp);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/edit.jsp");
+			RequestDispatcher dispatcher = getServletContext()
+					.getRequestDispatcher("/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/create.jsp");
 			dispatcher.forward(req, resp);
 		}
+
 	}
+
 }

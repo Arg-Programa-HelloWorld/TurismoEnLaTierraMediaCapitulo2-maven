@@ -25,12 +25,23 @@
 	</div>
 	<div class="mb-3">
 		<label for="capacity"
-			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>Capacity:</label>
+			class='col-form-label ${attraction.errors.get("capacity") != null ? "is-invalid" : "" }'>Capacidad:</label>
 		<input class="form-control" type="number" id="capacity" name="capacity"
 			required value="${attraction.capacity}"></input>
 		<div class="invalid-feedback">
 			<c:out value='${attraction.errors.get("capacity")}'></c:out>
 		</div>
+	</div>
+	<div class="mb-3">
+		<label for="attraction-type"
+			class='col-form-label'>Tipo de Atraccion:</label>
+		<select class="form-select" aria-label="Default select example" id="attraction-type" name="attraction-type"
+			required value="${attraction.attractionTypeID}">
+  			<option selected>Elija el tipo de Atraccion</option>
+  			<option value="1">ADVENTURE</option>
+			<option value="2">SCENERY</option>
+  			<option value="3">TASTING/option>
+		</select>
 	</div>
 </div>
 <div>
