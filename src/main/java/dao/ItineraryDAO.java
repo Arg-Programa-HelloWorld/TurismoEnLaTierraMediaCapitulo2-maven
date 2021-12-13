@@ -7,7 +7,7 @@ import model.Itinerary;
 import model.Promotion;
 import model.User;
 
-public interface ItineraryDAO extends GenericDAO<Itinerary> {
+public interface ItineraryDAO {
 
 	public abstract List<Promotion> findAllPromotions(User user);
 	public abstract List<Attraction> findAllAttractions(User user);
