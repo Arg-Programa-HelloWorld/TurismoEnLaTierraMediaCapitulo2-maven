@@ -18,7 +18,7 @@
 				</div>
 			</c:if>
 	
-			<form action="/turismo/attractions/create.do" method="post">
+			<form action="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/create.do" method="post">
 				<jsp:include page="/views/attractions/form.jsp"></jsp:include>
 			</form>
 		</main>

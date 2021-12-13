@@ -22,9 +22,9 @@ public class AppComprarAtraccion {
 	
 	
 	
-	rta = purchaseManager.buyAttraction(userTemp, attractionTemp);
+	//rta = purchaseManager.buyAttraction(userTemp, attractionTemp);
 	
-	System.out.println(rta);
+	//System.out.println(rta);
 	
 	}
 	

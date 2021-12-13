@@ -1,5 +1,8 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Attraction {
 
 	// Costo de visita.-
@@ -16,6 +19,8 @@ public class Attraction {
 	private int attractionTypeID; // el tipo de attractionName1
 	private AttractionType attractionType; // el tipo de attractionName1
 
+	private Map<String, String> errors;
+	
 	// Para Obtener una Atraccion de la BDD
 	public Attraction(int id, String name, double cost, double time, int quota, String image, int attractionTypeID,
 			AttractionType attractionType) {
@@ -39,6 +44,10 @@ public class Attraction {
 		this.quota = quota;
 		this.attractionTypeID = attractionTypeID;
 		
+	}
+
+	public Attraction() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -113,6 +122,29 @@ public class Attraction {
 	
 	public boolean canHost(int i) {
 		return quota >= i;
+	}
+
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (cost <= 0) {
+			errors.put("¡Costo", "Debe ser positivo!");
+		}
+		if (time <= 0) {
+			errors.put("¡Duracion", "Debe ser positivo!");
+		}
+		if (quota <= 0) {
+			errors.put("¡Capacidad", "Debe ser positivo!");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 
 }
