@@ -5,6 +5,11 @@
 <html lang="es">
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
+<style>
+main {
+	padding-top: 50px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="/partials/nav.jsp"></jsp:include>

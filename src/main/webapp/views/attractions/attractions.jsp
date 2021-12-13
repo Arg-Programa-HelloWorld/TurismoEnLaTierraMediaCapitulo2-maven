@@ -20,6 +20,10 @@
 	padding-left: 3px;
 	padding-right: 3px;
 }
+
+body {
+	padding-top: 40px;
+}
 </style>
 </head>
 

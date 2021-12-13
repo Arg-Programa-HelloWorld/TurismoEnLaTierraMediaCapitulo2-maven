@@ -7,7 +7,14 @@
 <html lang="es">
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
+
+<style>
+body {
+	padding-top: 40px;
+}
+</style>
 </head>
+
 <body>
 
 	<div>
