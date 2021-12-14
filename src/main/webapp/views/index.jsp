@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +30,14 @@
 		</header>
 
 	</div>
+	
+	<main class="container">
+		<div  p-4 rounded">
+			<h1>
+				¡Bienvenido, <c:out value="${user.name}" />!
+			</h1>
+		</div>
+	</main>
 
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"

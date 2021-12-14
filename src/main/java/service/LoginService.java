@@ -15,12 +15,11 @@ public class LoginService {
 		User user = userDAO.findByUsername(username);
 		
 		//System.out.println(user);
-    	/*
+    	
     	if (user == null || !user.checkPassword(password)) {
     		user = null;
     	}
-    	*/
-    	
+    	    	
 		System.out.println(user);
 		
     	return user;
