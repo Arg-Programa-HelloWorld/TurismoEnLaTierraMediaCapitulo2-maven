@@ -23,42 +23,48 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 12. Donde encontrara un login:
   
 13. Usuarios de alta
-14. User           Password
-15. admin          admin
-16. Roberto        Roberto
-17. Florencia      Florencia
-18. Andres         Andres
-19. Nahuel         Nahuel
-20. Pablo          Pablo
 
-  <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
 
-<tr>
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
 
-<th>Encabezado 1</th>
+  <tr>
+    <th rowspan="2" valign="middle" align="center">Usuarios de alta</th>
+  </tr>
+  
+  <tr>
+    <th>User</th>
+    <th>Password</th>
+  </tr>
 
-<th>Encabezado 2</th>
-
-<th>Encabezado 3</th>
-
-</tr>
-
-<tr>
-
-<td rowspan="2" valign="middle" align="left">Este texto está alineado al centro
-
-verticalmente y a la izquierda horizontalmente</td>
-
-<td>&nbsp;</td>
-
-<td>&nbsp;</td>
-
-</tr>
-
-<tr>
-
-<td colspan="2">&nbsp;</td>
-
-</tr>
-
+  <tr>
+    <td>admin</td>
+    <td>admin</td>
+  </tr>
+  
+  <tr>
+    <td>Roberto</td>
+    <td>Roberto</td>
+  </tr>
+  
+  <tr>
+    <td>Florencia</td>
+    <td>Florencia</td>
+  </tr>
+  
+  
+  <tr>
+    <td>Andres</td>
+    <td>Andres</td>
+  </tr>
+  
+  <tr>
+    <td>Nahuel</td>
+    <td>Nahuel</td>
+  </tr>
+  
+  <tr>
+    <td>Pablo</td>
+    <td>Pablo</td>
+  </tr>
+    
 </table>
