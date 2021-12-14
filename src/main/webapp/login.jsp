@@ -47,10 +47,7 @@
 						<button type="submit" class="btn btn-lg btn-primary">Ingresar</button>
 					</div>
 				</form>
-				<div>
-					<a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/create.jsp">Crear usuario</a>
-				</div>
-	
+					
 			</main>
 		</div>
 	
