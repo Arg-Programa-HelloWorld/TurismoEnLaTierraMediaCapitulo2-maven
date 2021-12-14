@@ -9,9 +9,9 @@ Cómo hacerlo funcionar
 2. Verificar la versión de JRE con la que se está compilando y construyendo.
 
 3. La aplicacion es un carrito de compras dirigidas en El Turismo En La Tierra Media.-
-3.1. Este usuario puede comprar Atraciones y Promociones.-
-3.2. Ver en su Itinerario las compras realizadas.-
-3.3. Imprimir su Itinerario.-
+3.a. Este usuario puede comprar Atraciones y Promociones.-
+3.b. Ver en su Itinerario las compras realizadas.-
+3.c. Imprimir su Itinerario.-
 4. Posee una API integrada para obtener información sobre el clima, y el mismo corresponde al lugar desde donde se ejecuta la aplicacion.
 
 5. Existen usuarios de tipo Admin, estos posen mas privilegios como:
