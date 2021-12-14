@@ -3,12 +3,14 @@
 
 Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vistas a lo largo del curso ArgentinaPrograma 2021, coordinadas e interactuando para brindar parte de la funcionalidad solicitada.
 
-<h2>Cómo hacerlo funcionar<h2>
+<h2>Cómo hacerlo funcionar</h2>
 
 1. Editar el archivo /turismo/src/main/resources/env.properties y colocar la ruta correcta del archivo de la base de datos correspondiente a la ruta especifica en su computador.
 2. Verificar la versión de JRE con la que se está compilando y construyendo.
 
-3. La aplicacion es un carrito de compras dirigidas en El Turismo En La Tierra Media.-
+<h3>De que se trata?</h3>
+
+3. La aplicacion es un carrito de compras dirigidas al Turismo "paseos y servicios" existentes en La Tierra Media.-
 4. Este usuario puede comprar Atraciones y Promociones.-
 5. Ver en su Itinerario las compras realizadas.-
 6. Imprimir su Itinerario.-
@@ -22,43 +24,47 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 12. Donde encontrara un login:
   
-13. Usuarios de alta
-14. User           Password
-15. admin          admin
-16. Roberto        Roberto
-17. Florencia      Florencia
-18. Andres         Andres
-19. Nahuel         Nahuel
-20. Pablo          Pablo
+13. 
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
 
-  <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+  <tr>
+    <th colspan="2" valign="middle" align="center">Usuarios de alta</th>
+  </tr>
+  
+  <tr>
+    <th>User</th>
+    <th>Password</th>
+  </tr>
 
-<tr>
-
-<th>Encabezado 1</th>
-
-<th>Encabezado 2</th>
-
-<th>Encabezado 3</th>
-
-</tr>
-
-<tr>
-
-<td rowspan="2" valign="middle" align="left">Este texto está alineado al centro
-
-verticalmente y a la izquierda horizontalmente</td>
-
-<td>&nbsp;</td>
-
-<td>&nbsp;</td>
-
-</tr>
-
-<tr>
-
-<td colspan="2">&nbsp;</td>
-
-</tr>
-
+  <tr>
+    <td>admin</td>
+    <td>admin</td>
+  </tr>
+  
+  <tr>
+    <td>Roberto</td>
+    <td>Roberto</td>
+  </tr>
+  
+  <tr>
+    <td>Florencia</td>
+    <td>Florencia</td>
+  </tr>
+  
+  
+  <tr>
+    <td>Andres</td>
+    <td>Andres</td>
+  </tr>
+  
+  <tr>
+    <td>Nahuel</td>
+    <td>Nahuel</td>
+  </tr>
+  
+  <tr>
+    <td>Pablo</td>
+    <td>Pablo</td>
+  </tr>
+    
 </table>
