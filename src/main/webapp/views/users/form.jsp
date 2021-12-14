@@ -28,8 +28,7 @@
 		<label for="preferencesID"
 			class='col-form-label'>Preferencias:</label>
 		<select class="form-select" aria-label="Default select example" id="preferencesID" name="preferencesID"">
-  			<option selected>Elija su prefernecia</option>
-  			<option value="1">ADVENTURE</option>
+  			<option value="1" selected>ADVENTURE</option>
 			<option value="2">SCENERY</option>
   			<option value="3">TASTING</option>
 		</select>
