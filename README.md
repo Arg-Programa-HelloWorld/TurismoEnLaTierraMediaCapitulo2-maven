@@ -10,7 +10,7 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 <h3>De que se trata?</h3>
 
-3. La aplicacion es un carrito de compras dirigidas en El Turismo En La Tierra Media.-
+3. La aplicacion es un carrito de compras dirigidas al Turismo "paseos y servicios" existentes en La Tierra Media.-
 4. Este usuario puede comprar Atraciones y Promociones.-
 5. Ver en su Itinerario las compras realizadas.-
 6. Imprimir su Itinerario.-
