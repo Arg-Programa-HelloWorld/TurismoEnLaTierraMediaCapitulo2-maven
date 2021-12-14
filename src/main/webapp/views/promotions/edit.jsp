@@ -16,6 +16,10 @@ main {
 	<jsp:include page="/partials/nav.jsp"></jsp:include>
 
 	<main class="container">
+	
+		<div class="bg-light p-4 mb-3 rounded">
+			<h1>Modificar Promoción</h1>
+		</div>
 
 		<c:if test="${promotion != null && !promotion.isValid()}">
 			<div class="alert alert-danger">
