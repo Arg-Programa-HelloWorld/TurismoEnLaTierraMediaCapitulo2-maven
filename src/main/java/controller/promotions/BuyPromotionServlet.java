@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import manager.PurchaseManager;
 import model.User;
 
-@WebServlet("/promotions/buy.do")
+@WebServlet("/views/promotions/buy.do")
 public class BuyPromotionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 8416851553224895213L;

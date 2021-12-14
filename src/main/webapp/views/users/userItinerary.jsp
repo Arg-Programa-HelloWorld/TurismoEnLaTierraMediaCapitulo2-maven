@@ -7,14 +7,7 @@
 <html lang="es">
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
-
-<style>
-body {
-	padding-top: 40px;
-}
-</style>
 </head>
-
 <body>
 
 	<div>
@@ -25,72 +18,109 @@ body {
 
 	</div>
 
-	<main class="container">
+	<style>
+		@media print {
+			/* Hide every other element */
+			body * {
+				visibility: hidden;
+			}
+			
+			/* Then dispaying print container elements */
+			.print-container, .print-container * {
+				visibility: visible;
+			}
+			
+			/* Adjusting the position to always start from top left */
+			.print-container {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		}
+				
+		.button {
+			padding-top: 70px;
+		}
+	</style>
+	
+	<div class="container button">
+		<button class="btn btn-secondary hidden-print btn-sm" onclick="window.print()">
+		<span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir itinerario</button>
+	</div>
+	
+	<br />
 
+	<main class="container print-container">
+		
 		<div class="bg-light p-4 mb-3 rounded">
-			<h1>Usuarios</h1>
+			<h1>Itinerario - Turismo en la Tierra Media</h1>
 		</div>
-
-		<br />
-
-		<div class="container">
-			<a class="btn btn-lg btn-primary" href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/create.jsp">Añadir usuario</a>
+		<hr>
+		<p><h3>Usuario: <b><c:out value="${client.name}"></c:out></b></h3></p>
+		<p><h3>Consumos: </h3></p>
+		<p><h3><i title="tiempo" style="color: blue;" class="bi bi-clock-fill"></i> <b><c:out value="${client.totalTime}"></c:out></p></b></h3>
+		<p><h3><i title="monedas" style="color: gold;" class="bi bi-coin"></i> <b><c:out value="${client.totalGold}"></c:out></p></b></h3>
+		<hr>
+		
+		<div class="bg-light p-4 mb-3 rounded">
+			<h1>Estas son sus Promociones</h1>
 		</div>
+		
 		<table class="table table-stripped table-hover">
 			<thead>
 				<tr>
-				    <th>Avatar</th>
-					<th>Nombre</th>
-					<th>Password</th>
-					<th>Presupuesto</th>
-					<th>tiempo</th>
-					<th>Preferencia</th>
-					<th>Estado</th>
-					<th>Acciones</th>
+					<th>Imagen</th>
+					<th>Promocion&oacute;n</th>
+					<th>Costo</th>
+					<th>Duraci&oacute;n</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${users}" var="client">
+				<c:forEach items="${promotions}" var="promotion">
 					<tr>
-						<c:if test="${!client.isAdmin()}">
-						<td><img src="${client.image}" class="rounded-circle"
-							alt="attracction" width="80" height="80"></td>
-						<td><strong><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/itinerary.do?id=${client.id}">
-							<c:out value="${client.name}"></c:out>
-						</a></strong></td>
-						<td><c:out value="${client.password}"></c:out></td>
-						<td><c:out value="${client.budget}"></c:out></td>
-						<td><c:out value="${client.time}"></c:out></td>
-						<td><c:out value="${client.preferences}"></c:out></td>
-						<td><c:choose>
-						<c:when test="${client.isActive()}">
-						<p>ACTIVO</p></c:when>
-						<c:otherwise><p>INACTIVO</p></c:otherwise>
-						</c:choose>
-						<td><a
-									href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/edit.do?id=${client.id}"
-									class="btn btn-light rounded-0" role="button"><i
-									class="bi bi-pencil-fill"></i></a>
-						<c:choose>
-						<c:when test="${client.isActive()}">
-								<a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/delete.do?id=${client.id}"
-									class="btn btn-danger rounded" role="button"><i
-									class="bi bi-x-circle-fill"></i></a>
-						</c:when>
-						<c:otherwise>
-								<a	href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/add.do?id=${client.id}"
-									class="btn btn-success rounded" role="button"><i
-									class="bi bi-check-circle-fill"></i></a>
-							
-							</c:otherwise>
-						</c:choose>	
-						</td>
-						</c:if>
-
+						<td><img src="${promotion.image}" class="rounded-circle"
+							alt="Cinque Terre" width="80" height="80"></td>
+						<td><strong><c:out value="${promotion.name}"></c:out></strong>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Cras pretium eros urna. Sed quis erat congue, bibendum tortor
+								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
+						<td><c:out value="${promotion.cost}"></c:out></td>
+						<td><c:out value="${promotion.time}"></c:out></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<div class="bg-light p-4 mb-3 rounded">
+			<h1>Estas son sus Atracciones</h1>
+		</div>
+
+
+		<table class="table table-stripped table-hover">
+			<thead>
+				<tr>
+					<th>Imagen</th>
+					<th>Atracci&oacute;n</th>
+					<th>Costo</th>
+					<th>Duraci&oacute;n</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${attractions}" var="attraction">
+					<tr>
+						<td><img src="${attraction.image}" class="rounded-circle"
+							alt="Cinque Terre" width="80" height="80"></td>
+						<td><strong><c:out value="${attraction.name}"></c:out></strong>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Cras pretium eros urna. Sed quis erat congue, bibendum tortor
+								malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
+						<td><c:out value="${attraction.cost}"></c:out></td>
+						<td><c:out value="${attraction.time}"></c:out></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+  
 	</main>
 
 	<br />
