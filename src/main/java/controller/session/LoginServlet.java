@@ -31,11 +31,11 @@ public class LoginServlet extends HttpServlet {
 		String username = req.getParameter("username");
 		//String password = req.getParameter("password");
 		
-		System.out.println(username);
+		//System.out.println(username);
 		
 		User user = loginService.login(username);
 		
-		System.out.println(user);
+		//System.out.println(user);
 		
 		
 		if (user != null) {
@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("/TurismoEnLaTierraMediaCapitulo2-maven/views/index.jsp");
 			//System.out.println(user);
 		} else {
-			System.out.println(user);
-			req.setAttribute("flash", "¡Usuario o contraseña incorrectos!");
+			//System.out.println(user);
+			req.setAttribute("flash", "Â¡Usuario o contraseÃ±a incorrectos!");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
 		}

@@ -1,7 +1,9 @@
 package model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Promotion {
 
@@ -15,6 +17,8 @@ public abstract class Promotion {
 	private int promotionTypeID;
 	private PromotionType promotionType;
 	protected double saving_money;
+	
+	private Map<String, String> errors;
 
 	protected List<Attraction> attractionsList = new LinkedList<Attraction>();
 
@@ -161,6 +165,35 @@ public abstract class Promotion {
 
 	public void calculatePrice() {
 
+	}
+	
+	public boolean canHost(int i) {
+		return quota >= i;
+	}
+
+	public boolean isValid() {
+		validate();
+		
+		return errors.isEmpty();
+		
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (name == "") {
+			System.out.println("hola 1");
+			errors.put("name", "Debe tener un Nombre!");
+		}
+		if (promotionTypeID == 0 && promotionTypeID > 3) {
+			errors.put("promotionTypeID", "Seleccione uno de los tipos de la lista!");
+			System.out.println("hola 2");
+		}
+				
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 
 }

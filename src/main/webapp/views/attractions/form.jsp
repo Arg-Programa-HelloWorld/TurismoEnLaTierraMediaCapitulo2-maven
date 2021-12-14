@@ -37,8 +37,8 @@
 			class='col-form-label'>Tipo de Atraccion:</label>
 		<select class="form-select" aria-label="Default select example" id="attraction-type" name="attraction-type"
 			required value="${attraction.attractionTypeID}">
-  			<option selected>Elija el tipo de Atraccion</option>
-  			<option value="1">ADVENTURE</option>
+  			<!-- <option selected>Elija el tipo de Atraccion</option> -->
+  			<option value="1" selected>ADVENTURE</option>
 			<option value="2">SCENERY</option>
   			<option value="3">TASTING</option>
 		</select>
