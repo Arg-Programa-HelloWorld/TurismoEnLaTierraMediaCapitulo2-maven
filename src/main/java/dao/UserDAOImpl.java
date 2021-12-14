@@ -96,7 +96,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, users.state, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE users.id = ?";
@@ -125,7 +125,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.admin, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, users.state, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n" + "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id";
 
 			Connection connection = ConnectionProvider.getConnection();
@@ -177,7 +177,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.admin, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, users.state, attraction_type.id, attraction_type.name AS preference\\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id ORDER BY users.id DESC LIMIT 1";
 			Connection conn = ConnectionProvider.getConnection();
@@ -435,7 +435,7 @@ public class UserDAOImpl implements UserDAO {
 			// User( Integer id, String name, String password, Double budget, Double time, String image, int admin, int
 			// if_preference_type, AttractionType(preference))
 			return new User(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4), results.getDouble(5),
-					results.getString(6), results.getBoolean(7), results.getInt(8), AttractionType.valueOf(results.getString(9)));
+					results.getString(6), results.getBoolean(7), results.getBoolean(8), results.getInt(9), AttractionType.valueOf(results.getString(10)));
 
 		} catch (Exception e) {
 
@@ -539,7 +539,7 @@ public class UserDAOImpl implements UserDAO {
 
 			String userNameTemp = username.toLowerCase().trim();
 			
-			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, attraction_type.id, attraction_type.name AS preference\n"
+			String sqlQuery = "SELECT users.id, users.name, users.password, users.budget, users.time, users.image, users.admin, users.state, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM users\n"
 					+ "INNER JOIN attraction_type ON users.fk_id_preference = attraction_type.id\n"
 					+ "WHERE lower(trim(users.name)) = ?";
@@ -563,6 +563,53 @@ public class UserDAOImpl implements UserDAO {
 			throw new MissingDataException(e);
 
 		}
+	}
+	
+	public int unsubscribeById(int userId) {
+
+		try {
+
+			String sqlQuery = "UPDATE users SET state = 0 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, userId);
+
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+	}
+
+	@Override
+	public int subscribeById(int userId) {
+		
+		try {
+
+			String sqlQuery = "UPDATE users SET state = 1 WHERE id = ?";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, userId);
+
+			int rowsUpdate = statement.executeUpdate();
+
+			return rowsUpdate;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+		
 	}
 
 }

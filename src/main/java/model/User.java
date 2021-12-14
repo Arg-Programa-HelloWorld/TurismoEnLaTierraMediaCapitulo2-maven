@@ -1,7 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -17,6 +19,7 @@ public class User {
 	private String image;
 	private String date;
 	private Boolean admin;
+	private Boolean state;
 	private int preferencesID;
 	private AttractionType preferences; // preferencias
 
@@ -27,9 +30,11 @@ public class User {
 
 	private ArrayList<Attraction> listOfAttractions = new ArrayList<Attraction>();
 	private ArrayList<Promotion> listOfPromotions = new ArrayList<Promotion>();
+	
+	private Map<String, String> errors;
 
 	// Para Obtener un Usuario de la BDD
-	public User(int id, String name, String password,  double budget, double time, String image, Boolean admin, int preferencesID, AttractionType preferences) {
+	public User(int id, String name, String password,  double budget, double time, String image, Boolean admin, Boolean state, int preferencesID, AttractionType preferences) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -38,6 +43,7 @@ public class User {
 		this.time = time;
 		this.image = image;
 		this.admin = admin;
+		this.state = state;
 		this.preferencesID = preferencesID;
 		this.preferences = preferences;
 
@@ -212,5 +218,29 @@ public class User {
 		
 	}
 	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (budget <= 0) {
+			errors.put("budget", "Debe ser positivo!");
+		}
+		if (time <= 0) {
+			errors.put("time", "Debe ser positivo!");
+		}
+		
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
+	
+	public boolean isActive() {
+		return state;
+	}
 
 }

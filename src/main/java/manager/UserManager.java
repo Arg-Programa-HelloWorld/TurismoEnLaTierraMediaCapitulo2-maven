@@ -61,10 +61,22 @@ public class UserManager {
 		userDAO.unsubscribe(user);
 
 	}
+	
+	public void unsubscribeAnUserById(int userId) {
+
+		userDAO.unsubscribeById(userId);
+
+	}
 
 	public void subscribeAnUser(User user) {
 
 		userDAO.subscribe(user);
+
+	}
+	
+	public void subscribeAnUserById(int userId) {
+
+		userDAO.subscribeById(userId);
 
 	}
 

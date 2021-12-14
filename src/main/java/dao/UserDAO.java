@@ -30,4 +30,8 @@ public interface UserDAO extends GenericDAO<User> {
 
 	public abstract User findByUsername(String username);
 
+	public abstract int unsubscribeById(int userId);
+
+	public abstract int subscribeById(int userId);
+
 }

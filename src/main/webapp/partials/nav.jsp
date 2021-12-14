@@ -21,6 +21,9 @@
 				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do" class="nav-link px-2 text-white">FAQs</a></li> -->
 				<!--  <li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do" class="nav-link px-2 text-white">About</a></li> -->				
 				<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/itineraries/index.do" class="nav-link px-2 text-white">Itineraries</a></li>
+				<c:if test="${user.isAdmin()}">
+					<li><a href="/TurismoEnLaTierraMediaCapitulo2-maven/views/users/index.do" class="nav-link px-2 text-white">Usuarios</a></li>
+				</c:if>
 			</ul>
 		
 			<div class="dropdown text-end">
