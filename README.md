@@ -3,7 +3,7 @@
 
 Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vistas a lo largo del curso ArgentinaPrograma 2021, coordinadas e interactuando para brindar parte de la funcionalidad solicitada.
 
-<h2>Cómo hacerlo funcionar<h2>
+<h2>Cómo hacerlo funcionar</h2>
 
 1. Editar el archivo /turismo/src/main/resources/env.properties y colocar la ruta correcta del archivo de la base de datos correspondiente a la ruta especifica en su computador.
 2. Verificar la versión de JRE con la que se está compilando y construyendo.
@@ -22,9 +22,7 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 12. Donde encontrara un login:
   
-13. Usuarios de alta
-
-
+13. 
 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
 
   <tr>
