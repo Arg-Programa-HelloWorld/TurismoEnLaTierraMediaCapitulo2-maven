@@ -29,7 +29,6 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
   <tr>
     <th colspan="2" valign="middle" align="center">Usuarios de alta</th>
-    <th>&nbsp;</th>
   </tr>
   
   <tr>
