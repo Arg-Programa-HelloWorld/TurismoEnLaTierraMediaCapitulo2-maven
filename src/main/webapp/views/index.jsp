@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -30,14 +30,8 @@
 		</header>
 
 	</div>
-	
-	<main class="container">
-		<div  p-4 rounded">
-			<h1>
-				¡Bienvenido, <c:out value="${user.name}" />!
-			</h1>
-		</div>
-	</main>
+
+	<br />
 
 	<!-- Footer -->
 	<footer class="page-footer font-small teal pt-4 bg-dark text-white"
@@ -74,10 +68,18 @@
 					<!-- Content -->
 					<h5 class="text-uppercase font-weight-bold">Nosotros</h5>
 					<ul class="alumnos">
-						<li>Toledo, Florencia <a href="https://www.linkedin.com/in/florencia-toledo-77386b211/"><i title="Forencia" style="color: blue;" class="bi bi-linkedin"></i></a></li>
-						<li>Orellana, Felix Andres <a href="https://www.linkedin.com/in/f%C3%A9lix-andr%C3%A9s-orellana-69a28955/"><i title="Andres" style="color: blue;" class="bi bi-linkedin"></i></a></li>
-						<li>Paczkowski, Eduardo Nahuel <a href="https://www.linkedin.com/in/eduardo-nahuel-paczkowski/"><i title="Nahuel" style="color: blue;" class="bi bi-linkedin"></i></a></li>
-						<li>Graff, Héctor Pablo <a href="https://www.linkedin.com/in/hector-pablo-graff/"><i title="Pablo" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Toledo, Florencia <a
+							href="https://www.linkedin.com/in/florencia-toledo-77386b211/"><i
+								title="Forencia" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Orellana, Felix Andres <a
+							href="https://www.linkedin.com/in/f%C3%A9lix-andr%C3%A9s-orellana-69a28955/"><i
+								title="Andres" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Paczkowski, Eduardo Nahuel <a
+							href="https://www.linkedin.com/in/eduardo-nahuel-paczkowski/"><i
+								title="Nahuel" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+						<li>Graff, Héctor Pablo <a
+							href="https://www.linkedin.com/in/hector-pablo-graff/"><i
+								title="Pablo" style="color: blue;" class="bi bi-linkedin"></i></a></li>
 					</ul>
 
 				</div>
@@ -88,7 +90,7 @@
 
 		</div>
 		<!-- Footer Text -->
-		
+
 		<!-- Copyright -->
 		<div class="footer-copyright text-center py-3">
 			<ul class="seccion-final">
