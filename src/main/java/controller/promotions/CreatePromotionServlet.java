@@ -82,6 +82,8 @@ public class CreatePromotionServlet extends HttpServlet {
 		if (promotionTypeID == 3) {
 			promotionTemp = new PromotionAyB(name, time, cost, discount, "", promotionTypeID, attractionsListTemp);
 		}
+		
+		promotionTemp.calculatePrice();
 
 		System.out.println(promotionTemp);
 		
