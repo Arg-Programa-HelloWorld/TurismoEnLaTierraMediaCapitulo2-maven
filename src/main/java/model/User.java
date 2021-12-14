@@ -191,6 +191,14 @@ public class User {
 		return attraction.getTime() <= this.time;
 	}
 	
+	public boolean canAfford(Promotion promotion) {
+		return promotion.getCost() <= this.budget;
+	}
+	
+	public boolean canAttend(Promotion promotion) {
+		return promotion.getTime() <= this.time;
+	}
+	
 	public void calcular() {
 	
 		totalGold = 0;

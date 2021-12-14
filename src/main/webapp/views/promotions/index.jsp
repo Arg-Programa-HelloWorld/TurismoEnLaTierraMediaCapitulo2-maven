@@ -125,6 +125,30 @@ body {
 						<td><c:out value="${promotion.cost}"></c:out></td>
 						<td><c:out value="${promotion.time}"></c:out></td>
 						<td><c:out value="${promotion.quota}"></c:out></td>
+						
+						<td><c:if test="${user.isAdmin()}">
+								<a
+									href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/edit.do?id=${promotion.id}"
+									class="btn btn-light rounded-0" role="button"><i
+									class="bi bi-pencil-fill"></i></a>
+								<a
+									href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/delete.do?id=${promotion.id}"
+									class="btn btn-danger rounded" role="button"><i
+									class="bi bi-x-circle-fill"></i></a>
+							</c:if> <c:choose>
+
+								<c:when
+									test="${user.canAfford(promotion) && user.canAttend(promotion)}">
+									<a
+										href="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/buy.do?id=${promotion.id}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="btn btn-secondary rounded disabled"
+										role="button">No se puede comprar</a>
+								</c:otherwise>
+							</c:choose></td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>
