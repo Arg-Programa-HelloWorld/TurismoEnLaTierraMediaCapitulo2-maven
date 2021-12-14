@@ -28,7 +28,7 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
 
   <tr>
-    <th rowspan="2" valign="middle" align="center">Usuarios de alta</th>
+    <th colspan="2" valign="middle" align="center">Usuarios de alta</th>
     <th>&nbsp;</th>
   </tr>
   
