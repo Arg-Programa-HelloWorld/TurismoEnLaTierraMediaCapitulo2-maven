@@ -27,10 +27,11 @@ public class ListPromotionsServlet extends HttpServlet implements Servlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		List<Promotion> promotions = promotionManager.findAll();
 		req.setAttribute("promotions", promotions);
 		
-		System.out.println(promotions);
+		//System.out.println(promotions);
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promotions/index.jsp");
 		//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promotions/promotions.jsp");

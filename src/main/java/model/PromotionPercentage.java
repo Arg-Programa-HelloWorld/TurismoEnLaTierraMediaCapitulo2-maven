@@ -25,6 +25,15 @@ public class PromotionPercentage extends Promotion {
 
 	}
 
+	public PromotionPercentage(String name, double time, double cost, double discount, String image,
+			int promotionTypeID, LinkedList<Attraction> attractionsList) {
+
+		super(name, time, cost, discount, image, promotionTypeID, attractionsList);
+
+		percentageDiscount = discount;
+
+	}
+
 	@Override
 	public void calculatePrice() {
 

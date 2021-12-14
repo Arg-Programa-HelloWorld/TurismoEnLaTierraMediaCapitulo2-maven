@@ -47,7 +47,7 @@ public class Attraction {
 		this.attractionTypeID = attractionTypeID;
 		
 	}
-
+	
 	public Attraction() {
 		// TODO Auto-generated constructor stub
 	}

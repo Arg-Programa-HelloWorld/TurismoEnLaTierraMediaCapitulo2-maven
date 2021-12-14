@@ -243,7 +243,8 @@ public class AttractionDAOImpl implements AttractionDAO {
 
 			String sqlQuery = "SELECT attractions.id, attractions.name, attractions.cost, attractions.time, attractions.quota, attractions.image, attractions.description, attraction_type.id, attraction_type.name AS preference\n"
 					+ "FROM attractions\n"
-					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id";
+					+ "INNER JOIN attraction_type ON attractions.fk_id_attraction_type = attraction_type.id\n"
+					+ "AND attractions.state = 1";
 			Connection connection = ConnectionProvider.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sqlQuery);
 			ResultSet results = statement.executeQuery();

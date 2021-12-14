@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import manager.AttractionManager;
+import model.Attraction;
 
 @WebServlet("/views/attractions/delete.do")
 public class DeleteAttractionServlet extends HttpServlet {
@@ -25,7 +26,14 @@ public class DeleteAttractionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 
-		attractionManager.deleteByID(id);
+		// Eliminacion real de la BDD
+		// attractionManager.deleteByID(id);
+		
+		// Eliminacion logica de la BDD
+		
+		Attraction attractionTemp = attractionManager.findById(id); 
+		
+		attractionManager.unsubscribe(attractionTemp);
 
 		resp.sendRedirect("/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do");
 	}

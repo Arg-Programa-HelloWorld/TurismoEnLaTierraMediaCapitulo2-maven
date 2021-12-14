@@ -11,6 +11,7 @@ main {
 }
 </style>
 </head>
+
 <body>
 	<jsp:include page="/partials/nav.jsp"></jsp:include>
 

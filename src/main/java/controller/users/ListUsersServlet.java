@@ -32,7 +32,7 @@ public class ListUsersServlet extends HttpServlet implements Servlet{
 		List<User> users = userManager.findAll();
 		req.setAttribute("users", users);
 		
-		System.out.println(users);
+		//System.out.println(users);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/users/index.jsp");
 		dispatcher.forward(req, resp);

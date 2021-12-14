@@ -7,17 +7,17 @@ import java.util.Map;
 
 public abstract class Promotion {
 
-	private int id; // ID
-	private String name;
+	protected int id; // ID
+	protected String name;
 	protected double time = 0;
 	protected double cost = 0;
 	protected int quota = 0;
 	protected double discount = 0;
-	private String image;
-	private int promotionTypeID;
-	private PromotionType promotionType;
+	protected String image;
+	protected int promotionTypeID;
+	protected PromotionType promotionType;
 	protected double saving_money;
-	
+
 	private Map<String, String> errors;
 
 	protected List<Attraction> attractionsList = new LinkedList<Attraction>();
@@ -39,21 +39,14 @@ public abstract class Promotion {
 	}
 
 	/*
-	public Promotion(int id, String name, double time, double cost, double discount, String image, int promotionTypeID,
-			PromotionType promotionType) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.time = time;
-		this.cost = cost;
-		this.discount = discount;
-		this.image = image;
-		this.promotionTypeID = promotionTypeID;
-		this.promotionType = promotionType;
-
-	}
-	*/
-
+	 * public Promotion(int id, String name, double time, double cost, double
+	 * discount, String image, int promotionTypeID, PromotionType promotionType) {
+	 * super(); this.id = id; this.name = name; this.time = time; this.cost = cost;
+	 * this.discount = discount; this.image = image; this.promotionTypeID =
+	 * promotionTypeID; this.promotionType = promotionType;
+	 * 
+	 * }
+	 */
 	public Promotion(String name, double time, double cost, double discount, String image, int promotionTypeID) {
 		super();
 		this.name = name;
@@ -62,6 +55,19 @@ public abstract class Promotion {
 		this.discount = discount;
 		this.image = image;
 		this.promotionTypeID = promotionTypeID;
+
+	}
+
+	public Promotion(String name, double time, double cost, double discount, String image, int promotionTypeID,
+			LinkedList<Attraction> attractionsList) {
+		super();
+		this.name = name;
+		this.time = time;
+		this.cost = cost;
+		this.discount = discount;
+		this.image = image;
+		this.promotionTypeID = promotionTypeID;
+		this.attractionsList = attractionsList;
 
 	}
 
@@ -153,8 +159,6 @@ public abstract class Promotion {
 		this.attractionsList = attractionsList;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Promotion [id=" + id + ", name=" + name + ", time=" + time + ", cost=" + cost + ", quota=" + quota
@@ -166,18 +170,18 @@ public abstract class Promotion {
 	public void calculatePrice() {
 
 	}
-	
+
 	public boolean canHost(int i) {
 		return quota >= i;
 	}
 
 	public boolean isValid() {
 		validate();
-		
+
 		return errors.isEmpty();
-		
+
 	}
-	
+
 	public void validate() {
 		errors = new HashMap<String, String>();
 
@@ -189,9 +193,9 @@ public abstract class Promotion {
 			errors.put("promotionTypeID", "Seleccione uno de los tipos de la lista!");
 			System.out.println("hola 2");
 		}
-				
+
 	}
-	
+
 	public Map<String, String> getErrors() {
 		return errors;
 	}

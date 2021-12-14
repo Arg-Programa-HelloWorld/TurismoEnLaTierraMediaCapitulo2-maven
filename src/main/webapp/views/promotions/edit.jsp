@@ -5,9 +5,8 @@
 <html lang="es">
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
-
 <style>
-body {
+main {
 	padding-top: 50px;
 }
 </style>
@@ -20,14 +19,13 @@ body {
 
 		<c:if test="${promotion != null && !promotion.isValid()}">
 			<div class="alert alert-danger">
-				<p>Se encontraron errores al crear la Promocion.</p>
+				<p>Se encontraron errores al actualizar la Promoción.</p>
 			</div>
 		</c:if>
 
-		<form
-			action="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/create.do"
-			method="post">
-			<jsp:include page="/views/promotions/formForCreate.jsp"></jsp:include>
+		<form action="/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/edit.do" method="post">
+			<input type="hidden" name="id" value="${promotion.id}">
+			<jsp:include page="/views/promotions/formForUpdate.jsp"></jsp:include>
 		</form>
 	</main>
 	

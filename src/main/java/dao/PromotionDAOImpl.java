@@ -134,7 +134,8 @@ public class PromotionDAOImpl implements PromotionDAO {
 
 			String sqlQuery = "SELECT promotions.id, promotions.name, promotions.time, promotions.cost, promotions.discount, promotions.image, promotion_type.id, promotion_type.name AS promotion_type\n"
 					+ "FROM promotions\n"
-					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id";
+					+ "INNER JOIN promotion_type ON promotions.fk_id_promotion_type = promotion_type.id\n"
+					+ "AND promotions.state = 1";
 
 			Connection connection = ConnectionProvider.getConnection();
 

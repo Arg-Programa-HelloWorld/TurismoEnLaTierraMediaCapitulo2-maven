@@ -5,7 +5,7 @@
 			type="text" class="form-control" id="name" name="name"
 			required value="${promotion.name}">
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("name")}'></c:out>
+			<c:out value='${promotion.errors.get("name")}'></c:out>
 		</div>
 	</div>
 	<div class="mb-3">
@@ -55,6 +55,46 @@
 			<c:out value='${promotion.errors.get("promotionTypeID")}'></c:out>
 		</div>
 	</div>
+	
+	<!--  <div class="mb-3">
+		<label for="promotionTypeID"
+			class='col-form-label'>Promociones:</label>
+			
+		<select class="form-select" aria-label="Default select example" id="promotions" name="promotions"
+			required value="${promotions}">
+  			<c:forEach items="${promotions}" var="promotionTemp">
+						
+				<option value="${promotionTemp.id}" selected><c:out value="${promotionTemp.name }"></c:out></option>
+						
+						
+		</c:forEach>
+		</select>	
+	</div> -->
+	
+	<div class="mb-3">
+		<label for="attraction1"
+			class='col-form-label'>Atracción Nº1:</label>
+			
+		<select class="form-select" aria-label="Default select example" id="idAttraction1" name="idAttraction1"
+			required value="${attractions}">
+  			<c:forEach items="${attractions}" var="attraction">
+				<option value="${attraction.id}" selected><c:out value="${attraction.name }"></c:out></option>
+			</c:forEach>
+		</select>	
+	</div>
+	
+	<div class="mb-3">
+		<label for="attraction2"
+			class='col-form-label'>Atracción Nº2:</label>
+			
+		<select class="form-select" aria-label="Default select example" id="idAttraction2" name="idAttraction2"
+			required value="${attractions}">
+  			<c:forEach items="${attractions}" var="attraction">
+				<option value="${attraction.id}" selected><c:out value="${attraction.name }"></c:out></option>
+			</c:forEach>
+		</select>	
+	</div>
+		
 </div>
 <div>
 	<button type="submit" class="btn btn-primary">Guardar</button>

@@ -5,23 +5,23 @@
 			type="text" class="form-control" id="name" name="name"
 			required value="${promotion.name}">
 		<div class="invalid-feedback">
-			<c:out value='${attraction.errors.get("name")}'></c:out>
+			<c:out value='${promotion.errors.get("name")}'></c:out>
 		</div>
 	</div>
 	<div class="mb-3">
 		<label for="time"
 			class='col-form-label'>Time:</label>
 		<input class="form-control" type="number" id="time" name="time"
-			required value="${promotion.time}"></input>
+			required value="${promotion.time}" readonly></input>
 		<div class="invalid-feedback">
 			<!-- <c:out value='${promotion.errors.get("time")}'></c:out> -->
 		</div>
 	</div>
 	<div class="mb-3">
 		<label for="cost"
-			class='col-form-label ${promotion.errors.get("cost") != null ? "is-invalid" : "" }'>Cost:</label>
+			class='col-form-label'>Cost:</label>
 		<input class="form-control" type="number" id="cost" name="cost"
-			required value="${promotion.cost}"></input>
+			required value="${promotion.cost}" readonly></input>
 		<div class="invalid-feedback">
 			<!-- <c:out value='${promotion.errors.get("cost")}'></c:out> -->
 		</div>
