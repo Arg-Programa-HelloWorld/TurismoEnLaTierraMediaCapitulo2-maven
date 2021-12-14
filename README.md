@@ -8,6 +8,8 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 1. Editar el archivo /turismo/src/main/resources/env.properties y colocar la ruta correcta del archivo de la base de datos correspondiente a la ruta especifica en su computador.
 2. Verificar la versión de JRE con la que se está compilando y construyendo.
 
+<h3>De que se trata?</h3>
+
 3. La aplicacion es un carrito de compras dirigidas en El Turismo En La Tierra Media.-
 4. Este usuario puede comprar Atraciones y Promociones.-
 5. Ver en su Itinerario las compras realizadas.-
