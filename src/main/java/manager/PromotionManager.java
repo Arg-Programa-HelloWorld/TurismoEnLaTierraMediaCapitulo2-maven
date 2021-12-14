@@ -1,9 +1,14 @@
 package manager;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import dao.DAOFactory;
+import dao.MissingDataException;
 import dao.PromotionDAO;
+import jdbc.ConnectionProvider;
+import model.Attraction;
 import model.Promotion;
 
 public class PromotionManager {
@@ -62,6 +67,12 @@ public class PromotionManager {
 
 		return promotionDAO.subscribe(promotion);
 
+	}
+	
+	public int relateAttractionToPromotion(Promotion promotion, Attraction attraction) {
+
+		return promotionDAO.relateAttractionToPromotion(promotion, attraction); 
+		
 	}
 
 }

@@ -36,10 +36,10 @@ public class BuyAttractionServlet extends HttpServlet {
 		req.getSession().setAttribute("user", user2);
 		
 		if (errors.isEmpty()) {
-			req.setAttribute("success", "¡Gracias por comprar!");
+			req.setAttribute("success", "Â¡Gracias por comprar!");
 		} else {
 			req.setAttribute("errors", errors);
-			req.setAttribute("flash", "¡No ha podido realizarse la compra!");
+			req.setAttribute("flash", "Â¡No ha podido realizarse la compra!");
 		}
 
 		RequestDispatcher dispatcher = getServletContext()

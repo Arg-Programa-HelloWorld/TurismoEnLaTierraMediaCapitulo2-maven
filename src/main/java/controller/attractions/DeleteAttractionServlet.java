@@ -30,9 +30,7 @@ public class DeleteAttractionServlet extends HttpServlet {
 		// attractionManager.deleteByID(id);
 		
 		// Eliminacion logica de la BDD
-		
 		Attraction attractionTemp = attractionManager.findById(id); 
-		
 		attractionManager.unsubscribe(attractionTemp);
 
 		resp.sendRedirect("/TurismoEnLaTierraMediaCapitulo2-maven/views/attractions/index.do");

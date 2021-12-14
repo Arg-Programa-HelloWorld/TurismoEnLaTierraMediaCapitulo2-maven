@@ -89,6 +89,11 @@ public class CreatePromotionServlet extends HttpServlet {
 		
 		promotionManager.insert(promotionTemp);
 		
+		promotionTemp = promotionManager.getLastPromotion();
+		
+		promotionManager.relateAttractionToPromotion(promotionTemp, attractionTemp1);
+		promotionManager.relateAttractionToPromotion(promotionTemp, attractionTemp2);
+		
 		if (promotionTemp.isValid()) {
 			resp.sendRedirect("/TurismoEnLaTierraMediaCapitulo2-maven/views/promotions/index.do");
 			//System.out.println("Es Valida");

@@ -436,5 +436,30 @@ public class PromotionDAOImpl implements PromotionDAO {
 		}
 
 	}
+	
+	public int relateAttractionToPromotion(Promotion promotion, Attraction attraction) {
+
+		try {
+
+			String sqlQuery = "INSERT INTO promotion_attractions (fk_id_promotion, fk_id_attraction) VALUES (?, ?)";
+			Connection connection = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+
+			statement.setInt(1, promotion.getId());
+			statement.setInt(2, attraction.getId());
+
+			int rowsInsert = statement.executeUpdate();
+
+			return rowsInsert;
+
+		} catch (Exception e) {
+
+			throw new MissingDataException(e);
+
+		}
+
+	}
+
 
 }
