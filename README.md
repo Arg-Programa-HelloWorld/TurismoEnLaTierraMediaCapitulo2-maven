@@ -93,9 +93,9 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 <h2>Agradecimientos</h2>
 
-Por ultimo y no menos importante, nuestro agradecimiento para con <b>ARGENTINA-PROGRAMA 2021</b> como así tambien, a cada uno de los <b>profesores</b>. Ya que ellos hicieron posible de forma humana y profecional, la correcta trasmicion de conocimientos, para que así este grupo, como los demas, pueda ponerlos en practica y poder cumplimentar con este trabajo practico.-
+Por ultimo y no menos importante, nuestro agradecimiento para con <b>ArgentinaPrograma 2021</b> como así tambien, a cada uno de los <b>profesores</b>. Ya que ellos hicieron posible de forma humana y profecional, la correcta trasmicion de conocimientos, para que así este grupo, como los demas, pueda ponerlos en practica y poder cumplimentar con este trabajo practico.-
 
-Nota: Un grande el <b>Agente Enmascarado</b>
+Nota: Un grande el <b>Profesor Enmascarado</b>
 
 <div class="col-md-6 mt-md-0 mt-3">
 <h5 class="text-uppercase font-weight-bold">Nuestros Profesores</h5>
