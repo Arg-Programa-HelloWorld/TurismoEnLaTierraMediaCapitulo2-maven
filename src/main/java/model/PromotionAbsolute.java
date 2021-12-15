@@ -37,11 +37,19 @@ public class PromotionAbsolute extends Promotion {
 		double cost = 0;
 		double saving = 0;
 		double discount = absoluteDiscount;
+		int quota = -1;
 
 		for (Attraction attraction : attractionsList) {
 
 			cost += attraction.getCost();
 			time += attraction.getTime();
+			if (quota < 0) {
+				quota = attraction.getQuota();
+			}
+			if (quota > attraction.getQuota()) {
+				quota = attraction.getQuota();
+			}
+				
 
 		}
 
@@ -50,6 +58,8 @@ public class PromotionAbsolute extends Promotion {
 		this.discount = discount;
 
 		this.cost = cost - discount;
+		
+		this.quota = quota;
 
 		saving = cost - this.cost;
 

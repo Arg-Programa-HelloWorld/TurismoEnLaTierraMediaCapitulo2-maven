@@ -32,11 +32,18 @@ public class PromotionAyB extends Promotion {
 		double cost = 0;
 		double saving = 0;
 		double discount = attractionsList.get(attractionsList.size() - 1).getCost();
+		int quota = -1;
 
 		for (int i = 0; i < attractionsList.size(); i++) {
 
 			cost += attractionsList.get(i).getCost();
 			time += attractionsList.get(i).getTime();
+			if (quota < 0) {
+				quota = attractionsList.get(i).getQuota();
+			}
+			if (quota > attractionsList.get(i).getQuota()) {
+				quota = attractionsList.get(i).getQuota();
+			}
 
 		}
 
@@ -45,6 +52,8 @@ public class PromotionAyB extends Promotion {
 		this.cost = cost - discount;
 
 		this.discount = discount;
+		
+		this.quota = quota;
 
 		saving = cost - this.cost;
 

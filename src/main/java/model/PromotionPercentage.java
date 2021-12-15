@@ -43,17 +43,28 @@ public class PromotionPercentage extends Promotion {
 			double cost = 0;
 			double saving = 0;
 			double discount = ((100 - percentageDiscount) / 100);
+			int quota = -1;
 
 			for (Attraction attraction : super.attractionsList) {
 
 				cost += attraction.getCost();
 				time += attraction.getTime();
+				if (quota < 0) {
+					quota = attraction.getQuota();
+				}
+				if (quota > attraction.getQuota()) {
+					quota = attraction.getQuota();
+				}
+					
+				
 
 			}
 
 			this.time = time;
 
 			this.cost = cost * discount;
+			
+			this.quota = quota;
 
 			saving = cost - this.cost;
 
