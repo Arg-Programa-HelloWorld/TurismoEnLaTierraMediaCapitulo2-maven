@@ -235,10 +235,10 @@ public class User {
 		errors = new HashMap<String, String>();
 
 		if (budget <= 0) {
-			errors.put("budget", "Debe ser positivo!");
+			errors.put("budget", "¡Debe ser positivo!");
 		}
 		if (time <= 0) {
-			errors.put("time", "Debe ser positivo!");
+			errors.put("time", "¡Debe ser positivo!");
 		}
 		
 	}

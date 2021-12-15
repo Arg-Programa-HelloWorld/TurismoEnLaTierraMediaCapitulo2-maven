@@ -186,12 +186,12 @@ public abstract class Promotion {
 		errors = new HashMap<String, String>();
 
 		if (name == "") {
-			System.out.println("hola 1");
+			//System.out.println("hola 1");
 			errors.put("name", "Debe tener un Nombre!");
 		}
 		if (promotionTypeID == 0 && promotionTypeID > 3) {
 			errors.put("promotionTypeID", "Seleccione uno de los tipos de la lista!");
-			System.out.println("hola 2");
+			//System.out.println("hola 2");
 		}
 
 	}
