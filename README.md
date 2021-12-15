@@ -93,7 +93,9 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 <h2>Agradecimientos</h2>
 
-Por ultimo y no menos importante, nuestro agradecimiento para con el programa <b>ARGENTINA-PROGRAMA 2021</b> como a cada uno de los <b>profesores</b> que hicieron posible de forma tanto humana como profecional, para que nos hagamos con la adquisicion del conocimiento para asi ponerlos en practica y poder cumplimentar con este trabajo practico.-
+Por ultimo y no menos importante, nuestro agradecimiento para con <b>ARGENTINA-PROGRAMA 2021</b> como así tambien, a cada uno de los <b>profesores</b>. Ya que ellos hicieron posible de forma humana y profecional, la correcta trasmicion de conocimientos, para que así este grupo, como los demas, pueda ponerlos en practica y poder cumplimentar con este trabajo practico.-
+
+Nota: Un grande el <b>Agente Enmascarado</b>
 
 <div class="col-md-6 mt-md-0 mt-3">
 <h5 class="text-uppercase font-weight-bold">Nuestros Profesores</h5>
@@ -107,8 +109,8 @@ Por ultimo y no menos importante, nuestro agradecimiento para con el programa <b
 
 <h5 class="text-uppercase font-weight-bold">Nosotros</h5>
 <ul class="alumnos">
-	<li>Toledo, Florencia <a href="https://www.linkedin.com/in/florencia-toledo-77386b211/"><i title="Forencia" style="color: blue;" class="bi bi-linkedin"></i></a></li>
-	<li>Orellana, Felix Andres <a href="https://www.linkedin.com/in/f%C3%A9lix-andr%C3%A9s-orellana-69a28955/"><i title="Andres" style="color: blue;" class="bi bi-linkedin"></i></a></li>
-	<li>Paczkowski, Eduardo Nahuel <a href="https://www.linkedin.com/in/eduardo-nahuel-paczkowski/"><i title="Nahuel" style="color: blue;" class="bi bi-linkedin"></i></a></li>
-	<li>Graff, Héctor Pablo <a href="https://www.linkedin.com/in/hector-pablo-graff/"><i title="Pablo" style="color: blue;" class="bi bi-linkedin"></i></a></li>
+	<li>Toledo, Florencia</li>
+	<li>Orellana, Felix Andres</li>
+	<li>Paczkowski, Eduardo Nahuel</li>
+	<li>Graff, Héctor Pablo</li>
 </ul>
