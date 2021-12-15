@@ -10,10 +10,10 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 <h3>De que se trata?</h3>
 
-3. La aplicacion es un carrito de compras dirigidas al Turismo "paseos y servicios" existentes en La Tierra Media.-
-4. Este usuario puede comprar Atraciones y Promociones.-
-5. Ver en su Itinerario las compras realizadas.-
-6. Imprimir su Itinerario.-
+*. La aplicacion es un carrito de compras dirigidas al Turismo "paseos y servicios" existentes en La Tierra Media.-
+*. Este usuario puede comprar Atraciones y Promociones.-
+*. Ver en su Itinerario las compras realizadas.-
+*. Imprimir su Itinerario.-
 7. Posee una API integrada para obtener información sobre el clima, y el mismo corresponde al lugar desde donde se ejecuta la aplicacion.
 
 8. Existen usuarios de tipo Admin, estos posen mas privilegios como:
