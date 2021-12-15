@@ -14,7 +14,7 @@ Esta aplicación web tiene como objetivo demostrar el uso de las herramientas vi
 
 <h3>Quienes pueden utilizarla</h3>
 
-1. Existen dos tipos de usuarios: Con y sin de Administrador
+1. Existen dos tipos de usuarios: Con y sin permisos de Administrador
 
 <h3><b>User Normal</b> puede:</h3>
 
